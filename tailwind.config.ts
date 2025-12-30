@@ -50,10 +50,10 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-        orange: {
-          DEFAULT: "hsl(var(--orange-primary))",
-          dark: "hsl(var(--orange-dark))",
-          light: "hsl(var(--orange-light))",
+        teal: {
+          DEFAULT: "hsl(var(--teal-primary))",
+          dark: "hsl(var(--teal-dark))",
+          light: "hsl(var(--teal-light))",
         },
         gray: {
           dark: "hsl(var(--gray-dark))",
@@ -102,8 +102,8 @@ export default {
           "100%": { opacity: "1", transform: "translateX(0)" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 20px hsla(24, 100%, 50%, 0.3)" },
-          "50%": { boxShadow: "0 0 40px hsla(24, 100%, 50%, 0.5)" },
+          "0%, 100%": { boxShadow: "0 0 20px hsla(160, 51%, 60%, 0.3)" },
+          "50%": { boxShadow: "0 0 40px hsla(160, 51%, 60%, 0.5)" },
         },
       },
       animation: {
@@ -116,14 +116,14 @@ export default {
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
       },
       backgroundImage: {
-        "gradient-orange": "linear-gradient(135deg, hsl(24 100% 50%) 0%, hsl(30 100% 55%) 100%)",
+        "gradient-teal": "linear-gradient(135deg, hsl(160 51% 60%) 0%, hsl(170 60% 55%) 100%)",
         "gradient-hero": "linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 100%)",
-        "gradient-section": "linear-gradient(180deg, hsl(220 14% 98%) 0%, hsl(0 0% 100%) 100%)",
+        "gradient-section": "linear-gradient(180deg, hsl(160 15% 98%) 0%, hsl(0 0% 100%) 100%)",
       },
       boxShadow: {
-        "card": "0 4px 20px -4px hsla(24, 100%, 50%, 0.15)",
-        "card-hover": "0 8px 30px -8px hsla(24, 100%, 50%, 0.25)",
-        "button": "0 4px 14px 0 hsla(24, 100%, 50%, 0.4)",
+        "card": "0 4px 20px -4px hsla(160, 51%, 60%, 0.15)",
+        "card-hover": "0 8px 30px -8px hsla(160, 51%, 60%, 0.25)",
+        "button": "0 4px 14px 0 hsla(160, 51%, 60%, 0.4)",
       },
     },
   },
