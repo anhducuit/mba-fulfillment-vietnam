@@ -9,7 +9,7 @@ const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex items-center pt-32 md:pt-40 pb-16"
       style={{
-        backgroundImage: `linear-gradient(to bottom, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.6)), url(${heroImage})`,
+        backgroundImage: `linear-gradient(to bottom, rgba(15, 45, 35, 0.85), rgba(20, 55, 45, 0.75)), url(${heroImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
