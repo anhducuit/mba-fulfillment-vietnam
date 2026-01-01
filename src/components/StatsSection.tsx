@@ -27,7 +27,7 @@ const stats = [
   },
   {
     icon: Users,
-    value: 500,
+    value: 100,
     suffix: "+",
     label: "Nhà bán hàng tin tưởng",
     description: "Đối tác đồng hành cùng chúng tôi",
@@ -39,16 +39,16 @@ const CountUp = ({ end, suffix, inView }: { end: number; suffix: string; inView:
 
   useEffect(() => {
     if (!inView) return;
-    
+
     let startTime: number;
     const duration = 2000;
 
     const animate = (currentTime: number) => {
       if (!startTime) startTime = currentTime;
       const progress = Math.min((currentTime - startTime) / duration, 1);
-      
+
       setCount(Math.floor(progress * end));
-      
+
       if (progress < 1) {
         requestAnimationFrame(animate);
       }
@@ -93,7 +93,7 @@ const StatsSection = () => {
             Cam kết chất lượng dịch vụ
           </h2>
           <p className="text-primary-foreground/70 mt-4 max-w-2xl mx-auto">
-            Thậm chí chỉ cần từ một kho hàng, MBA Fulfillment có thể hoàn thiện đơn hàng 
+            Thậm chí chỉ cần từ một kho hàng, MBA Fulfillment có thể hoàn thiện đơn hàng
             vận chuyển đến người mua hàng chỉ trong vòng 2 ngày
           </p>
         </motion.div>

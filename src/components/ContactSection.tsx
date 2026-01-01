@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
+import Logo from "./Logo";
 
 const ContactSection = () => {
   const ref = useRef(null);
@@ -15,13 +16,31 @@ const ContactSection = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    toast.success("Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.");
-    setIsSubmitting(false);
-    (e.target as HTMLFormElement).reset();
+
+    const form = e.target as HTMLFormElement;
+    const data = new FormData(form);
+
+    try {
+      const response = await fetch("https://formspree.io/f/xldbjwyb", {
+        method: "POST",
+        body: data,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        toast.success("Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.");
+        form.reset();
+      } else {
+        toast.error("Có lỗi xảy ra. Vui lòng thử lại sau.");
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error("Có lỗi xảy ra. Vui lòng thử lại sau.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -40,7 +59,7 @@ const ContactSection = () => {
             Nhanh và dễ dàng
           </h2>
           <p className="section-subtitle">
-            MBA Fulfillment - Fulfill mọi đơn hàng của bạn. 
+            MBA Fulfillment - Fulfill mọi đơn hàng của bạn.
             Tiết kiệm thời gian, độ chính xác cao và minh bạch trong vận hành
           </p>
         </motion.div>
@@ -54,13 +73,7 @@ const ContactSection = () => {
           >
             <div className="bg-card rounded-2xl p-8 shadow-card">
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-16 h-16 bg-primary rounded-xl flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-2xl">M</span>
-                </div>
-                <div>
-                  <h3 className="font-bold text-xl text-foreground">MBA FULFILLMENT</h3>
-                  <p className="text-muted-foreground">VIỆT NAM</p>
-                </div>
+                <Logo />
               </div>
 
               <div className="space-y-6">
@@ -80,7 +93,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Điện thoại</h4>
-                    <a href="tel:+84363382400" className="text-primary hover:underline">+84 036.338.2400</a>
+                    <a href="tel:0948078599" className="text-primary hover:underline">0948 078 599</a>
                   </div>
                 </div>
 
@@ -90,7 +103,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Email</h4>
-                    <a href="mailto:contact@mbafulfillment.vn" className="text-primary hover:underline">contact@mbafulfillment.vn</a>
+                    <a href="mailto:mbafulfillmentvn@gmail.com" className="text-primary hover:underline">mbafulfillmentvn@gmail.com</a>
                   </div>
                 </div>
 
@@ -100,7 +113,7 @@ const ContactSection = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Địa chỉ</h4>
-                    <p className="text-muted-foreground">TP. Hồ Chí Minh, Việt Nam</p>
+                    <p className="text-muted-foreground">40/8 Lê Thị Ánh, Phường Tân Thới Nhất, Quận 12, TPHCM</p>
                   </div>
                 </div>
               </div>
@@ -141,8 +154,9 @@ const ContactSection = () => {
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Họ và tên *
                     </label>
-                    <Input 
-                      type="text" 
+                    <Input
+                      type="text"
+                      name="name"
                       placeholder="Nhập họ và tên"
                       required
                       className="w-full"
@@ -152,8 +166,9 @@ const ContactSection = () => {
                     <label className="block text-sm font-medium text-foreground mb-2">
                       Số điện thoại *
                     </label>
-                    <Input 
-                      type="tel" 
+                    <Input
+                      type="tel"
+                      name="phone"
                       placeholder="Nhập số điện thoại"
                       required
                       className="w-full"
@@ -165,8 +180,9 @@ const ContactSection = () => {
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Email *
                   </label>
-                  <Input 
-                    type="email" 
+                  <Input
+                    type="email"
+                    name="email"
                     placeholder="Nhập địa chỉ email"
                     required
                     className="w-full"
@@ -177,8 +193,9 @@ const ContactSection = () => {
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Tên công ty / Shop
                   </label>
-                  <Input 
-                    type="text" 
+                  <Input
+                    type="text"
+                    name="company"
                     placeholder="Nhập tên công ty hoặc shop"
                     className="w-full"
                   />
@@ -188,15 +205,16 @@ const ContactSection = () => {
                   <label className="block text-sm font-medium text-foreground mb-2">
                     Nội dung cần tư vấn
                   </label>
-                  <Textarea 
+                  <Textarea
+                    name="message"
                     placeholder="Mô tả nhu cầu của bạn..."
                     rows={4}
                     className="w-full resize-none"
                   />
                 </div>
 
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   className="btn-primary w-full flex items-center justify-center gap-2"
                   disabled={isSubmitting}
                 >

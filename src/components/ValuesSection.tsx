@@ -1,13 +1,13 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { 
-  MessageCircle, 
-  Layers, 
-  Handshake, 
-  Database, 
-  ClipboardCheck, 
-  Heart 
+import {
+  MessageCircle,
+  Layers,
+  Handshake,
+  Database,
+  ClipboardCheck,
+  Heart
 } from "lucide-react";
 
 const values = [
@@ -92,7 +92,7 @@ const ValuesSection = () => {
           className="mt-16 text-center"
         >
           <div className="inline-flex items-center gap-4 px-8 py-4 bg-primary/5 rounded-2xl border border-primary/20">
-            <span className="text-primary font-bold text-4xl md:text-5xl">500+</span>
+            <span className="text-primary font-bold text-4xl md:text-5xl">100+</span>
             <div className="text-left">
               <p className="font-semibold text-foreground">Nhãn hàng</p>
               <p className="text-sm text-muted-foreground">đã tin tưởng sử dụng dịch vụ</p>

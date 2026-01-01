@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Logo from "./Logo";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,13 +21,13 @@ const Header = () => {
       <div className="bg-primary text-primary-foreground py-2 hidden md:block">
         <div className="container-section flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
-            <a href="tel:+84363382400" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a href="tel:0948078599" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Phone className="w-4 h-4" />
-              <span>+84 036.338.2400</span>
+              <span>0948 078 599</span>
             </a>
-            <a href="mailto:contact@mbafulfillment.vn" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a href="mailto:mbafulfillmentvn@gmail.com" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Mail className="w-4 h-4" />
-              <span>contact@mbafulfillment.vn</span>
+              <span>mbafulfillmentvn@gmail.com</span>
             </a>
           </div>
           <div className="text-primary-foreground/80">
@@ -39,14 +40,8 @@ const Header = () => {
       <div className="container-section">
         <nav className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-3">
-            <div className="w-10 h-10 md:w-12 md:h-12 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-lg md:text-xl">M</span>
-            </div>
-            <div className="hidden sm:block">
-              <h1 className="font-bold text-lg md:text-xl text-foreground leading-tight">MBA FULFILLMENT</h1>
-              <p className="text-xs text-muted-foreground">VIỆT NAM</p>
-            </div>
+          <a href="#home" className="flex items-center gap-2 group">
+            <Logo />
           </a>
 
           {/* Desktop Navigation */}
@@ -65,9 +60,11 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
-            <Button className="btn-primary">
-              Truy cập tài khoản
-            </Button>
+            <a href="https://theodoimba.vercel.app/" target="_blank" rel="noopener noreferrer">
+              <Button className="btn-primary">
+                Truy cập tài khoản
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -101,9 +98,11 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <Button className="btn-primary w-full mt-4">
-                Truy cập tài khoản
-              </Button>
+              <a href="https://theodoimba.vercel.app/" target="_blank" rel="noopener noreferrer" className="block w-full">
+                <Button className="btn-primary w-full mt-4">
+                  Truy cập tài khoản
+                </Button>
+              </a>
             </div>
           </motion.div>
         )}

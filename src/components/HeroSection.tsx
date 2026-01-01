@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Search, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-warehouse.jpg";
+import heroImage from "@/assets/modern-hero-warehouse.png";
 
 const HeroSection = () => {
   return (
@@ -9,7 +9,7 @@ const HeroSection = () => {
       id="home"
       className="relative min-h-screen flex items-center pt-32 md:pt-40 pb-16"
       style={{
-        backgroundImage: `linear-gradient(to bottom, rgba(102, 205, 170, 0.85), rgba(102, 205, 170, 0.7)), url(${heroImage})`,
+        backgroundImage: `linear-gradient(to bottom, rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.6)), url(${heroImage})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundAttachment: "fixed",
