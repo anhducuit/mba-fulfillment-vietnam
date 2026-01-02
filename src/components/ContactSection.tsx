@@ -10,9 +10,10 @@ import Logo from "./Logo";
 
 interface ContactSectionProps {
   hideTitle?: boolean;
+  onlyForm?: boolean;
 }
 
-const ContactSection = ({ hideTitle = false }: ContactSectionProps) => {
+const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -46,6 +47,102 @@ const ContactSection = ({ hideTitle = false }: ContactSectionProps) => {
       setIsSubmitting(false);
     }
   };
+
+  if (onlyForm) {
+    return (
+      <motion.div
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.6 }}
+      >
+        <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-0 shadow-none">
+          <h3 className="text-2xl font-bold text-foreground mb-2">Liên hệ ngay</h3>
+          <p className="text-muted-foreground mb-6">Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất</p>
+
+          <div className="space-y-4">
+            <div className="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">
+                  Họ và tên *
+                </label>
+                <Input
+                  type="text"
+                  name="name"
+                  placeholder="Nhập họ và tên"
+                  required
+                  className="w-full"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-foreground mb-2">
+                  Số điện thoại *
+                </label>
+                <Input
+                  type="tel"
+                  name="phone"
+                  placeholder="Nhập số điện thoại"
+                  required
+                  className="w-full"
+                />
+              </div>
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-2">
+                Email *
+              </label>
+              <Input
+                type="email"
+                name="email"
+                placeholder="Nhập địa chỉ email"
+                required
+                className="w-full"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-2">
+                Tên công ty / Shop
+              </label>
+              <Input
+                type="text"
+                name="company"
+                placeholder="Nhập tên công ty hoặc shop"
+                className="w-full"
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm font-medium text-foreground mb-2">
+                Nội dung cần tư vấn
+              </label>
+              <Textarea
+                name="message"
+                placeholder="Mô tả nhu cầu của bạn..."
+                rows={4}
+                className="w-full resize-none"
+              />
+            </div>
+
+            <Button
+              type="submit"
+              className="btn-primary w-full flex items-center justify-center gap-2"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? (
+                "Đang gửi..."
+              ) : (
+                <>
+                  <Send className="w-4 h-4" />
+                  Gửi yêu cầu tư vấn
+                </>
+              )}
+            </Button>
+          </div>
+        </form>
+      </motion.div>
+    );
+  }
 
   return (
     <section id="contact" className="py-20 md:py-28 bg-secondary/50" ref={ref}>

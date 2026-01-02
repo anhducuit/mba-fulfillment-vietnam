@@ -80,9 +80,8 @@ const Contact = () => {
                                     </div>
                                 </div>
                             </div>
-                            <div className="bg-card rounded-3xl p-8 shadow-sm">
-                                {/* Reuse the ContactSection logic via component or just standard form here for depth */}
-                                <ContactSection hideTitle={true} />
+                            <div className="bg-card rounded-3xl p-8 border border-border shadow-sm h-full">
+                                <ContactSection onlyForm={true} />
                             </div>
                         </div>
                     </div>
