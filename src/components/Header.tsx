@@ -8,11 +8,11 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { label: "Trang chủ", href: "#home" },
-    { label: "Giải pháp", href: "#solutions" },
-    { label: "Dịch vụ", href: "#services" },
-    { label: "Quy trình", href: "#process" },
-    { label: "Liên hệ", href: "#contact" },
+    { label: "Trang chủ", href: "/" },
+    { label: "Giải pháp", href: "/solutions" },
+    { label: "Dịch vụ", href: "/#services" },
+    { label: "Quy trình", href: "/process" },
+    { label: "Liên hệ", href: "/contact" },
   ];
 
   return (

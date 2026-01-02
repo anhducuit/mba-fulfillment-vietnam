@@ -8,7 +8,11 @@ import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import Logo from "./Logo";
 
-const ContactSection = () => {
+interface ContactSectionProps {
+  hideTitle?: boolean;
+}
+
+const ContactSection = ({ hideTitle = false }: ContactSectionProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -46,23 +50,25 @@ const ContactSection = () => {
   return (
     <section id="contact" className="py-20 md:py-28 bg-secondary/50" ref={ref}>
       <div className="container-section">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-            Liên hệ với chúng tôi
-          </span>
-          <h2 className="section-title mt-2">
-            Nhanh và dễ dàng
-          </h2>
-          <p className="section-subtitle">
-            MBA Fulfillment - Fulfill mọi đơn hàng của bạn.
-            Tiết kiệm thời gian, độ chính xác cao và minh bạch trong vận hành
-          </p>
-        </motion.div>
+        {!hideTitle && (
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <span className="text-primary font-semibold uppercase tracking-wider text-sm">
+              Liên hệ với chúng tôi
+            </span>
+            <h2 className="section-title mt-2">
+              Nhanh và dễ dàng
+            </h2>
+            <p className="section-subtitle">
+              MBA Fulfillment - Fulfill mọi đơn hàng của bạn.
+              Tiết kiệm thời gian, độ chính xác cao và minh bạch trong vận hành
+            </p>
+          </motion.div>
+        )}
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Contact Info */}

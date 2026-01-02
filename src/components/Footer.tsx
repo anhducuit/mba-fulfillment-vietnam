@@ -76,22 +76,22 @@ const Footer = () => {
             <h4 className="font-bold text-lg mb-4">Liên kết nhanh</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#home" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
+                <a href="/" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
                   Trang chủ
                 </a>
               </li>
               <li>
-                <a href="#solutions" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
+                <a href="/solutions" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
                   Giải pháp
                 </a>
               </li>
               <li>
-                <a href="#process" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
+                <a href="/process" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
                   Quy trình
                 </a>
               </li>
               <li>
-                <a href="#contact" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
+                <a href="/contact" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
                   Liên hệ
                 </a>
               </li>
