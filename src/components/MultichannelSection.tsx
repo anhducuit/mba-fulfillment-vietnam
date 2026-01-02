@@ -1,22 +1,32 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { 
-  ShoppingBag, 
-  Store, 
-  Globe, 
+import {
+  ShoppingBag,
+  Store,
+  Globe,
   Smartphone,
   BarChart3,
   Zap
 } from "lucide-react";
 
 const platforms = [
-  { name: "Shopee", icon: ShoppingBag },
-  { name: "Lazada", icon: Store },
-  { name: "TikTok Shop", icon: Smartphone },
-  { name: "Sendo", icon: Globe },
-  { name: "Website", icon: Globe },
-  { name: "Facebook", icon: Smartphone },
+  {
+    name: "Shopee",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Shopee.svg/2560px-Shopee.svg.png"
+  },
+  {
+    name: "Lazada",
+    logo: "/logos/lazada.png"
+  },
+  {
+    name: "TikTok Shop",
+    logo: "/logos/tiktok.png"
+  },
+  {
+    name: "Facebook",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/6/6c/Facebook_Logo_2023.png"
+  },
 ];
 
 const MultichannelSection = () => {
@@ -27,7 +37,7 @@ const MultichannelSection = () => {
     <section id="solutions" className="py-20 md:py-28 bg-background relative overflow-hidden" ref={ref}>
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-primary/5 to-transparent" />
-      
+
       <div className="container-section relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left content */}
@@ -43,7 +53,7 @@ const MultichannelSection = () => {
               Dễ dàng kết nối đa kênh & Quản lý tất cả cửa hàng với OMS MBA Fulfillment
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              Kết nối và đồng bộ tất cả các sàn thương mại điện tử, quản lý đơn hàng tập trung 
+              Kết nối và đồng bộ tất cả các sàn thương mại điện tử, quản lý đơn hàng tập trung
               trên một nền tảng duy nhất. Tiết kiệm thời gian, tăng hiệu quả vận hành.
             </p>
 
@@ -73,18 +83,15 @@ const MultichannelSection = () => {
             <div>
               <p className="text-sm text-muted-foreground mb-4">Các sàn TMĐT đã kết nối:</p>
               <div className="flex flex-wrap gap-3">
-                {platforms.map((platform, index) => (
-                  <motion.div
-                    key={platform.name}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    className="flex items-center gap-2 px-4 py-2 bg-card border border-border rounded-lg hover:border-primary/50 hover:shadow-card transition-all duration-300"
-                  >
-                    <platform.icon className="w-4 h-4 text-primary" />
-                    <span className="text-sm font-medium text-foreground">{platform.name}</span>
-                  </motion.div>
+                {platforms.map((platform) => (
+                  <div key={platform.name} className="flex items-center gap-2 px-4 py-3 bg-white border border-border rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+                    <img src={platform.logo} alt={platform.name} className="h-6 w-auto object-contain" />
+                  </div>
                 ))}
+                <div className="flex items-center gap-2 px-4 py-3 bg-white border border-border rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
+                  <Globe className="w-5 h-5 text-primary" />
+                  <span className="text-sm font-bold text-gray-700">Website TMĐT</span>
+                </div>
               </div>
             </div>
           </motion.div>
@@ -106,7 +113,7 @@ const MultichannelSection = () => {
                   <div className="w-3 h-3 rounded-full bg-green-500" />
                   <span className="ml-4 text-primary-foreground/60 text-sm">MBA Fulfillment Dashboard</span>
                 </div>
-                
+
                 {/* Content */}
                 <div className="p-6 space-y-4">
                   {/* Stats row */}
