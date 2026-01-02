@@ -206,7 +206,7 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Email</h4>
-                    <a href="mailto:mbafulfillmentvn@gmail.com" className="text-primary hover:underline">mbafulfillmentvn@gmail.com</a>
+                    <a href="mailto:info@omsmba.online" className="text-primary hover:underline">info@omsmba.online</a>
                   </div>
                 </div>
 

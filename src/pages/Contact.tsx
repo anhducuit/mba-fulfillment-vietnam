@@ -42,7 +42,7 @@ const Contact = () => {
                             </div>
                             <h3 className="text-xl font-bold mb-2">Email</h3>
                             <p className="text-muted-foreground mb-4">Phản hồi trong 2h</p>
-                            <a href="mailto:mbafulfillmentvn@gmail.com" className="text-lg font-bold text-primary hover:underline break-words">mbafulfillmentvn@gmail.com</a>
+                            <a href="mailto:info@omsmba.online" className="text-lg font-bold text-primary hover:underline break-words">info@omsmba.online</a>
                         </div>
 
                         <div className="bg-card p-8 rounded-3xl border border-border text-center">

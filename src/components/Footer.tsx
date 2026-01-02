@@ -120,8 +120,8 @@ const Footer = () => {
                 <Mail className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm text-primary-foreground/70">Email</p>
-                  <a href="mailto:mbafulfillmentvn@gmail.com" className="text-primary-foreground hover:text-primary transition-colors text-sm">
-                    mbafulfillmentvn@gmail.com
+                  <a href="mailto:info@omsmba.online" className="text-primary-foreground hover:text-primary transition-colors text-sm">
+                    info@omsmba.online
                   </a>
                 </div>
               </li>
