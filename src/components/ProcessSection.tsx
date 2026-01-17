@@ -2,28 +2,32 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link2, Warehouse, Truck, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const steps = [
   {
-    icon: Link2,
-    time: "5 phút",
-    title: "Kết nối cửa hàng của bạn",
-    description: "Kết nối sàn TMĐT, đồng bộ sản phẩm và tồn kho với MBA Fulfillment một cách nhanh chóng.",
-    color: "bg-blue-500",
+    title: "Kết nối & Đồng bộ",
+    image: "/images/process/step1.png",
   },
   {
-    icon: Warehouse,
-    time: "1 Ngày",
-    title: "Nhập hàng & lưu kho",
-    description: "Lưu trữ hàng tồn kho ở bất kỳ trung tâm xử lý đơn hàng nào của MBA Fulfillment trên toàn quốc.",
-    color: "bg-primary",
+    title: "Nhập hàng & QC",
+    image: "/images/process/step2.png",
   },
   {
-    icon: Truck,
-    time: "1-2 Ngày",
-    title: "Xử lý đóng gói và giao hàng",
-    description: "Chúng tôi xử lý việc đặt hàng, đóng gói và vận chuyển từ trung tâm xử lý đơn hàng gần nhất.",
-    color: "bg-green-500",
+    title: "Lưu kho Chuyên nghiệp",
+    image: "/images/process/step3.png",
+  },
+  {
+    title: "Xử lý Đơn hàng",
+    image: "/images/process/step4.png",
+  },
+  {
+    title: "Bàn giao Vận chuyển",
+    image: "/images/process/step5.png",
+  },
+  {
+    title: "Quản lý Đổi trả",
+    image: "/images/process/step6.png",
   },
 ];
 
@@ -32,68 +36,65 @@ const ProcessSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="process" className="py-20 md:py-28 bg-foreground text-primary-foreground relative overflow-hidden" ref={ref}>
+    <section id="process" className="py-24 md:py-32 bg-foreground text-primary-foreground relative overflow-hidden" ref={ref}>
       {/* Background decoration */}
-      <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-to-r from-primary/5 to-transparent" />
-      
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-primary/5 blur-[120px] rounded-full pointer-events-none" />
+
       <div className="container-section relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-            Quy trình của MBA Fulfillment
+          <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 inline-block">
+            Our Flow
           </span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2">
-            Hệ thống tự động hoá giúp giảm đáng kể thời gian xử lý đơn hàng
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6">Hành Trình Đơn Hàng Tối Ưu</h2>
+          <p className="text-xl text-primary-foreground/70 max-w-3xl mx-auto leading-relaxed">
+            Mọi khâu vận hành đều được tự động hóa bằng hệ thống WMS hiện đại,
+            đảm bảo hàng hóa đến tay khách hàng nhanh nhất.
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8 md:gap-6 relative">
-          {/* Connection line */}
-          <div className="hidden md:block absolute top-24 left-1/6 right-1/6 h-1">
-            <div className="w-full h-full bg-gradient-to-r from-blue-500 via-primary to-green-500 rounded-full opacity-30" />
-          </div>
-
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 relative">
           {steps.map((step, index) => (
             <motion.div
               key={step.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="relative"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={isInView ? { opacity: 1, scale: 1 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="group text-center"
             >
-              <div className="flex flex-col items-center text-center">
-                {/* Step number and icon */}
-                <div className="relative mb-6">
-                  <div className={`w-20 h-20 ${step.color} rounded-2xl flex items-center justify-center shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300`}>
-                    <step.icon className="w-10 h-10 text-primary-foreground" />
-                  </div>
-                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary-foreground text-foreground rounded-full flex items-center justify-center font-bold text-sm">
-                    {index + 1}
-                  </div>
+              <div className="relative mb-6 mx-auto w-full aspect-square max-w-[140px]">
+                <div className="absolute inset-0 bg-primary/10 rounded-[2rem] rotate-3 group-hover:rotate-0 transition-transform duration-500" />
+                <div className="relative h-full bg-white border border-white/10 p-4 rounded-[2rem] shadow-lg group-hover:shadow-2xl transition-all duration-500 overflow-hidden">
+                  <img
+                    src={step.image}
+                    alt={step.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
                 </div>
-
-                {/* Time badge */}
-                <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/20 rounded-full mb-4">
-                  <span className="font-bold text-primary">{step.time}</span>
+                <div className="absolute -top-2 -right-1 w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center font-extrabold shadow-lg z-20 border-2 border-foreground">
+                  {index + 1}
                 </div>
-
-                {/* Content */}
-                <h3 className="text-xl font-bold mb-3">{step.title}</h3>
-                <p className="text-primary-foreground/70 leading-relaxed">{step.description}</p>
               </div>
 
-              {/* Arrow for mobile */}
-              {index < steps.length - 1 && (
-                <div className="md:hidden flex justify-center my-6">
-                  <ArrowRight className="w-6 h-6 text-primary rotate-90" />
-                </div>
-              )}
+              <h3 className="text-sm md:text-base font-bold text-primary-foreground group-hover:text-primary transition-colors">
+                {step.title}
+              </h3>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-20 text-center">
+          <Button
+            variant="outline"
+            className="rounded-full px-8 py-7 border-primary/30 text-primary hover:bg-primary/10 font-bold"
+            onClick={() => window.location.href = "/process"}
+          >
+            Chi tiết quy trình đạt chuẩn <ArrowRight className="ml-2 w-5 h-5" />
+          </Button>
         </div>
       </div>
     </section>
