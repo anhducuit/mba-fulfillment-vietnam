@@ -39,8 +39,7 @@ const Header = () => {
       {/* Main header */}
       <div className="container-section">
         <nav className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <a href="#home" className="flex items-center gap-2 group">
+          <a href="/" className="flex items-center gap-2 group">
             <Logo />
           </a>
 

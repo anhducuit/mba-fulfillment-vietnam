@@ -144,11 +144,11 @@ const Services = () => {
                                 <motion.img
                                     src={service.image}
                                     alt={service.title}
-                                    className="w-full h-full object-contain p-8 relative z-10"
-                                    initial={{ scale: 0.9, opacity: 0 }}
-                                    whileInView={{ scale: 1, opacity: 1 }}
+                                    className="w-full h-full object-cover relative z-10 transition-transform duration-500 group-hover:scale-110"
+                                    initial={{ opacity: 0 }}
+                                    whileInView={{ opacity: 1 }}
                                     viewport={{ once: true }}
-                                    transition={{ duration: 0.6 }}
+                                    transition={{ duration: 0.8 }}
                                 />
                             </div>
                         </motion.div>
