@@ -15,8 +15,12 @@ const Solutions = () => {
                 "Quy trình Pick & Pack chuẩn hóa, hạn chế sai sót 99.9%.",
                 "Tự động cập nhật số lượng tồn kho lên tất cả các sàn.",
                 "Xử lý đơn hàng siêu tốc trong vòng 2-4 giờ kể từ khi phát sinh."
+<<<<<<< HEAD
             ],
             image: "/images/ecommerce_fulfillment.png"
+=======
+            ]
+>>>>>>> a31eb171055faaf441aad1c94480ca37524c2fe2
         },
         {
             title: "Giải pháp Logistics B2B",
@@ -27,8 +31,12 @@ const Solutions = () => {
                 "Vận chuyển cross-docking giúp tối ưu chi phí lưu kho.",
                 "Dịch vụ dán tem phụ, đóng gói kiện lớn chuyên nghiệp.",
                 "Báo cáo chi tiết luồng hàng đi và đến hàng ngày."
+<<<<<<< HEAD
             ],
             image: "/images/b2b_logistics.png"
+=======
+            ]
+>>>>>>> a31eb171055faaf441aad1c94480ca37524c2fe2
         },
         {
             title: "Công nghệ OMS & WMS",
@@ -39,8 +47,12 @@ const Solutions = () => {
                 "WMS (Warehouse Management System) quản lý vị trí kho chính xác.",
                 "Dashboard báo cáo thông minh, phân tích doanh thu và sản phẩm bán chạy.",
                 "Tích hợp API linh hoạt với các phần mềm kế toán và quản lý khác."
+<<<<<<< HEAD
             ],
             image: "/images/oms_wms_technology.png"
+=======
+            ]
+>>>>>>> a31eb171055faaf441aad1c94480ca37524c2fe2
         }
     ];
 
@@ -91,6 +103,7 @@ const Solutions = () => {
                                     ))}
                                 </div>
                             </div>
+<<<<<<< HEAD
                             <div className="flex-1 w-full overflow-hidden rounded-3xl aspect-video flex items-center justify-center bg-secondary/10">
                                 <motion.img
                                     src={cat.image}
@@ -101,6 +114,13 @@ const Solutions = () => {
                                     viewport={{ once: true }}
                                     transition={{ duration: 0.8 }}
                                 />
+=======
+                            <div className="flex-1 w-full bg-secondary/30 rounded-3xl p-8 aspect-video flex items-center justify-center">
+                                <div className="text-center opacity-40">
+                                    <Logo />
+                                    <p className="mt-4 text-sm font-medium">ILLUSTRATION PLACEHOLDER</p>
+                                </div>
+>>>>>>> a31eb171055faaf441aad1c94480ca37524c2fe2
                             </div>
                         </motion.div>
                     ))}

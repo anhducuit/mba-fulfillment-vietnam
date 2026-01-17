@@ -22,4 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+<<<<<<< HEAD
 .agent
+=======
+>>>>>>> a31eb171055faaf441aad1c94480ca37524c2fe2
