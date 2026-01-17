@@ -24,10 +24,6 @@ const Index = () => {
         </div>
 
         <MultichannelSection />
-
-        {/* Slant Divider */}
-        <div className="h-24 bg-foreground relative overflow-hidden -mt-12 -mb-12 rotate-1 scale-110 z-20 border-y border-primary/20" />
-
         <StatsSection />
         <ServicesSection />
         <ValuesSection />
