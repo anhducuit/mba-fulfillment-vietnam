@@ -24,6 +24,7 @@ const services = [
             "Kết nối với tất cả các đơn vị vận chuyển hàng đầu."
         ],
         color: "from-orange-500 to-amber-500",
+        image: "/images/services/fulfillment.png"
     },
     {
         icon: Store,
@@ -36,6 +37,7 @@ const services = [
             "Hỗ trợ phân phối hàng vào hệ thống siêu thị, đại lý."
         ],
         color: "from-blue-500 to-cyan-500",
+        image: "/images/services/b2b_logistics.png"
     },
     {
         icon: Warehouse,
@@ -48,6 +50,7 @@ const services = [
             "Tích hợp API dễ dàng với các sàn và phần mềm quản lý."
         ],
         color: "from-indigo-500 to-violet-500",
+        image: "/images/services/wms_tech.png"
     },
     {
         icon: Gift,
@@ -60,6 +63,7 @@ const services = [
             "Sử dụng bao bì thân thiện với môi trường."
         ],
         color: "from-purple-500 to-pink-500",
+        image: "/images/services/packaging.png"
     },
     {
         icon: Megaphone,
@@ -72,6 +76,7 @@ const services = [
             "Hợp tác với các Agency marketing uy tín."
         ],
         color: "from-green-500 to-emerald-500",
+        image: "/images/services/growth_marketing.png"
     },
 ];
 
@@ -134,9 +139,17 @@ const Services = () => {
                                     </Button>
                                 </div>
                             </div>
-                            <div className="flex-1 w-full bg-secondary/20 rounded-3xl aspect-[4/3] flex items-center justify-center relative overflow-hidden">
-                                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-5`} />
-                                <service.icon size={120} className="text-primary/10" />
+                            <div className="flex-1 w-full bg-secondary/20 rounded-3xl aspect-[4/3] flex items-center justify-center relative overflow-hidden group">
+                                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-5 group-hover:opacity-10 transition-opacity duration-500`} />
+                                <motion.img
+                                    src={service.image}
+                                    alt={service.title}
+                                    className="w-full h-full object-contain p-8 relative z-10"
+                                    initial={{ scale: 0.9, opacity: 0 }}
+                                    whileInView={{ scale: 1, opacity: 1 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.6 }}
+                                />
                             </div>
                         </motion.div>
                     ))}
