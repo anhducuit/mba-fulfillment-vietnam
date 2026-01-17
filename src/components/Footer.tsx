@@ -44,27 +44,27 @@ const Footer = () => {
             <h4 className="font-bold text-lg mb-4">Dịch vụ</h4>
             <ul className="space-y-3">
               <li>
-                <a href="#services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
+                <a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
                   Giải pháp Fulfillment
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
+                <a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
                   Bán hàng đa kênh B2B
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
+                <a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
                   Tùy chỉnh đóng gói
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
+                <a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
                   Quản lý kho hàng WMS
                 </a>
               </li>
               <li>
-                <a href="#services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
+                <a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
                   Đối tác Marketing
                 </a>
               </li>

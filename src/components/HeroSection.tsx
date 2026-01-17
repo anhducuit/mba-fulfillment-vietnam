@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Search, ArrowRight } from "lucide-react";
+import { Search, ArrowRight, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/modern-hero-warehouse.png";
 
@@ -54,9 +54,12 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4"
           >
-            <Button className="btn-primary text-lg px-8 py-6 flex items-center gap-2 group">
-              <Search className="w-5 h-5" />
-              Tra cứu đơn hàng
+            <Button
+              className="btn-primary text-lg px-8 py-6 flex items-center gap-2 group"
+              onClick={() => window.location.href = "/contact"}
+            >
+              <FileText className="w-5 h-5" />
+              Yêu cầu báo giá
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </Button>
             <Button className="bg-primary-foreground/10 backdrop-blur-sm text-primary-foreground border border-primary-foreground/30 hover:bg-primary-foreground/20 text-lg px-8 py-6">
