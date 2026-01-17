@@ -83,14 +83,24 @@ const HeroSection = () => {
               whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="relative z-10"
+              style={{
+                maskImage: "radial-gradient(circle, black 60%, transparent 95%)",
+                WebkitMaskImage: "radial-gradient(circle, black 60%, transparent 95%)",
+              }}
             >
-              <div className="absolute -inset-4 bg-primary/20 rounded-[3rem] blur-3xl -rotate-6 scale-95 opacity-50" />
+              {/* Primary Glow Halos */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-primary/20 rounded-full blur-[90px] pointer-events-none animate-pulse" />
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-secondary/10 rounded-full blur-[50px] pointer-events-none" />
+
               <img
                 src="/images/hero_master.png"
                 alt="MBA Fulfillment Master Hub"
-                className="w-full h-auto relative z-10 drop-shadow-[0_25px_25px_rgba(0,0,0,0.4)] animate-float"
+                className="w-full h-auto relative z-10 drop-shadow-[0_25px_35px_rgba(0,0,0,0.5)] animate-float"
               />
             </motion.div>
+
+            {/* Ambient secondary glow around the whole illustration area */}
+            <div className="absolute -inset-10 bg-primary/5 rounded-[4rem] blur-[80px] -rotate-6 scale-95 opacity-50 z-0" />
           </div>
         </div>
       </div>
