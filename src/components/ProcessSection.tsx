@@ -68,7 +68,7 @@ const ProcessSection = () => {
             >
               <div className="relative mb-6 mx-auto w-full aspect-square max-w-[140px]">
                 <div className="absolute inset-0 bg-primary/10 rounded-[2rem] rotate-3 group-hover:rotate-0 transition-transform duration-500" />
-                <div className="relative h-full bg-white border border-white/10 p-4 rounded-[2rem] shadow-lg group-hover:shadow-2xl transition-all duration-500 overflow-hidden">
+                <div className="relative h-full bg-white border border-white/10 rounded-[2rem] shadow-lg group-hover:shadow-2xl transition-all duration-500 overflow-hidden">
                   <img
                     src={step.image}
                     alt={step.title}
