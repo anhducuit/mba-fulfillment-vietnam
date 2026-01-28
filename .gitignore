@@ -22,7 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
-<<<<<<< HEAD
+
+# Agent files
 .agent
-=======
->>>>>>> a31eb171055faaf441aad1c94480ca37524c2fe2
+
+# Environment variables (IMPORTANT: Protect API keys)
+.env
+.env.local
+.env.*.local
