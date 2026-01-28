@@ -37,7 +37,10 @@ const AIChat = () => {
         setIsLoading(true);
 
         try {
-            const response = await fetch('http://localhost:3001/api/chat', {
+            // Use Vercel API endpoint (works both locally and in production)
+            const apiUrl = '/api/chat';
+
+            const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -95,8 +98,8 @@ const AIChat = () => {
                             >
                                 {/* Avatar */}
                                 <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 ${message.role === 'assistant'
-                                        ? 'bg-primary text-primary-foreground'
-                                        : 'bg-secondary text-secondary-foreground'
+                                    ? 'bg-primary text-primary-foreground'
+                                    : 'bg-secondary text-secondary-foreground'
                                     }`}>
                                     {message.role === 'assistant' ? <Bot size={20} /> : <User size={20} />}
                                 </div>
@@ -104,8 +107,8 @@ const AIChat = () => {
                                 {/* Message Content */}
                                 <div className={`flex-1 max-w-[80%] ${message.role === 'user' ? 'text-right' : 'text-left'}`}>
                                     <div className={`inline-block p-4 rounded-2xl ${message.role === 'assistant'
-                                            ? 'bg-secondary/50 text-foreground'
-                                            : 'bg-primary text-primary-foreground'
+                                        ? 'bg-secondary/50 text-foreground'
+                                        : 'bg-primary text-primary-foreground'
                                         }`}>
                                         {message.role === 'assistant' ? (
                                             <ReactMarkdown
