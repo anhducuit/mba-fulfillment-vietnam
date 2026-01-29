@@ -11,15 +11,36 @@ interface Message {
 }
 
 const AIChat = () => {
-    const [messages, setMessages] = useState<Message[]>([
-        {
+    // Load messages from localStorage or use default
+    const loadMessages = (): Message[] => {
+        try {
+            const saved = localStorage.getItem('chatMessages');
+            if (saved) {
+                return JSON.parse(saved);
+            }
+        } catch (error) {
+            console.error('Error loading messages:', error);
+        }
+        // Default welcome message
+        return [{
             role: 'assistant',
             content: 'Xin chào! Tôi là trợ lý AI của MBA Fulfillment Việt Nam. Tôi có thể giúp gì cho bạn về dịch vụ fulfillment của chúng tôi?'
-        }
-    ]);
+        }];
+    };
+
+    const [messages, setMessages] = useState<Message[]>(loadMessages());
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const scrollRef = useRef<HTMLDivElement>(null);
+
+    // Save messages to localStorage whenever they change
+    useEffect(() => {
+        try {
+            localStorage.setItem('chatMessages', JSON.stringify(messages));
+        } catch (error) {
+            console.error('Error saving messages:', error);
+        }
+    }, [messages]);
 
     // Auto scroll to bottom when new messages arrive (only scroll chatbox, not entire page)
     useEffect(() => {
