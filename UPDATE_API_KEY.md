@@ -1,33 +1,53 @@
-# 🔧 Cập nhật API Key - BytePlus
+# 🔄 Cập nhật API Key cho Google Gemini
 
-## Bước 1: Cập nhật file .env
+## ✅ Đã chuyển sang Google Gemini 2.0 Flash
 
-Mở file `.env` và thay đổi API key:
+Chatbot đã được chuyển từ DeepSeek sang **Google Gemini 2.0 Flash** - miễn phí và mạnh mẽ hơn!
 
-**Từ:**
+## 📝 Cập nhật Local (.env)
+
+Mở file `.env` và thay đổi:
+
 ```bash
-DEEPSEEK_API_KEY=0a7e8935-67cc-4f0d-a139-385e13998f70
+# Xóa dòng cũ:
+# DEEPSEEK_API_KEY=cb062267-ce40-4de3-bac0-faf3a27ca9bb
+
+# Thêm dòng mới:
+GEMINI_API_KEY=AIzaSyDpHYBE-zmRtS37x4FuyIAYVXhiDcXXeoE
+PORT=3001
 ```
 
-**Thành:**
-```bash
-DEEPSEEK_API_KEY=cb062267-ce40-4de3-bac0-faf3a27ca9bb
-```
+## 🚀 Cập nhật Vercel (Production)
 
-## Bước 2: Restart server
+1. **Vào Vercel Dashboard**: https://vercel.com/
+2. **Chọn project**: mba-fulfillment-vietnam
+3. **Settings** → **Environment Variables**
+4. **Xóa biến cũ** (nếu có):
+   - Xóa `DEEPSEEK_API_KEY` hoặc `EEPSEEK_API_KEY`
+5. **Add New Variable**:
+   - Name: `GEMINI_API_KEY`
+   - Value: `AIzaSyDpHYBE-zmRtS37x4FuyIAYVXhiDcXXeoE`
+   - Environments: Chọn **Production**, **Preview**, **Development**
+6. **Save**
+7. **Redeploy**:
+   - Vào Deployments → Click deployment mới nhất → ⋮ → Redeploy
+
+## ✨ Lợi ích của Gemini 2.0 Flash
+
+- ✅ **Hoàn toàn miễn phí** với quota cao (15 req/phút, 1500 req/ngày)
+- ✅ **Tiếng Việt xuất sắc** - tốt hơn DeepSeek
+- ✅ **Nhanh và thông minh**
+- ✅ **Context window lớn** (1M tokens)
+- ✅ **Không cần thẻ tín dụng**
+
+## 🧪 Test Local
 
 ```bash
-# Stop server hiện tại (Ctrl+C)
-# Sau đó chạy lại:
 npm run dev:all
 ```
 
-## Bước 3: Test chatbox
-
 Truy cập: http://localhost:8080/ai-assistant
 
-Gửi câu hỏi test: "Dịch vụ fulfillment của MBA là gì?"
+Hỏi thử: "Chi phí dịch vụ nhập kho là bao nhiêu?"
 
----
-
-**Lưu ý:** Backend đã được cập nhật để sử dụng BytePlus (Volcano Engine) API endpoint thay vì DeepSeek API trực tiếp.
+AI sẽ trả lời với thông tin giá cụ thể!

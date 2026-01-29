@@ -144,41 +144,49 @@ export default async function handler(req, res) {
             return res.status(400).json({ error: 'Messages array is required' });
         }
 
-        // Prepare messages with system prompt
-        const fullMessages = [
-            { role: 'system', content: SYSTEM_PROMPT },
-            ...messages
-        ];
+        // Convert messages to Gemini format
+        const geminiMessages = messages.map(msg => ({
+            role: msg.role === 'assistant' ? 'model' : 'user',
+            parts: [{ text: msg.content }]
+        }));
 
-        // Call BytePlus (Volcano Engine) API for DeepSeek-V3.2
+        // Add system instruction as first user message
+        geminiMessages.unshift({
+            role: 'user',
+            parts: [{ text: SYSTEM_PROMPT }]
+        });
+
+        // Call Google Gemini API
         const response = await axios.post(
-            'https://ark.ap-southeast.bytepluses.com/api/v3/chat/completions',
+            `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-exp:generateContent?key=${process.env.GEMINI_API_KEY}`,
             {
-                model: 'deepseek-v3-2-251201',
-                messages: fullMessages,
-                temperature: 0.7,
-                max_tokens: 2000,
-                stream: false
+                contents: geminiMessages,
+                generationConfig: {
+                    temperature: 0.7,
+                    maxOutputTokens: 2000,
+                }
             },
             {
                 headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${process.env.DEEPSEEK_API_KEY}`
                 }
             }
         );
 
         // Extract AI response
-        const aiMessage = response.data.choices[0].message;
+        const aiText = response.data.candidates[0].content.parts[0].text;
 
         res.status(200).json({
             success: true,
-            message: aiMessage,
-            usage: response.data.usage
+            message: {
+                role: 'assistant',
+                content: aiText
+            },
+            usage: response.data.usageMetadata
         });
 
     } catch (error) {
-        console.error('DeepSeek API Error:', error.response?.data || error.message);
+        console.error('Gemini API Error:', error.response?.data || error.message);
 
         res.status(500).json({
             success: false,
