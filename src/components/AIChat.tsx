@@ -131,21 +131,27 @@ const AIChat = () => {
 
                                 {/* Message Content */}
                                 <div className={`flex-1 ${message.role === 'user' ? 'text-right' : 'text-left'}`}>
-                                    <div className={`inline-block p-4 rounded-2xl max-w-[85%] break-words ${message.role === 'assistant'
+                                    <div className={`inline-block p-4 rounded-2xl max-w-[85%] overflow-hidden ${message.role === 'assistant'
                                         ? 'bg-secondary/50 text-foreground'
                                         : 'bg-primary text-primary-foreground'
-                                        }`}>
+                                        }`}
+                                        style={{
+                                            wordBreak: 'break-word',
+                                            overflowWrap: 'break-word',
+                                            hyphens: 'auto'
+                                        }}
+                                    >
                                         {message.role === 'assistant' ? (
                                             <ReactMarkdown
                                                 className="prose prose-sm dark:prose-invert max-w-none"
                                                 components={{
-                                                    p: ({ children }) => <p className="mb-2 last:mb-0">{children}</p>,
+                                                    p: ({ children }) => <p className="mb-2 last:mb-0 break-words">{children}</p>,
                                                     ul: ({ children }) => <ul className="list-disc ml-4 mb-2">{children}</ul>,
                                                     ol: ({ children }) => <ol className="list-decimal ml-4 mb-2">{children}</ol>,
-                                                    li: ({ children }) => <li className="mb-1">{children}</li>,
+                                                    li: ({ children }) => <li className="mb-1 break-words">{children}</li>,
                                                     strong: ({ children }) => <strong className="font-bold">{children}</strong>,
                                                     a: ({ href, children }) => (
-                                                        <a href={href} target="_blank" rel="noopener noreferrer" className="text-primary underline">
+                                                        <a href={href} target="_blank" rel="noopener noreferrer" className="text-primary underline break-all">
                                                             {children}
                                                         </a>
                                                     ),
@@ -154,7 +160,7 @@ const AIChat = () => {
                                                 {message.content}
                                             </ReactMarkdown>
                                         ) : (
-                                            <p className="whitespace-pre-wrap">{message.content}</p>
+                                            <p className="whitespace-pre-wrap break-words">{message.content}</p>
                                         )}
                                     </div>
                                 </div>
