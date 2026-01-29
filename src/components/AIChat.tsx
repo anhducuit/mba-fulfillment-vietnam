@@ -20,11 +20,16 @@ const AIChat = () => {
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const scrollRef = useRef<HTMLDivElement>(null);
-    const messagesEndRef = useRef<HTMLDivElement>(null);
 
-    // Auto scroll to bottom when new messages arrive
+    // Auto scroll to bottom when new messages arrive (only scroll chatbox, not entire page)
     useEffect(() => {
-        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+        if (scrollRef.current) {
+            // Find the ScrollArea viewport (the actual scrollable element)
+            const viewport = scrollRef.current.querySelector('[data-radix-scroll-area-viewport]');
+            if (viewport) {
+                viewport.scrollTop = viewport.scrollHeight;
+            }
+        }
     }, [messages, isLoading]);
 
     const sendMessage = async () => {
@@ -167,9 +172,6 @@ const AIChat = () => {
                             </div>
                         </motion.div>
                     )}
-
-                    {/* Invisible element to scroll to */}
-                    <div ref={messagesEndRef} />
                 </div>
             </ScrollArea>
 
