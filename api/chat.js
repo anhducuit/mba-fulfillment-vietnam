@@ -55,7 +55,7 @@ const SYSTEM_PROMPT = `Bạn là trợ lý AI chuyên nghiệp của MBA Fulfill
 **THÔNG TIN LIÊN HỆ:**
 - Điện thoại: 0948 078 599
 - Email: info@omsmba.online
-- Địa chỉ: 40/8 Lê Thị Ánh, Phường Tân Thới Nhất, Quận 12, TPHCM
+- Địa chỉ: 40/8 Lê Thị Ánh, Phường Tân Thối Nhất, Quận 12, TPHCM
 - Facebook: https://www.facebook.com/mbafulfillment
 - LinkedIn: https://www.linkedin.com/company/110198128
 
@@ -144,49 +144,42 @@ export default async function handler(req, res) {
             return res.status(400).json({ error: 'Messages array is required' });
         }
 
-        // Convert messages to Gemini format
-        const geminiMessages = messages.map(msg => ({
-            role: msg.role === 'assistant' ? 'model' : 'user',
-            parts: [{ text: msg.content }]
-        }));
+        // Prepare messages for OpenRouter (OpenAI-compatible format)
+        const formattedMessages = [
+            { role: 'system', content: SYSTEM_PROMPT },
+            ...messages
+        ];
 
-        // Add system instruction as first user message
-        geminiMessages.unshift({
-            role: 'user',
-            parts: [{ text: SYSTEM_PROMPT }]
-        });
-
-        // Call Google Gemini API
+        // Call OpenRouter API (free tier with meta-llama/llama-3.3-70b-instruct)
         const response = await axios.post(
-            `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${process.env.GEMINI_API_KEY}`,
+            'https://openrouter.ai/api/v1/chat/completions',
             {
-                contents: geminiMessages,
-                generationConfig: {
-                    temperature: 0.7,
-                    maxOutputTokens: 2000,
-                }
+                model: 'meta-llama/llama-3.3-70b-instruct:free',
+                messages: formattedMessages,
+                temperature: 0.7,
+                max_tokens: 2000,
             },
             {
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${process.env.OPENROUTER_API_KEY || 'sk-or-v1-free'}`,
+                    'HTTP-Referer': 'https://www.omsmba.online',
+                    'X-Title': 'MBA Fulfillment Vietnam Chatbot'
                 }
             }
         );
 
         // Extract AI response
-        const aiText = response.data.candidates[0].content.parts[0].text;
+        const aiMessage = response.data.choices[0].message;
 
         res.status(200).json({
             success: true,
-            message: {
-                role: 'assistant',
-                content: aiText
-            },
-            usage: response.data.usageMetadata
+            message: aiMessage,
+            usage: response.data.usage
         });
 
     } catch (error) {
-        console.error('Gemini API Error:', error.response?.data || error.message);
+        console.error('OpenRouter API Error:', error.response?.data || error.message);
 
         res.status(500).json({
             success: false,
