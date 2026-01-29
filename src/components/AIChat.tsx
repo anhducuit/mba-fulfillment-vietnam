@@ -20,13 +20,12 @@ const AIChat = () => {
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const scrollRef = useRef<HTMLDivElement>(null);
+    const messagesEndRef = useRef<HTMLDivElement>(null);
 
     // Auto scroll to bottom when new messages arrive
     useEffect(() => {
-        if (scrollRef.current) {
-            scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-        }
-    }, [messages]);
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, [messages, isLoading]);
 
     const sendMessage = async () => {
         if (!input.trim() || isLoading) return;
@@ -168,6 +167,9 @@ const AIChat = () => {
                             </div>
                         </motion.div>
                     )}
+
+                    {/* Invisible element to scroll to */}
+                    <div ref={messagesEndRef} />
                 </div>
             </ScrollArea>
 
