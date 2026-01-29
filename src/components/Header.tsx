@@ -59,12 +59,6 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
-            <a href="/ai-assistant">
-              <Button variant="outline" className="flex items-center gap-2">
-                <Bot className="w-4 h-4" />
-                AI Assistant
-              </Button>
-            </a>
             <a href="https://theodoimba.vercel.app/" target="_blank" rel="noopener noreferrer">
               <Button className="btn-primary">
                 Truy cập tài khoản
@@ -103,12 +97,6 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <a href="/ai-assistant" className="block w-full" onClick={() => setIsMenuOpen(false)}>
-                <Button variant="outline" className="w-full mt-4 flex items-center justify-center gap-2">
-                  <Bot className="w-4 h-4" />
-                  AI Assistant
-                </Button>
-              </a>
               <a href="https://theodoimba.vercel.app/" target="_blank" rel="noopener noreferrer" className="block w-full">
                 <Button className="btn-primary w-full mt-4">
                   Truy cập tài khoản
