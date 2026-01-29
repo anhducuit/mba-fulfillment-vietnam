@@ -49,8 +49,7 @@ const ChatButton = ({ isOpen, onClick }: ChatButtonProps) => {
         </motion.button>
     );
 };
-        </motion.button >
-    );
-};
+
+export default ChatButton;
 
 export default ChatButton;
