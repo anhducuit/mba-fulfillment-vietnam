@@ -51,5 +51,3 @@ const ChatButton = ({ isOpen, onClick }: ChatButtonProps) => {
 };
 
 export default ChatButton;
-
-export default ChatButton;
