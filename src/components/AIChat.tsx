@@ -130,8 +130,8 @@ const AIChat = () => {
                                 </div>
 
                                 {/* Message Content */}
-                                <div className={`flex-1 max-w-[80%] ${message.role === 'user' ? 'text-right' : 'text-left'}`}>
-                                    <div className={`inline-block p-4 rounded-2xl ${message.role === 'assistant'
+                                <div className={`flex-1 ${message.role === 'user' ? 'text-right' : 'text-left'}`}>
+                                    <div className={`inline-block p-4 rounded-2xl max-w-[85%] break-words ${message.role === 'assistant'
                                         ? 'bg-secondary/50 text-foreground'
                                         : 'bg-primary text-primary-foreground'
                                         }`}>
