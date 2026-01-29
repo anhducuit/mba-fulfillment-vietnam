@@ -159,37 +159,37 @@ export default async function handler(req, res) {
             return res.status(400).json({ error: 'Messages array is required' });
         }
 
-        // Convert messages to Gemini format
-        const geminiMessages = messages.map(msg => ({
-            role: msg.role === 'assistant' ? 'model' : 'user',
-            parts: [{ text: msg.content }]
-        }));
-
-        // Add system instruction as first user message with current date/time
-        geminiMessages.unshift({
-            role: 'user',
-            parts: [{ text: getSystemPrompt() }]
-        });
-
-        // Call Google Gemini API with new API key
-        const response = await axios.post(
-            `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${process.env.GEMINI_API_KEY}`,
+        // Prepare messages for Groq (OpenAI-compatible format)
+        const groqMessages = [
             {
-                contents: geminiMessages,
-                generationConfig: {
-                    temperature: 0.7,
-                    maxOutputTokens: 2000,
-                }
+                role: 'system',
+                content: getSystemPrompt()
+            },
+            ...messages.map(msg => ({
+                role: msg.role,
+                content: msg.content
+            }))
+        ];
+
+        // Call Groq API (OpenAI-compatible)
+        const response = await axios.post(
+            'https://api.groq.com/openai/v1/chat/completions',
+            {
+                model: 'llama-3.3-70b-versatile', // Fast and high-quality model
+                messages: groqMessages,
+                temperature: 0.7,
+                max_tokens: 2000,
             },
             {
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${process.env.GROQ_API_KEY}`
                 }
             }
         );
 
-        // Extract AI response
-        const aiText = response.data.candidates[0].content.parts[0].text;
+        // Extract AI response (OpenAI format)
+        const aiText = response.data.choices[0].message.content;
 
         res.status(200).json({
             success: true,
@@ -197,11 +197,11 @@ export default async function handler(req, res) {
                 role: 'assistant',
                 content: aiText
             },
-            usage: response.data.usageMetadata
+            usage: response.data.usage
         });
 
     } catch (error) {
-        console.error('Gemini API Error:', error.response?.data || error.message);
+        console.error('Groq API Error:', error.response?.data || error.message);
 
         res.status(500).json({
             success: false,
