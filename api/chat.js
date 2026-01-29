@@ -1,7 +1,21 @@
 import axios from 'axios';
 
-// System prompt với context về MBA Fulfillment Vietnam
-const SYSTEM_PROMPT = `Bạn là trợ lý AI chuyên nghiệp của MBA Fulfillment Việt Nam - đối tác fulfillment hàng đầu tại Việt Nam.
+// Function to generate system prompt with current date/time
+const getSystemPrompt = () => {
+    const now = new Date();
+    const vietnamTime = new Intl.DateTimeFormat('vi-VN', {
+        timeZone: 'Asia/Ho_Chi_Minh',
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: '2-digit',
+        minute: '2-digit'
+    }).format(now);
+
+    return `Bạn là trợ lý AI chuyên nghiệp của MBA Fulfillment Việt Nam - đối tác fulfillment hàng đầu tại Việt Nam.
+
+**THỜI GIAN HIỆN TẠI:** ${vietnamTime} (Múi giờ Việt Nam)
 
 **THÔNG TIN CÔNG TY:**
 - Tên: MBA Fulfillment Việt Nam
@@ -115,6 +129,7 @@ const SYSTEM_PROMPT = `Bạn là trợ lý AI chuyên nghiệp của MBA Fulfill
 - Khi nói về giá, luôn đề cập "chưa bao gồm VAT 8%"
 - Khuyến khích liên hệ để được tư vấn gói dịch vụ tối ưu
 - Luôn nhấn mạnh lợi ích và giá trị mà MBA Fulfillment mang lại`;
+};
 
 export default async function handler(req, res) {
     // Enable CORS
@@ -150,10 +165,10 @@ export default async function handler(req, res) {
             parts: [{ text: msg.content }]
         }));
 
-        // Add system instruction as first user message
+        // Add system instruction as first user message with current date/time
         geminiMessages.unshift({
             role: 'user',
-            parts: [{ text: SYSTEM_PROMPT }]
+            parts: [{ text: getSystemPrompt() }]
         });
 
         // Call Google Gemini API with new API key
