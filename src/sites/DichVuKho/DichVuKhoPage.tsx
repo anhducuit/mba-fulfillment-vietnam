@@ -205,7 +205,7 @@ const DichVuKhoPage = () => {
           <div className="container-section relative z-10">
             <div className="max-w-3xl mb-16">
               <h2 className="text-3xl md:text-5xl font-bold mb-6">Dịch vụ 3PL Toàn Diện</h2>
-              <p className="text-slate-400 text-lg">GGIT - Dịch vụ kho chuyên nghiệp & Giải pháp chuỗi cung ứng tối ưu.</p>
+              <p className="text-slate-400 text-lg">Dichvukho.vn - Dịch vụ kho chuyên nghiệp & Giải pháp chuỗi cung ứng tối ưu.</p>
             </div>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
