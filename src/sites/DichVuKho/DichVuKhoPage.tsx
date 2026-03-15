@@ -307,13 +307,17 @@ const DichVuKhoPage = () => {
                 Đăng ký ngay để nhận tư vấn giải pháp kho chung miễn phí và tham quan hệ thống kho bãi trực tiếp tại TPHCM & Hà Nội.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
-                <Button variant="secondary" size="lg" className="text-lg px-12 py-10 h-auto font-bold bg-white text-primary hover:bg-slate-100 flex flex-col" onClick={() => window.open("https://zalo.me/0948078599", "_blank")}>
-                  <span className="text-xs uppercase tracking-widest opacity-60 mb-1">Tư vấn qua Zalo</span>
-                  <span className="text-xl">0948 078 599</span>
+                <Button variant="secondary" size="lg" className="text-lg px-12 py-10 h-auto font-bold bg-white text-slate-900 hover:bg-slate-100 flex flex-col shadow-xl" onClick={() => window.open("https://zalo.me/0948078599", "_blank")}>
+                  <span className="text-xs uppercase tracking-widest text-slate-500 mb-1">Tư vấn qua Zalo</span>
+                  <span className="text-2xl text-primary">0948 078 599</span>
                 </Button>
-                <Button variant="outline" size="lg" className="text-lg px-12 py-10 h-auto font-bold border-white/40 text-white hover:bg-white/10 flex flex-col" onClick={() => window.location.href = "tel:0948078599"}>
-                  <span className="text-xs uppercase tracking-widest opacity-60 mb-1">Hotline 24/7</span>
-                  <span className="text-xl">0948 078 599</span>
+                <Button variant="outline" size="lg" className="text-lg px-12 py-10 h-auto font-bold border-white/40 text-white hover:bg-white/10 flex flex-col backdrop-blur-sm" onClick={() => window.location.href = "tel:0948078599"}>
+                  <span className="text-xs uppercase tracking-widest text-white/70 mb-1">Hotline 24/7</span>
+                  <span className="text-2xl">0948 078 599</span>
+                </Button>
+                <Button variant="outline" size="lg" className="text-lg px-12 py-10 h-auto font-bold border-white/40 text-white hover:bg-white/10 flex flex-col backdrop-blur-sm" onClick={() => window.location.href = "mailto:mbafulfillmentvn@gmail.com"}>
+                  <span className="text-xs uppercase tracking-widest text-white/70 mb-1">Email liên hệ</span>
+                  <span className="text-xl">mbafulfillmentvn@gmail.com</span>
                 </Button>
               </div>
               
