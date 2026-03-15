@@ -10,6 +10,8 @@ import {
 import Logo from "./Logo";
 
 const Footer = () => {
+  const isDichVuKho = typeof window !== "undefined" && (window.location.hostname === "dichvukho.vn" || window.location.pathname.startsWith("/dichvukho"));
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -24,50 +26,46 @@ const Footer = () => {
               <Logo />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
-              Giải pháp fulfillment hàng đầu Việt Nam, đồng hành cùng sự phát triển kinh doanh thương mại điện tử của bạn.
+              {isDichVuKho 
+                ? "Dịch vụ kho bãi, đóng gói và vận chuyển trọn gói dành cho mọi nhà bán hàng tại TPHCM và Hà Nội." 
+                : "Giải pháp fulfillment hàng đầu Việt Nam, đồng hành cùng sự phát triển kinh doanh thương mại điện tử của bạn."}
             </p>
-            <div className="flex gap-4">
-              <a href="https://www.facebook.com/mbafulfillment" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
-                <Youtube className="w-5 h-5" />
-              </a>
-              <a href="https://www.linkedin.com/company/110198128" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
-                <Linkedin className="w-5 h-5" />
-              </a>
-            </div>
+            {!isDichVuKho && (
+              <div className="flex gap-4">
+                <a href="https://www.facebook.com/mbafulfillment" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                  <Facebook className="w-5 h-5" />
+                </a>
+                <a href="#" className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                  <Youtube className="w-5 h-5" />
+                </a>
+                <a href="https://www.linkedin.com/company/110198128" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                  <Linkedin className="w-5 h-5" />
+                </a>
+              </div>
+            )}
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Dịch vụ</h4>
+            <h4 className="font-bold text-lg mb-4">{isDichVuKho ? "Dịch vụ cốt lõi" : "Dịch vụ"}</h4>
             <ul className="space-y-3">
-              <li>
-                <a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
-                  Giải pháp Fulfillment
-                </a>
-              </li>
-              <li>
-                <a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
-                  Bán hàng đa kênh B2B
-                </a>
-              </li>
-              <li>
-                <a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
-                  Tùy chỉnh đóng gói
-                </a>
-              </li>
-              <li>
-                <a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
-                  Quản lý kho hàng WMS
-                </a>
-              </li>
-              <li>
-                <a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
-                  Đối tác Marketing
-                </a>
-              </li>
+              {isDichVuKho ? (
+                <>
+                  <li className="text-primary-foreground/70 text-sm">Lưu kho hàng hóa</li>
+                  <li className="text-primary-foreground/70 text-sm">Quản lý tồn kho</li>
+                  <li className="text-primary-foreground/70 text-sm">Đóng gói chuyên nghiệp</li>
+                  <li className="text-primary-foreground/70 text-sm">Xử lý đơn hàng trọn gói</li>
+                  <li className="text-primary-foreground/70 text-sm">Tư vấn vận hành</li>
+                </>
+              ) : (
+                <>
+                  <li><a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Giải pháp Fulfillment</a></li>
+                  <li><a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Bán hàng đa kênh B2B</a></li>
+                  <li><a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Tùy chỉnh đóng gói</a></li>
+                  <li><a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Quản lý kho hàng WMS</a></li>
+                  <li><a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Đối tác Marketing</a></li>
+                </>
+              )}
             </ul>
           </div>
 
@@ -75,31 +73,22 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-lg mb-4">Liên kết nhanh</h4>
             <ul className="space-y-3">
-              <li>
-                <a href="/" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
-                  Trang chủ
-                </a>
-              </li>
-              <li>
-                <a href="/solutions" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
-                  Giải pháp
-                </a>
-              </li>
-              <li>
-                <a href="/process" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
-                  Quy trình
-                </a>
-              </li>
-              <li>
-                <a href="/contact" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
-                  Liên hệ
-                </a>
-              </li>
-              <li>
-                <a href="/privacy-policy" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">
-                  Chính sách bảo mật
-                </a>
-              </li>
+              {isDichVuKho ? (
+                <>
+                  <li><a href="/dichvukho#" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Trang chủ</a></li>
+                  <li><a href="/dichvukho#services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Dịch vụ</a></li>
+                  <li><a href="/dichvukho#process" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Quy trình</a></li>
+                  <li><a href="/dichvukho#contact" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Liên hệ</a></li>
+                </>
+              ) : (
+                <>
+                  <li><a href="/" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Trang chủ</a></li>
+                  <li><a href="/solutions" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Giải pháp</a></li>
+                  <li><a href="/process" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Quy trình</a></li>
+                  <li><a href="/contact" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Liên hệ</a></li>
+                  <li><a href="/privacy-policy" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Chính sách bảo mật</a></li>
+                </>
+              )}
             </ul>
           </div>
 
@@ -120,8 +109,8 @@ const Footer = () => {
                 <Mail className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm text-primary-foreground/70">Email</p>
-                  <a href="mailto:info@omsmba.online" className="text-primary-foreground hover:text-primary transition-colors text-sm">
-                    info@omsmba.online
+                  <a href={`mailto:${isDichVuKho ? 'info@dichvukho.vn' : 'info@omsmba.online'}`} className="text-primary-foreground hover:text-primary transition-colors text-sm">
+                    {isDichVuKho ? 'info@dichvukho.vn' : 'info@omsmba.online'}
                   </a>
                 </div>
               </li>
@@ -129,7 +118,9 @@ const Footer = () => {
                 <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm text-primary-foreground/70">Địa chỉ</p>
-                  <p className="text-primary-foreground text-sm">40/8 Lê Thị Ánh, Phường Tân Thới Nhất, Quận 12, TPHCM</p>
+                  <p className="text-primary-foreground text-sm">
+                    {isDichVuKho ? 'Hệ thống kho bãi tại TPHCM & Hà Nội' : '40/8 Lê Thị Ánh, Phường Tân Thới Nhất, Quận 12, TPHCM'}
+                  </p>
                 </div>
               </li>
             </ul>
@@ -141,7 +132,7 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="container-section py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-primary-foreground/60 text-center md:text-left">
-            © 2024 MBA Fulfillment Việt Nam. All rights reserved.
+            © {new Date().getFullYear()} {isDichVuKho ? 'DichVuKho.vn' : 'MBA Fulfillment Việt Nam'}. All rights reserved.
           </p>
           <button
             onClick={scrollToTop}

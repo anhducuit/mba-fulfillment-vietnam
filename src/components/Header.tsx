@@ -6,8 +6,14 @@ import Logo from "./Logo";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isDichVuKho = typeof window !== "undefined" && (window.location.hostname === "dichvukho.vn" || window.location.pathname.startsWith("/dichvukho"));
 
-  const navItems = [
+  const navItems = isDichVuKho ? [
+    { label: "Trang chủ", href: "/dichvukho#" },
+    { label: "Dịch vụ", href: "/dichvukho#services" },
+    { label: "Quy trình", href: "/dichvukho#process" },
+    { label: "Liên hệ", href: "/dichvukho#contact" },
+  ] : [
     { label: "Trang chủ", href: "/" },
     { label: "Giải pháp", href: "/solutions" },
     { label: "Dịch vụ", href: "/services" },
@@ -25,13 +31,13 @@ const Header = () => {
               <Phone className="w-4 h-4" />
               <span>0948 078 599</span>
             </a>
-            <a href="mailto:info@omsmba.online" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a href={`mailto:${isDichVuKho ? 'info@dichvukho.vn' : 'info@omsmba.online'}`} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Mail className="w-4 h-4" />
-              <span>info@omsmba.online</span>
+              <span>{isDichVuKho ? 'info@dichvukho.vn' : 'info@omsmba.online'}</span>
             </a>
           </div>
           <div className="text-primary-foreground/80">
-            Giải pháp fulfillment hàng đầu Việt Nam
+            {isDichVuKho ? 'Dịch vụ kho hàng chuyên nghiệp TPHCM & Hà Nội' : 'Giải pháp fulfillment hàng đầu Việt Nam'}
           </div>
         </div>
       </div>
@@ -39,7 +45,7 @@ const Header = () => {
       {/* Main header */}
       <div className="container-section">
         <nav className="flex items-center justify-between h-16 md:h-20">
-          <a href="/" className="flex items-center gap-2 group">
+          <a href={isDichVuKho ? "/dichvukho" : "/"} className="flex items-center gap-2 group">
             <Logo />
           </a>
 
@@ -59,11 +65,18 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center gap-4">
-            <a href="https://theodoimba.vercel.app/" target="_blank" rel="noopener noreferrer">
-              <Button className="btn-primary">
-                Truy cập tài khoản
+            {!isDichVuKho && (
+              <a href="https://theodoimba.vercel.app/" target="_blank" rel="noopener noreferrer">
+                <Button className="btn-primary">
+                  Truy cập tài khoản
+                </Button>
+              </a>
+            )}
+            {isDichVuKho && (
+              <Button className="btn-primary" onClick={() => window.location.href = "#contact"}>
+                Nhận báo giá
               </Button>
-            </a>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -97,11 +110,13 @@ const Header = () => {
                   {item.label}
                 </a>
               ))}
-              <a href="https://theodoimba.vercel.app/" target="_blank" rel="noopener noreferrer" className="block w-full">
-                <Button className="btn-primary w-full mt-4">
-                  Truy cập tài khoản
-                </Button>
-              </a>
+              {!isDichVuKho && (
+                <a href="https://theodoimba.vercel.app/" target="_blank" rel="noopener noreferrer" className="block w-full">
+                  <Button className="btn-primary w-full mt-4">
+                    Truy cập tài khoản
+                  </Button>
+                </a>
+              )}
             </div>
           </motion.div>
         )}

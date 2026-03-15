@@ -12,33 +12,50 @@ import Process from "./pages/Process";
 import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import ChatWidget from "./components/ChatWidget";
+import DichVuKhoPage from "./sites/DichVuKho/DichVuKhoPage";
 
 const queryClient = new QueryClient();
 
-const App = () => (
-  <HelmetProvider>
-    <QueryClientProvider client={queryClient}>
-      <TooltipProvider>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            <Route path="/solutions" element={<Solutions />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/process" element={<Process />} />
-            <Route path="/contact" element={<Contact />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+const App = () => {
+  // Detection for multi-site
+  const isDichVuKho = window.location.hostname === "dichvukho.vn" || 
+                     window.location.search.includes("site=dichvukho") ||
+                     window.location.pathname.startsWith("/dichvukho");
 
-          {/* Chat Widget - appears on all pages */}
-          <ChatWidget />
-        </BrowserRouter>
-      </TooltipProvider>
-    </QueryClientProvider>
-  </HelmetProvider>
-);
+  return (
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            {isDichVuKho ? (
+              <Routes>
+                <Route path="/" element={<DichVuKhoPage />} />
+                <Route path="/dichvukho" element={<DichVuKhoPage />} />
+                <Route path="*" element={<DichVuKhoPage />} />
+              </Routes>
+            ) : (
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/dichvukho" element={<DichVuKhoPage />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/solutions" element={<Solutions />} />
+                <Route path="/services" element={<Services />} />
+                <Route path="/process" element={<Process />} />
+                <Route path="/contact" element={<Contact />} />
+                {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            )}
+
+            {/* Chat Widget - appears on all pages */}
+            <ChatWidget />
+          </BrowserRouter>
+        </TooltipProvider>
+      </QueryClientProvider>
+    </HelmetProvider>
+  );
+};
 
 export default App;
