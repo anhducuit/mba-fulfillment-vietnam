@@ -58,13 +58,13 @@ const DichVuKhoPage = () => {
       <main className="pt-20">
         {/* 1. Hero Section - Visual & Hook */}
         <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 z-0 text-foreground">
             <img 
               src="/warehouse_interior_premium_1773589774009.png" 
               alt="Hệ thống kho hàng chuyên nghiệp" 
-              className="w-full h-full object-cover brightness-[0.4]"
+              className="w-full h-full object-cover brightness-[0.3]"
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-background via-background/60 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/80 to-transparent" />
           </div>
           
           <div className="container-section relative z-10">
@@ -74,15 +74,15 @@ const DichVuKhoPage = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8 }}
               >
-                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/20 text-primary-foreground font-medium text-sm mb-6 border border-primary/30 backdrop-blur-md">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/30 text-white font-semibold text-sm mb-6 border border-primary/40 backdrop-blur-md">
                   <TrendingUp size={16} />
                   Giải pháp Logistics 3PL tối ưu chi phí 40%
                 </div>
-                <h1 className="text-4xl md:text-7xl font-extrabold text-white mb-8 leading-[1.1]">
+                <h1 className="text-4xl md:text-7xl font-extrabold text-white mb-8 leading-[1.1] drop-shadow-sm">
                   Hệ Thống Kho Bãi <br />
                   <span className="text-primary italic">Thông Minh</span> & Chuyên Nghiệp
                 </h1>
-                <p className="text-lg md:text-xl text-slate-300 mb-10 leading-relaxed max-w-2xl">
+                <p className="text-lg md:text-xl text-slate-200 mb-10 leading-relaxed max-w-2xl font-medium drop-shadow-sm">
                   Dichvukho.vn cung cấp hệ thống kho chung hiện đại tại TP.HCM và Hà Nội. 
                   Chúng tôi thay bạn quản lý toàn bộ chuỗi cung ứng từ Nhập kho - Lưu trữ - Xử lý đơn hàng đến Giao khách cuối.
                 </p>
@@ -318,9 +318,7 @@ const DichVuKhoPage = () => {
               </div>
               
               <div className="mt-16 flex justify-center gap-12 opacity-40">
-                <img src="/images/partners/logistic_1.png" alt="Partner" className="h-8 grayscale brightness-[10]" />
-                <img src="/images/partners/logistic_2.png" alt="Partner" className="h-8 grayscale brightness-[10]" />
-                <img src="/images/partners/logistic_3.png" alt="Partner" className="h-8 grayscale brightness-[10]" />
+                {/* Removed missing partner logos */}
               </div>
             </motion.div>
           </div>
