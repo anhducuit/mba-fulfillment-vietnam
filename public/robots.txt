@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mbafulfillment.vn/sitemap.xml
+Sitemap: https://omsmba.online/sitemap.xml

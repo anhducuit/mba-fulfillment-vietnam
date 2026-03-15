@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -83,6 +84,10 @@ const services = [
 const Services = () => {
     return (
         <div className="min-h-screen bg-background">
+            <Helmet>
+                <title>Dịch Vụ Fulfillment Chuyên Nghiệp | MBA Fulfillment</title>
+                <meta name="description" content="Dịch vụ lưu kho, đóng gói và vận chuyển trọn gói. Cam kết xử lý đơn hàng nhanh chóng, chính xác với hệ thống kho bãi hiện đại." />
+            </Helmet>
             <Header />
             <main className="pt-32 pb-20">
                 {/* Header Section */}

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import MultichannelSection from "@/components/MultichannelSection";
@@ -12,6 +13,11 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>MBA Fulfillment Việt Nam | Giải pháp Fulfillment 4.0 hàng đầu</title>
+        <meta name="description" content="Nâng tầm vận hành doanh nghiệp với giải pháp Fulfillment 4.0. Lưu kho, đóng gói, vận chuyển tự động hóa đa sàn thương mại điện tử. SLA 99.9%." />
+        <link rel="canonical" href="https://omsmba.online/" />
+      </Helmet>
       <Header />
       <main>
         <HeroSection />

@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
@@ -5,6 +6,38 @@ import { CheckCircle2, ShoppingCart, BarChart3, ShieldCheck, Zap, Globe, Package
 import Logo from "@/components/Logo";
 
 const Solutions = () => {
+    const jsonLd = {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": "Giải pháp Fulfillment TMĐT",
+        "provider": {
+            "@type": "Organization",
+            "name": "MBA Fulfillment Việt Nam"
+        },
+        "description": "Dịch vụ kho bãi, đóng gói và vận chuyển tự động hóa cho Shopee, Lazada, TikTok Shop.",
+        "areaServed": "VN",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Dịch vụ Fulfillment",
+            "itemListElement": [
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Lưu kho thông minh"
+                    }
+                },
+                {
+                    "@type": "Offer",
+                    "itemOffered": {
+                        "@type": "Service",
+                        "name": "Đóng gói chuẩn hóa"
+                    }
+                }
+            ]
+        }
+    };
+
     const categories = [
         {
             title: "Fulfillment cho TMĐT",
@@ -46,6 +79,13 @@ const Solutions = () => {
 
     return (
         <div className="min-h-screen bg-background">
+            <Helmet>
+                <title>Giải Pháp Vận Hành Thông Minh | MBA Fulfillment Việt Nam</title>
+                <meta name="description" content="Khám phá các giải pháp Fulfillment cho TMĐT, Logistics B2B và công nghệ quản lý kho WMS/OMS hiện đại nhất hiện nay." />
+                <script type="application/ld+json">
+                    {JSON.stringify(jsonLd)}
+                </script>
+            </Helmet>
             <Header />
             <main className="pt-32 pb-20">
                 {/* Hero Section */}
