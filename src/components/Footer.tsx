@@ -109,8 +109,8 @@ const Footer = () => {
                 <Mail className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm text-primary-foreground/70">Email</p>
-                  <a href={`mailto:${isDichVuKho ? 'info@dichvukho.vn' : 'info@omsmba.online'}`} className="text-primary-foreground hover:text-primary transition-colors text-sm">
-                    {isDichVuKho ? 'info@dichvukho.vn' : 'info@omsmba.online'}
+                  <a href={`mailto:${isDichVuKho ? 'mbafulfillmentvn@gmail.com' : 'info@omsmba.online'}`} className="text-primary-foreground hover:text-primary transition-colors text-sm">
+                    {isDichVuKho ? 'mbafulfillmentvn@gmail.com' : 'info@omsmba.online'}
                   </a>
                 </div>
               </li>
