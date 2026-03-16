@@ -57,7 +57,7 @@ const PriceCalculator = () => {
                   value={volume} 
                   onChange={(e) => setVolume(e.target.value)}
                   placeholder="Vd: 5.5"
-                  className="pl-12 py-6 rounded-xl border-slate-200 focus:border-primary focus:ring-primary/20 transition-all text-lg font-bold"
+                  className="pl-12 py-6 rounded-xl border-slate-200 focus:border-primary focus:ring-primary/20 transition-all text-lg font-bold text-slate-900"
                 />
                 <Box className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
               </div>
@@ -72,7 +72,7 @@ const PriceCalculator = () => {
                   value={duration} 
                   onChange={(e) => setDuration(e.target.value)}
                   placeholder="Vd: 30"
-                  className="pl-12 py-6 rounded-xl border-slate-200 focus:border-primary focus:ring-primary/20 transition-all text-lg font-bold"
+                  className="pl-12 py-6 rounded-xl border-slate-200 focus:border-primary focus:ring-primary/20 transition-all text-lg font-bold text-slate-900"
                 />
                 <Clock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
               </div>
@@ -81,7 +81,7 @@ const PriceCalculator = () => {
             <div className="space-y-2">
               <Label className="text-sm font-bold text-slate-700">Loại hình lưu trữ</Label>
               <Select value={storageType} onValueChange={setStorageType}>
-                <SelectTrigger className="py-6 rounded-xl border-slate-200 text-lg font-medium">
+                <SelectTrigger className="py-6 rounded-xl border-slate-200 text-lg font-medium text-slate-900">
                   <SelectValue placeholder="Chọn loại kho" />
                 </SelectTrigger>
                 <SelectContent>
