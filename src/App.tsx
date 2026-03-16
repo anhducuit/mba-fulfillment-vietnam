@@ -13,14 +13,16 @@ import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import ChatWidget from "./components/ChatWidget";
 import DichVuKhoPage from "./sites/DichVuKho/DichVuKhoPage";
+import { getSiteConfig } from "./config/siteConfig";
+import BlogIndex from "./pages/Blog/BlogIndex";
+import BlogPost from "./pages/Blog/BlogPost";
+import AdminBlog from "./pages/Admin/AdminBlog";
 
 const queryClient = new QueryClient();
 
 const App = () => {
-  // Detection for multi-site
-  const isDichVuKho = window.location.hostname === "dichvukho.vn" || 
-                     window.location.search.includes("site=dichvukho") ||
-                     window.location.pathname.startsWith("/dichvukho");
+  const config = getSiteConfig();
+  const isDichVuKho = config.domain === "dichvukho.vn";
 
   return (
     <HelmetProvider>
@@ -44,6 +46,9 @@ const App = () => {
                 <Route path="/services" element={<Services />} />
                 <Route path="/process" element={<Process />} />
                 <Route path="/contact" element={<Contact />} />
+                <Route path="/blog" element={<BlogIndex />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
+                <Route path="/admin-blog" element={<AdminBlog />} />
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />
               </Routes>

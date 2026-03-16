@@ -2,6 +2,8 @@ import { Helmet } from "react-helmet-async";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import PriceCalculator from "@/components/PriceCalculator";
 import { CheckCircle2, ShoppingCart, BarChart3, ShieldCheck, Zap, Globe, PackageOpen, LayoutDashboard } from "lucide-react";
 import Logo from "@/components/Logo";
 
@@ -144,6 +146,15 @@ const Solutions = () => {
                             </div>
                         </motion.div>
                     ))}
+                </section>
+
+                {/* Price Calculator Section */}
+                <section className="py-24 container-section">
+                    <div className="text-center mb-16">
+                        <h2 className="text-4xl md:text-5xl font-black mb-4">Ước tính chi phí nhanh</h2>
+                        <p className="text-xl text-muted-foreground">Công cụ giúp bạn dự toán ngân sách lưu kho chỉ trong 30 giây.</p>
+                    </div>
+                    <PriceCalculator />
                 </section>
 
                 {/* Value Propositions */}

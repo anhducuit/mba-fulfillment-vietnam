@@ -4,20 +4,25 @@ import { Menu, X, Phone, Mail, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
 
+import { getSiteConfig } from "@/config/siteConfig";
+
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isDichVuKho = typeof window !== "undefined" && (window.location.hostname === "dichvukho.vn" || window.location.pathname.startsWith("/dichvukho"));
+  const config = getSiteConfig();
+  const isDichVuKho = config.domain === "dichvukho.vn";
 
   const navItems = isDichVuKho ? [
     { label: "Trang chủ", href: "/dichvukho#" },
     { label: "Dịch vụ", href: "/dichvukho#services" },
     { label: "Quy trình", href: "/dichvukho#process" },
+    { label: "Blog", href: "/blog" },
     { label: "Liên hệ", href: "/dichvukho#contact" },
   ] : [
     { label: "Trang chủ", href: "/" },
     { label: "Giải pháp", href: "/solutions" },
     { label: "Dịch vụ", href: "/services" },
     { label: "Quy trình", href: "/process" },
+    { label: "Blog", href: "/blog" },
     { label: "Liên hệ", href: "/contact" },
   ];
 
@@ -27,13 +32,13 @@ const Header = () => {
       <div className="bg-primary text-primary-foreground py-2 hidden md:block">
         <div className="container-section flex justify-between items-center text-sm">
           <div className="flex items-center gap-6">
-            <a href="tel:0948078599" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a href={`tel:${config.phone}`} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Phone className="w-4 h-4" />
-              <span>0948 078 599</span>
+              <span>{config.phoneFormatted}</span>
             </a>
-            <a href={`mailto:${isDichVuKho ? 'info@dichvukho.vn' : 'info@omsmba.online'}`} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
+            <a href={`mailto:${config.email}`} className="flex items-center gap-2 hover:opacity-80 transition-opacity">
               <Mail className="w-4 h-4" />
-              <span>{isDichVuKho ? 'info@dichvukho.vn' : 'info@omsmba.online'}</span>
+              <span>{config.email}</span>
             </a>
           </div>
           <div className="text-primary-foreground/80">

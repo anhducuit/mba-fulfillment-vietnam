@@ -9,8 +9,11 @@ import {
 } from "lucide-react";
 import Logo from "./Logo";
 
+import { getSiteConfig } from "@/config/siteConfig";
+
 const Footer = () => {
-  const isDichVuKho = typeof window !== "undefined" && (window.location.hostname === "dichvukho.vn" || window.location.pathname.startsWith("/dichvukho"));
+  const config = getSiteConfig();
+  const isDichVuKho = config.domain === "dichvukho.vn";
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -26,21 +29,25 @@ const Footer = () => {
               <Logo />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
-              {isDichVuKho 
-                ? "Dịch vụ kho bãi, đóng gói và vận chuyển trọn gói dành cho mọi nhà bán hàng tại TPHCM và Hà Nội." 
-                : "Giải pháp fulfillment hàng đầu Việt Nam, đồng hành cùng sự phát triển kinh doanh thương mại điện tử của bạn."}
+              {config.description}
             </p>
             {!isDichVuKho && (
               <div className="flex gap-4">
-                <a href="https://www.facebook.com/mbafulfillment" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a href="#" className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
-                  <Youtube className="w-5 h-5" />
-                </a>
-                <a href="https://www.linkedin.com/company/110198128" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
-                  <Linkedin className="w-5 h-5" />
-                </a>
+                {config.socials.facebook && (
+                  <a href={config.socials.facebook} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                    <Facebook className="w-5 h-5" />
+                  </a>
+                )}
+                {config.socials.youtube && (
+                  <a href={config.socials.youtube} className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                    <Youtube className="w-5 h-5" />
+                  </a>
+                )}
+                {config.socials.linkedin && (
+                  <a href={config.socials.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-primary-foreground/10 rounded-lg flex items-center justify-center hover:bg-primary transition-colors">
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                )}
               </div>
             )}
           </div>
@@ -85,6 +92,8 @@ const Footer = () => {
                   <li><a href="/" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Trang chủ</a></li>
                   <li><a href="/solutions" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Giải pháp</a></li>
                   <li><a href="/process" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Quy trình</a></li>
+                  <li><a href="/blog" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Blog kiến thức</a></li>
+                  <li><a href="/admin-blog" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Quản trị Blog</a></li>
                   <li><a href="/contact" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Liên hệ</a></li>
                   <li><a href="/privacy-policy" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Chính sách bảo mật</a></li>
                 </>
@@ -100,8 +109,8 @@ const Footer = () => {
                 <Phone className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm text-primary-foreground/70">Điện thoại</p>
-                  <a href="tel:0948078599" className="text-primary-foreground hover:text-primary transition-colors">
-                    0948 078 599
+                  <a href={`tel:${config.phone}`} className="text-primary-foreground hover:text-primary transition-colors">
+                    {config.phoneFormatted}
                   </a>
                 </div>
               </li>
@@ -109,8 +118,8 @@ const Footer = () => {
                 <Mail className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm text-primary-foreground/70">Email</p>
-                  <a href={`mailto:${isDichVuKho ? 'mbafulfillmentvn@gmail.com' : 'info@omsmba.online'}`} className="text-primary-foreground hover:text-primary transition-colors text-sm">
-                    {isDichVuKho ? 'mbafulfillmentvn@gmail.com' : 'info@omsmba.online'}
+                  <a href={`mailto:${config.email}`} className="text-primary-foreground hover:text-primary transition-colors text-sm">
+                    {config.email}
                   </a>
                 </div>
               </li>
@@ -119,7 +128,7 @@ const Footer = () => {
                 <div>
                   <p className="text-sm text-primary-foreground/70">Địa chỉ</p>
                   <p className="text-primary-foreground text-sm">
-                    {isDichVuKho ? 'Hệ thống kho bãi tại TPHCM & Hà Nội' : '40/8 Lê Thị Ánh, Phường Tân Thới Nhất, Quận 12, TPHCM'}
+                    {config.address}
                   </p>
                 </div>
               </li>
@@ -132,7 +141,7 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="container-section py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-primary-foreground/60 text-center md:text-left">
-            © {new Date().getFullYear()} {isDichVuKho ? 'DichVuKho.vn' : 'MBA Fulfillment Việt Nam'}. All rights reserved.
+            © {new Date().getFullYear()} {config.name}. All rights reserved.
           </p>
           <button
             onClick={scrollToTop}
