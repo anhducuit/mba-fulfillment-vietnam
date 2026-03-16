@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { toast } from "sonner";
 import Logo from "./Logo";
+import { getSiteConfig } from "@/config/siteConfig";
 
 interface ContactSectionProps {
   hideTitle?: boolean;
@@ -14,6 +15,7 @@ interface ContactSectionProps {
 }
 
 const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionProps) => {
+  const config = getSiteConfig();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -196,7 +198,7 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Điện thoại</h4>
-                    <a href="tel:0948078599" className="text-primary hover:underline">0948 078 599</a>
+                    <a href={`tel:${config.phone}`} className="text-primary hover:underline">{config.phoneFormatted}</a>
                   </div>
                 </div>
 
@@ -206,7 +208,7 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Email</h4>
-                    <a href="mailto:info@omsmba.online" className="text-primary hover:underline">info@omsmba.online</a>
+                    <a href={`mailto:${config.email}`} className="text-primary hover:underline">{config.email}</a>
                   </div>
                 </div>
 
@@ -216,7 +218,7 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground">Địa chỉ</h4>
-                    <p className="text-muted-foreground">40/8 Lê Thị Ánh, Phường Tân Thới Nhất, Quận 12, TPHCM</p>
+                    <p className="text-muted-foreground">{config.address}</p>
                   </div>
                 </div>
               </div>

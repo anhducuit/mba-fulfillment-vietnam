@@ -21,7 +21,7 @@ export const sites: Record<string, SiteConfig> = {
     domain: "omsmba.online",
     logo: "/logo.png",
     primaryColor: "primary",
-    email: "info@omsmba.online",
+    email: "mbafulfillmentvn@gmail.com",
     phone: "0948078599",
     phoneFormatted: "0948 078 599",
     address: "40/8 Lê Thị Ánh, Phường Tân Thới Nhất, Quận 12, TPHCM",

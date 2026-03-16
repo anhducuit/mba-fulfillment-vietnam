@@ -68,7 +68,7 @@ const getSystemPrompt = () => {
 
 **THÔNG TIN LIÊN HỆ:**
 - Điện thoại: 0948 078 599
-- Email: info@omsmba.online
+- Email: mbafulfillmentvn@gmail.com
 - Địa chỉ: 40/8 Lê Thị Ánh, Phường Tân Thới Nhất, Quận 12, TPHCM
 - Facebook: https://www.facebook.com/mbafulfillment
 - LinkedIn: https://www.linkedin.com/company/110198128

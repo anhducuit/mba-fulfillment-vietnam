@@ -3,8 +3,10 @@ import Footer from "@/components/Footer";
 import ContactSection from "@/components/ContactSection";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, MessageSquare, HeadphonesIcon } from "lucide-react";
+import { getSiteConfig } from "@/config/siteConfig";
 
 const Contact = () => {
+    const config = getSiteConfig();
     return (
         <div className="min-h-screen bg-background">
             <Header />
@@ -33,7 +35,7 @@ const Contact = () => {
                             </div>
                             <h3 className="text-xl font-bold mb-2">Điện thoại</h3>
                             <p className="text-muted-foreground mb-4">Tư vấn 24/7</p>
-                            <a href="tel:0948078599" className="text-2xl font-bold text-primary hover:underline">0948 078 599</a>
+                            <a href={`tel:${config.phone}`} className="text-2xl font-bold text-primary hover:underline">{config.phoneFormatted}</a>
                         </div>
 
                         <div className="bg-card p-8 rounded-3xl border border-border text-center">
@@ -42,7 +44,7 @@ const Contact = () => {
                             </div>
                             <h3 className="text-xl font-bold mb-2">Email</h3>
                             <p className="text-muted-foreground mb-4">Phản hồi trong 2h</p>
-                            <a href="mailto:info@omsmba.online" className="text-lg font-bold text-primary hover:underline break-words">info@omsmba.online</a>
+                            <a href={`mailto:${config.email}`} className="text-lg font-bold text-primary hover:underline break-words">{config.email}</a>
                         </div>
 
                         <div className="bg-card p-8 rounded-3xl border border-border text-center">
@@ -97,7 +99,7 @@ const Contact = () => {
                             </div>
                             <h2 className="text-3xl font-bold">MBA Fulfillment Việt Nam</h2>
                             <p className="text-xl text-muted-foreground leading-relaxed">
-                                40/8 Lê Thị Ánh, Phường Tân Thới Nhất, Quận 12, TP. Hồ Chí Minh
+                                {config.address}
                             </p>
                             <div className="pt-6">
                                 <a
