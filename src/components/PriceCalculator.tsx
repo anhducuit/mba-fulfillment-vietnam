@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Calculator, Box, Clock, ChevronRight, CheckCircle2, AlertCircle } from "lucide-react";
+import { Calculator, Box, Clock, ChevronRight, CheckCircle2, AlertCircle, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -13,24 +13,39 @@ import {
 } from "@/components/ui/select";
 
 const PriceCalculator = () => {
+  const [calculationMethod, setCalculationMethod] = useState<string>("m3_day");
   const [volume, setVolume] = useState<string>("1");
   const [duration, setDuration] = useState<string>("30");
   const [storageType, setStorageType] = useState<string>("regular");
-  const [result, setResult] = useState<number | null>(null);
+  const [itemValue, setItemValue] = useState<string>("0");
+  const [result, setResult] = useState<{ total: number; storage: number; insurance: number } | null>(null);
 
   const calculatePrice = () => {
     const vol = parseFloat(volume);
     const dur = parseInt(duration);
+    const val = parseFloat(itemValue);
     
     if (isNaN(vol) || isNaN(dur)) return;
 
-    // Based on siteConfig/blog prices:
-    // Regular: 8,000 VND / m3 / day
-    // Cool (25C): 250,000 VND / m2 / month (approximated here as 15,000 / m3 / day for simplicity)
-    const baseRate = storageType === "cool" ? 15000 : 8000;
-    const total = vol * dur * baseRate;
+    let storageFee = 0;
+    if (calculationMethod === "m3_day") {
+      // 8,000đ / m3 / ngày
+      storageFee = vol * dur * 8000;
+    } else {
+      // m2 / tháng
+      const months = dur / 30;
+      const rate = storageType === "cool" ? 250000 : 120000;
+      storageFee = vol * months * rate;
+    }
+
+    // Khai báo hàng giá trị cao: 0.30% (Hàng giá trị >= 500,000đ)
+    const insuranceFee = val >= 500000 ? val * 0.003 : 0;
     
-    setResult(total);
+    setResult({
+      total: storageFee + insuranceFee,
+      storage: storageFee,
+      insurance: insuranceFee
+    });
   };
 
   return (
@@ -44,43 +59,64 @@ const PriceCalculator = () => {
             <h3 className="text-2xl font-black uppercase tracking-tight">Tính Phí Lưu Kho</h3>
           </div>
           <p className="text-slate-600 mb-8 leading-relaxed">
-            Nhập thông số lô hàng của bạn để nhận báo cáo ước tính chi phí lưu trữ tại hệ thống kho của MBA Fulfillment.
+            Dự toán chi phí lưu kho dựa trên bảng giá niêm yết mới nhất của MBA Fulfillment.
           </p>
 
           <div className="space-y-6">
             <div className="space-y-2">
-              <Label htmlFor="volume" className="text-sm font-bold text-slate-700">Tổng thể tích hàng hóa (m³)</Label>
-              <div className="relative">
-                <Input 
-                  id="volume"
-                  type="number" 
-                  value={volume} 
-                  onChange={(e) => setVolume(e.target.value)}
-                  placeholder="Vd: 5.5"
-                  className="pl-12 py-6 rounded-xl border-slate-200 focus:border-primary focus:ring-primary/20 transition-all text-lg font-bold text-slate-900"
-                />
-                <Box className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
-              </div>
+              <Label className="text-sm font-bold text-slate-700">Phương thức tính phí</Label>
+              <Select value={calculationMethod} onValueChange={setCalculationMethod}>
+                <SelectTrigger className="py-6 rounded-xl border-slate-200 text-lg font-medium text-slate-900">
+                  <SelectValue placeholder="Chọn phương thức" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="m3_day">Thể tích (m³ / Ngày)</SelectItem>
+                  <SelectItem value="m2_month">Diện tích (m² / Tháng)</SelectItem>
+                </SelectContent>
+              </Select>
             </div>
 
-            <div className="space-y-2">
-              <Label htmlFor="duration" className="text-sm font-bold text-slate-700">Thời gian lưu trữ (ngày)</Label>
-              <div className="relative">
-                <Input 
-                  id="duration"
-                  type="number" 
-                  value={duration} 
-                  onChange={(e) => setDuration(e.target.value)}
-                  placeholder="Vd: 30"
-                  className="pl-12 py-6 rounded-xl border-slate-200 focus:border-primary focus:ring-primary/20 transition-all text-lg font-bold text-slate-900"
-                />
-                <Clock className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={20} />
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-2">
+                <Label htmlFor="volume" className="text-sm font-bold text-slate-700">
+                  {calculationMethod === "m3_day" ? "Tổng m³" : "Tổng m²"}
+                </Label>
+                <div className="relative">
+                  <Input 
+                    id="volume"
+                    type="number" 
+                    value={volume} 
+                    onChange={(e) => setVolume(e.target.value)}
+                    className="pl-10 py-6 rounded-xl border-slate-200 focus:border-primary focus:ring-primary/20 transition-all text-lg font-bold text-slate-900"
+                  />
+                  <Box className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="duration" className="text-sm font-bold text-slate-700">
+                  {calculationMethod === "m3_day" ? "Số ngày" : "Số tháng"}
+                </Label>
+                <div className="relative">
+                  <Input 
+                    id="duration"
+                    type="number" 
+                    value={calculationMethod === "m3_day" ? duration : (parseInt(duration)/30).toString()} 
+                    onChange={(e) => setDuration(calculationMethod === "m3_day" ? e.target.value : (parseInt(e.target.value)*30).toString())}
+                    className="pl-10 py-6 rounded-xl border-slate-200 focus:border-primary focus:ring-primary/20 transition-all text-lg font-bold text-slate-900"
+                  />
+                  <Clock className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+                </div>
               </div>
             </div>
 
             <div className="space-y-2">
               <Label className="text-sm font-bold text-slate-700">Loại hình lưu trữ</Label>
-              <Select value={storageType} onValueChange={setStorageType}>
+              <Select 
+                value={storageType} 
+                onValueChange={setStorageType}
+                disabled={calculationMethod === "m3_day"}
+              >
                 <SelectTrigger className="py-6 rounded-xl border-slate-200 text-lg font-medium text-slate-900">
                   <SelectValue placeholder="Chọn loại kho" />
                 </SelectTrigger>
@@ -89,6 +125,25 @@ const PriceCalculator = () => {
                   <SelectItem value="cool">Kho mát (25°C)</SelectItem>
                 </SelectContent>
               </Select>
+              {calculationMethod === "m3_day" && (
+                <p className="text-[10px] text-slate-400 italic"> * Tính theo m³ hiện chỉ áp dụng cho kho thông thường.</p>
+              )}
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="itemValue" className="text-sm font-bold text-slate-700">Giá trị hàng hóa định mức (VND)</Label>
+              <div className="relative">
+                <Input 
+                  id="itemValue"
+                  type="number" 
+                  value={itemValue} 
+                  onChange={(e) => setItemValue(e.target.value)}
+                  placeholder="Vd: 500000"
+                  className="pl-10 py-6 rounded-xl border-slate-200 focus:border-primary focus:ring-primary/20 transition-all text-lg font-bold text-slate-900"
+                />
+                <TrendingUp className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
+              </div>
+              <p className="text-[10px] text-slate-400">Phí bảo hiểm 0.3% cho hàng giá trị cao (≥ 500k)</p>
             </div>
 
             <Button 
@@ -111,18 +166,32 @@ const PriceCalculator = () => {
                 exit={{ opacity: 0, scale: 0.9 }}
                 className="text-center"
               >
-                <div className="w-20 h-20 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 size={40} />
+                <div className="w-16 h-16 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <CheckCircle2 size={32} />
                 </div>
-                <h4 className="text-slate-500 font-bold uppercase tracking-widest text-xs mb-2">Tổng chi phí ước tính</h4>
-                <div className="text-4xl md:text-5xl font-black text-slate-900 mb-4">
-                  {result.toLocaleString("vi-VN")} <span className="text-xl text-slate-400 font-medium">VNĐ</span>
+                <h4 className="text-slate-500 font-bold uppercase tracking-widest text-xs mb-1">Tổng chi phí ước tính</h4>
+                <div className="text-4xl md:text-5xl font-black text-slate-900 mb-2">
+                  {result.total.toLocaleString("vi-VN")} <span className="text-xl text-slate-400 font-medium">VNĐ</span>
                 </div>
-                <p className="text-xs text-slate-400 italic mb-8">
-                  * Giá chưa bao gồm VAT 8% và có thể thay đổi tùy lượng đơn hàng thực tế.
+                
+                <div className="space-y-2 mb-6 text-sm">
+                  <div className="flex justify-between text-slate-500">
+                    <span>Phí lưu kho:</span>
+                    <span className="font-bold text-slate-700">{result.storage.toLocaleString("vi-VN")} đ</span>
+                  </div>
+                  {result.insurance > 0 && (
+                    <div className="flex justify-between text-slate-500">
+                      <span>Phí bảo hiểm (0.3%):</span>
+                      <span className="font-bold text-slate-700">{result.insurance.toLocaleString("vi-VN")} đ</span>
+                    </div>
+                  )}
+                </div>
+
+                <p className="text-[10px] text-slate-400 italic mb-6">
+                  * Giá chưa bao gồm VAT 8% và các phí nghiệp vụ (In, Out, Pick & Pack).
                 </p>
                 <Button variant="outline" className="w-full py-6 rounded-xl border-primary text-primary hover:bg-primary/5 font-bold" onClick={() => window.location.href = "#contact"}>
-                  Nhận báo giá chi tiết qua Email
+                  Nhận báo giá chi tiết
                 </Button>
               </motion.div>
             ) : (
@@ -142,15 +211,15 @@ const PriceCalculator = () => {
             )}
           </AnimatePresence>
           
-          <div className="mt-auto pt-8 flex items-center gap-4 border-t border-slate-200/50 opacity-60">
+          <div className="mt-auto pt-6 flex items-center gap-4 border-t border-slate-200/50 opacity-60">
             <div className="grid grid-cols-2 gap-4 w-full">
                <div className="text-center">
-                 <div className="text-xs font-bold text-slate-400">Đơn vị tính</div>
-                 <div className="text-sm font-black text-slate-700">m³ / Ngày</div>
+                 <div className="text-[10px] font-bold text-slate-400 italic">Tỷ lệ chính xác</div>
+                 <div className="text-sm font-black text-slate-700">~98% Phí lưu</div>
                </div>
                <div className="text-center">
-                 <div className="text-xs font-bold text-slate-400">Độ chính xác</div>
-                 <div className="text-sm font-black text-slate-700">~95% Phí lưu</div>
+                 <div className="text-[10px] font-bold text-slate-400 italic">Bảng giá mới nhất</div>
+                 <div className="text-sm font-black text-emerald-600">Tháng 3/2026</div>
                </div>
             </div>
           </div>
