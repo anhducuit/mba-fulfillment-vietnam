@@ -11,6 +11,18 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { BlogPost } from "../Blog/types";
 
+const slugify = (text: string) => {
+  return text
+    .toString()
+    .normalize('NFD')                   // split accented characters into their base characters and diacritical marks
+    .replace(/[\u0300-\u036f]/g, '')   // remove all the accents
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')         // remove non-alphanumeric characters (except spaces and dashes)
+    .replace(/[\s_-]+/g, '-')          // replace spaces, underscores, and multiple dashes with a single dash
+    .replace(/^-+|-+$/g, '');          // remove leading and trailing dashes
+};
+
 const AdminBlog = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [password, setPassword] = useState("");
@@ -57,7 +69,7 @@ const AdminBlog = () => {
     e.preventDefault();
     const postData = {
       ...currentPost,
-      slug: currentPost.title?.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "") || "",
+      slug: currentPost.slug || slugify(currentPost.title || ""),
       date: new Date().toISOString().split("T")[0],
       author: currentPost.author || "MBA Fulfillment",
       tags: typeof currentPost.tags === 'string' 
@@ -197,6 +209,16 @@ const AdminBlog = () => {
                       placeholder="Vd: Kiến thức Logistics"
                       className="py-6 rounded-xl border-slate-200"
                     />
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="font-bold">Đường dẫn bài viết (Slug)</Label>
+                    <Input 
+                      value={currentPost.slug || (currentPost.title ? slugify(currentPost.title) : "")} 
+                      onChange={(e) => setCurrentPost({ ...currentPost, slug: e.target.value })}
+                      placeholder="vd: gia-xang-dau-hom-nay"
+                      className="py-6 rounded-xl border-slate-200 font-mono text-sm"
+                    />
+                    <p className="text-[10px] text-slate-400 italic">* Để trống để tự động tạo từ tiêu đề</p>
                   </div>
                   <div className="space-y-2">
                     <Label className="font-bold">Ảnh đại diện (Link URL)</Label>
