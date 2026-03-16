@@ -60,6 +60,9 @@ const AdminBlog = () => {
       slug: currentPost.title?.toLowerCase().replace(/ /g, "-").replace(/[^\w-]+/g, "") || "",
       date: new Date().toISOString().split("T")[0],
       author: currentPost.author || "MBA Fulfillment",
+      tags: typeof currentPost.tags === 'string' 
+        ? (currentPost.tags as string).split(',').map(tag => tag.trim()).filter(tag => tag !== "")
+        : currentPost.tags || []
     };
 
     if (currentPost.id) {
@@ -201,6 +204,15 @@ const AdminBlog = () => {
                       value={currentPost.image || ""} 
                       onChange={(e) => setCurrentPost({ ...currentPost, image: e.target.value })}
                       placeholder="https://example.com/image.jpg"
+                      className="py-6 rounded-xl border-slate-200"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <Label className="font-bold">Tags (Cách nhau bằng dấu phẩy)</Label>
+                    <Input 
+                      value={Array.isArray(currentPost.tags) ? currentPost.tags.join(', ') : currentPost.tags || ""} 
+                      onChange={(e) => setCurrentPost({ ...currentPost, tags: e.target.value as any })}
+                      placeholder="Vd: Logistics, Fulfillment, Xu hướng"
                       className="py-6 rounded-xl border-slate-200"
                     />
                   </div>
