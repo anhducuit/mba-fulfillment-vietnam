@@ -31,17 +31,15 @@ const HeroSection = () => {
           </span>
         </motion.div>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl md:text-6xl lg:text-8xl font-extrabold text-primary-foreground leading-[1.1] mb-8 max-w-4xl"
-        >
-          <Trans i18nKey="hero.title">
-            Nâng Tầm Vận Hành <br />
-            <span className="text-primary italic">Bứt Phá</span> Doanh Số
-          </Trans>
-        </motion.h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-6xl lg:text-8xl font-extrabold text-primary-foreground leading-[1.1] mb-8 max-w-4xl"
+          >
+            {t("hero.title_part1")} <br />
+            <span className="text-primary italic">{t("hero.title_accent")}</span> {t("hero.title_part2")}
+          </motion.h1>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}

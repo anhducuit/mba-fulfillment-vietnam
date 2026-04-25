@@ -17,7 +17,9 @@
   },
   "hero": {
     "badge": "🚀 Đối tác Fulfillment #1 tại Việt Nam",
-    "title": "Nâng Tầm Vận Hành <1>Bứt Phá</1> Doanh Số",
+    "title_part1": "Nâng Tầm Vận Hành",
+    "title_accent": "Bứt Phá",
+    "title_part2": "Doanh Số",
     "subtitle": "Hệ thống Fulfillment chuẩn 4.0 giúp bạn tự động hóa kinh doanh đa sàn, tối ưu chi phí và bùng nổ doanh số với công nghệ WMS hàng đầu.",
     "cta_try": "Dùng thử ngay",
     "cta_services": "Khám phá dịch vụ"
