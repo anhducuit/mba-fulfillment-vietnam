@@ -9,4 +9,5 @@ export type BlogPost = {
   image: string;
   category: string;
   tags: string[];
+  language: string;
 };

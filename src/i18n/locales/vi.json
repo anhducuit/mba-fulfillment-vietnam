@@ -1,0 +1,40 @@
+{
+  "nav": {
+    "home": "Trang chủ",
+    "services": "Dịch vụ",
+    "solutions": "Giải pháp",
+    "process": "Quy trình",
+    "warehouse": "Dịch vụ kho",
+    "blog": "Blog",
+    "contact": "Liên hệ",
+    "admin": "Quản trị"
+  },
+  "topbar": {
+    "dichvukho": "Dịch vụ kho hàng chuyên nghiệp TPHCM & Hà Nội",
+    "main": "Giải pháp fulfillment hàng đầu Việt Nam",
+    "access_account": "Truy cập tài khoản",
+    "get_quote": "Nhận báo giá"
+  },
+  "hero": {
+    "badge": "🚀 Đối tác Fulfillment #1 tại Việt Nam",
+    "title": "Nâng Tầm Vận Hành <1>Bứt Phá</1> Doanh Số",
+    "subtitle": "Hệ thống Fulfillment chuẩn 4.0 giúp bạn tự động hóa kinh doanh đa sàn, tối ưu chi phí và bùng nổ doanh số với công nghệ WMS hàng đầu.",
+    "cta_try": "Dùng thử ngay",
+    "cta_services": "Khám phá dịch vụ"
+  },
+  "blog": {
+    "title": "Blog Kiến Thức <1>Logistics</1>",
+    "subtitle": "Nâng tầm kiến thức vận hành, tối ưu chi phí và bứt phá doanh số cùng các chuyên gia từ {{name}}.",
+    "loading": "Đang tải dữ liệu bài viết mới nhất...",
+    "no_posts": "Chưa có bài viết nào ngôn ngữ này.",
+    "read_more": "Đọc tiếp",
+    "meta_title": "Blog Kiến Thức Logistics & Fulfillment",
+    "meta_description": "Chia sẻ kiến thức, kinh nghiệm và xu hướng mới nhất về kho bãi, fulfillment và giải pháp tăng trưởng thương mại điện tử."
+  },
+  "common": {
+    "loading": "Đang tải...",
+    "error": "Có lỗi xảy ra",
+    "see_more": "Xem thêm",
+    "contact_us": "Liên hệ ngay"
+  }
+}

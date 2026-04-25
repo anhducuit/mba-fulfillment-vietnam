@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
 import { Search, ArrowRight, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation, Trans } from "react-i18next";
 import heroImage from "@/assets/modern-hero-warehouse.png";
 
 const HeroSection = () => {
+  const { t } = useTranslation();
   return (
     <section
       id="home"
@@ -25,7 +27,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6 }}
         >
           <span className="inline-block px-4 py-2 bg-primary/20 text-primary-foreground rounded-full text-sm font-semibold mb-6 backdrop-blur-md border border-primary/30">
-            🚀 #1 Fulfillment Partner in Vietnam
+            {t("hero.badge")}
           </span>
         </motion.div>
 
@@ -35,8 +37,10 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-4xl md:text-6xl lg:text-8xl font-extrabold text-primary-foreground leading-[1.1] mb-8 max-w-4xl"
         >
-          Nâng Tầm Vận Hành <br />
-          <span className="text-primary italic">Bứt Phá</span> Doanh Số
+          <Trans i18nKey="hero.title">
+            Nâng Tầm Vận Hành <br />
+            <span className="text-primary italic">Bứt Phá</span> Doanh Số
+          </Trans>
         </motion.h1>
 
         <motion.p
@@ -45,8 +49,7 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="text-lg md:text-xl text-primary-foreground/80 mb-12 max-w-3xl leading-relaxed"
         >
-          Hệ thống Fulfillment chuẩn 4.0 giúp bạn tự động hóa kinh doanh đa sàn,
-          tối ưu chi phí và bùng nổ doanh số với công nghệ WMS hàng đầu.
+          {t("hero.subtitle")}
         </motion.p>
 
         <motion.div
@@ -60,7 +63,7 @@ const HeroSection = () => {
             onClick={() => window.location.href = "/contact"}
           >
             <FileText className="w-6 h-6" />
-            Dùng thử ngay
+            {t("hero.cta_try")}
             <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-2" />
           </Button>
           <Button
@@ -68,7 +71,7 @@ const HeroSection = () => {
             className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 text-lg px-10 py-8"
             onClick={() => window.location.href = "/services"}
           >
-            Khám phá dịch vụ
+            {t("hero.cta_services")}
           </Button>
         </motion.div>
       </div>

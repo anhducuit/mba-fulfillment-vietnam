@@ -9,38 +9,47 @@ import { getSiteConfig } from "@/config/siteConfig";
 import { supabase } from "@/integrations/supabase/client";
 import { BlogPost } from "./types";
 import { useState, useEffect } from "react";
+import { useTranslation, Trans } from "react-i18next";
 
 const BlogIndex = () => {
+  const { t, i18n } = useTranslation();
   const config = getSiteConfig();
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const fetchPosts = async () => {
+      setIsLoading(true);
+      const currentLang = i18n.language || 'vi';
+      
       const { data, error } = await supabase
         .from("blog_posts")
         .select("*")
+        .eq("language", currentLang)
         .order("date", { ascending: false });
 
       if (error) {
         console.error("Error fetching posts:", error);
-        setPosts(staticBlogPosts); // Fallback to static if error
+        // Filter static posts by language as fallback
+        const filteredStatic = staticBlogPosts.filter(p => (p as any).language === currentLang || (! (p as any).language && currentLang === 'vi'));
+        setPosts(filteredStatic as BlogPost[]);
       } else if (data && data.length > 0) {
         setPosts(data as BlogPost[]);
       } else {
-        setPosts(staticBlogPosts); // Fallback if no data in DB yet
+        const filteredStatic = staticBlogPosts.filter(p => (p as any).language === currentLang || (! (p as any).language && currentLang === 'vi'));
+        setPosts(filteredStatic as BlogPost[]);
       }
       setIsLoading(false);
     };
 
     fetchPosts();
-  }, []);
+  }, [i18n.language]);
 
   return (
     <div className="min-h-screen bg-slate-50">
       <Helmet>
-        <title>Blog Kiến Thức Logistics & Fulfillment | {config.name}</title>
-        <meta name="description" content="Chia sẻ kiến thức, kinh nghiệm và xu hướng mới nhất về kho bãi, fulfillment và giải pháp tăng trưởng thương mại điện tử." />
+        <title>{t("blog.meta_title")} | {config.name}</title>
+        <meta name="description" content={t("blog.meta_description")} />
       </Helmet>
 
       <Header />
@@ -52,10 +61,12 @@ const BlogIndex = () => {
             animate={{ opacity: 1, y: 0 }}
           >
             <h1 className="text-4xl md:text-6xl font-black mb-6 text-slate-900">
-              Blog Kiến Thức <span className="text-primary italic">Logistics</span>
+              <Trans i18nKey="blog.title">
+                Blog Kiến Thức <span className="text-primary italic">Logistics</span>
+              </Trans>
             </h1>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              Nâng tầm kiến thức vận hành, tối ưu chi phí và bứt phá doanh số cùng các chuyên gia từ {config.name}.
+              {t("blog.subtitle", { name: config.name })}
             </p>
           </motion.div>
         </div>
@@ -64,7 +75,11 @@ const BlogIndex = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {isLoading ? (
               <div className="col-span-full py-24 text-center text-slate-400 font-bold">
-                Đang tải dữ liệu bài viết mới nhất...
+                {t("blog.loading")}
+              </div>
+            ) : posts.length === 0 ? (
+              <div className="col-span-full py-24 text-center text-slate-400 font-bold">
+                {t("blog.no_posts")}
               </div>
             ) : posts.map((post, i) => (
               <motion.article 
@@ -98,8 +113,8 @@ const BlogIndex = () => {
                     <div className="flex items-center gap-2 text-sm font-medium text-slate-500">
                       <User size={16} /> {post.author}
                     </div>
-                    <Link to={`/blog/${post.slug}`} className="flex items-center gap-2 font-bold text-primary hover:gap-3 transition-all">
-                      Đọc tiếp <ArrowRight size={18} />
+                     <Link to={`/blog/${post.slug}`} className="flex items-center gap-2 font-bold text-primary hover:gap-3 transition-all">
+                      {t("blog.read_more")} <ArrowRight size={18} />
                     </Link>
                   </div>
                 </div>

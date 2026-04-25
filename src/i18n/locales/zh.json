@@ -1,0 +1,40 @@
+{
+  "nav": {
+    "home": "首页",
+    "services": "服务",
+    "solutions": "解决方案",
+    "process": "流程",
+    "warehouse": "仓储服务",
+    "blog": "博客",
+    "contact": "联系我们",
+    "admin": "管理"
+  },
+  "topbar": {
+    "dichvukho": "胡志明市和河内专业仓储服务",
+    "main": "越南领先的履行解决方案",
+    "access_account": "访问账户",
+    "get_quote": "获取报价"
+  },
+  "hero": {
+    "badge": "🚀 越南排名第一的履行合作伙伴",
+    "title": "提升运营 <1>突破</1> 销售额",
+    "subtitle": "4.0 标准履行系统帮助您自动化多平台业务，利用领先的 WMS 技术优化成本并实现销售爆发。",
+    "cta_try": "立即试用",
+    "cta_services": "探索服务"
+  },
+  "blog": {
+    "title": "<1>物流</1> 知识博客",
+    "subtitle": "与来自 {{name}} 的专家一起提升运营知识、优化成本并突破销售额。",
+    "loading": "正在加载最新文章...",
+    "no_posts": "该语言暂无文章。",
+    "read_more": "阅读更多",
+    "meta_title": "物流与履行知识博客",
+    "meta_description": "分享关于仓储、履行和电子商务增长解决方案的最新知识、经验和趋势。"
+  },
+  "common": {
+    "loading": "正在加载...",
+    "error": "发生错误",
+    "see_more": "查看更多",
+    "contact_us": "立即联系"
+  }
+}

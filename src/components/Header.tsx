@@ -3,27 +3,30 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, Phone, Mail, Bot } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Logo from "./Logo";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "react-i18next";
 
 import { getSiteConfig } from "@/config/siteConfig";
 
 const Header = () => {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const config = getSiteConfig();
   const isDichVuKho = config.domain === "dichvukho.vn";
 
   const navItems = isDichVuKho ? [
-    { label: "Trang chủ", href: "/dichvukho#" },
-    { label: "Dịch vụ", href: "/dichvukho#services" },
-    { label: "Quy trình", href: "/dichvukho#process" },
-    { label: "Blog", href: "/blog" },
-    { label: "Liên hệ", href: "/dichvukho#contact" },
+    { label: t("nav.home"), href: "/dichvukho#" },
+    { label: t("nav.services"), href: "/dichvukho#services" },
+    { label: t("nav.process"), href: "/dichvukho#process" },
+    { label: t("nav.blog"), href: "/blog" },
+    { label: t("nav.contact"), href: "/dichvukho#contact" },
   ] : [
-    { label: "Trang chủ", href: "/" },
-    { label: "Giải pháp", href: "/solutions" },
-    { label: "Dịch vụ", href: "/services" },
-    { label: "Quy trình", href: "/process" },
-    { label: "Blog", href: "/blog" },
-    { label: "Liên hệ", href: "/contact" },
+    { label: t("nav.home"), href: "/" },
+    { label: t("nav.solutions"), href: "/solutions" },
+    { label: t("nav.services"), href: "/services" },
+    { label: t("nav.process"), href: "/process" },
+    { label: t("nav.blog"), href: "/blog" },
+    { label: t("nav.contact"), href: "/contact" },
   ];
 
   return (
@@ -42,7 +45,10 @@ const Header = () => {
             </a>
           </div>
           <div className="text-primary-foreground/80">
-            {isDichVuKho ? 'Dịch vụ kho hàng chuyên nghiệp TPHCM & Hà Nội' : 'Giải pháp fulfillment hàng đầu Việt Nam'}
+            {isDichVuKho ? t("topbar.dichvukho") : t("topbar.main")}
+          </div>
+          <div className="md:ml-4">
+            <LanguageSwitcher />
           </div>
         </div>
       </div>
@@ -68,30 +74,36 @@ const Header = () => {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA Button & Language Switcher */}
           <div className="hidden lg:flex items-center gap-4">
+            <div className="lg:hidden">
+               <LanguageSwitcher />
+            </div>
             {!isDichVuKho && (
               <a href="https://theodoimba.vercel.app/" target="_blank" rel="noopener noreferrer">
                 <Button className="btn-primary">
-                  Truy cập tài khoản
+                  {t("topbar.access_account")}
                 </Button>
               </a>
             )}
             {isDichVuKho && (
               <Button className="btn-primary" onClick={() => window.location.href = "#contact"}>
-                Nhận báo giá
+                {t("topbar.get_quote")}
               </Button>
             )}
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2 text-foreground"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          {/* Mobile Actions */}
+          <div className="lg:hidden flex items-center gap-4">
+            <LanguageSwitcher />
+            <button
+              className="p-2 text-foreground"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </nav>
       </div>
 
@@ -118,7 +130,7 @@ const Header = () => {
               {!isDichVuKho && (
                 <a href="https://theodoimba.vercel.app/" target="_blank" rel="noopener noreferrer" className="block w-full">
                   <Button className="btn-primary w-full mt-4">
-                    Truy cập tài khoản
+                    {t("topbar.access_account")}
                   </Button>
                 </a>
               )}

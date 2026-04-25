@@ -74,7 +74,8 @@ const AdminBlog = () => {
       author: currentPost.author || "MBA Fulfillment",
       tags: typeof currentPost.tags === 'string' 
         ? (currentPost.tags as string).split(',').map(tag => tag.trim()).filter(tag => tag !== "")
-        : currentPost.tags || []
+        : currentPost.tags || [],
+      language: currentPost.language || 'vi'
     };
 
     if (currentPost.id) {
@@ -238,6 +239,27 @@ const AdminBlog = () => {
                       className="py-6 rounded-xl border-slate-200"
                     />
                   </div>
+                  <div className="space-y-2">
+                    <Label className="font-bold">Ngôn ngữ bài viết</Label>
+                    <div className="flex gap-4">
+                      <Button 
+                        type="button"
+                        variant={currentPost.language === 'vi' || !currentPost.language ? "default" : "outline"}
+                        onClick={() => setCurrentPost({ ...currentPost, language: 'vi' })}
+                        className="flex-1 rounded-xl py-6"
+                      >
+                        🇻🇳 Tiếng Việt
+                      </Button>
+                      <Button 
+                        type="button"
+                        variant={currentPost.language === 'zh' ? "default" : "outline"}
+                        onClick={() => setCurrentPost({ ...currentPost, language: 'zh' })}
+                        className="flex-1 rounded-xl py-6"
+                      >
+                        🇨🇳 中文
+                      </Button>
+                    </div>
+                  </div>
                 </div>
                 <div className="space-y-4">
                   <div className="space-y-2 text-primary font-bold">
@@ -277,6 +299,7 @@ const AdminBlog = () => {
                 <thead>
                   <tr className="bg-slate-50 border-b border-slate-100">
                     <th className="p-6 font-bold text-slate-400 uppercase text-xs tracking-widest">Tiêu đề - Ngày đăng</th>
+                    <th className="p-6 font-bold text-slate-400 uppercase text-xs tracking-widest">Ngôn ngữ</th>
                     <th className="p-6 font-bold text-slate-400 uppercase text-xs tracking-widest">Danh mục</th>
                     <th className="p-6 font-bold text-slate-400 uppercase text-xs tracking-widest text-right">Thao tác</th>
                   </tr>
@@ -293,6 +316,11 @@ const AdminBlog = () => {
                           {post.title}
                         </div>
                         <div className="text-sm text-slate-400 mt-1">{post.date}</div>
+                      </td>
+                      <td className="p-6">
+                        <span className="text-xl" title={post.language === 'zh' ? 'Tiếng Trung' : 'Tiếng Việt'}>
+                          {post.language === 'zh' ? '🇨🇳' : '🇻🇳'}
+                        </span>
                       </td>
                       <td className="p-6">
                         <span className="bg-primary/10 text-primary px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider">
