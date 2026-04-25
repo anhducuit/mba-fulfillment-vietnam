@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Phone, Mail, MapPin, Send, User, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -15,6 +16,7 @@ interface ContactSectionProps {
 }
 
 const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionProps) => {
+  const { t } = useTranslation();
   const config = getSiteConfig();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -37,14 +39,14 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
       });
 
       if (response.ok) {
-        toast.success("Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.");
+        toast.success(t("contact.form.success"));
         form.reset();
       } else {
-        toast.error("Có lỗi xảy ra. Vui lòng thử lại sau.");
+        toast.error(t("contact.form.error"));
       }
     } catch (error) {
       console.error(error);
-      toast.error("Có lỗi xảy ra. Vui lòng thử lại sau.");
+      toast.error(t("contact.form.error"));
     } finally {
       setIsSubmitting(false);
     }
@@ -58,31 +60,31 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
         transition={{ duration: 0.6 }}
       >
         <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-0 shadow-none">
-          <h3 className="text-2xl font-bold text-foreground mb-2">Liên hệ ngay</h3>
-          <p className="text-muted-foreground mb-6">Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất</p>
+          <h3 className="text-2xl font-bold text-foreground mb-2">{t("contact.form.title")}</h3>
+          <p className="text-muted-foreground mb-6">{t("contact.form.subtitle")}</p>
 
           <div className="space-y-4">
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Họ và tên *
+                  {t("contact.form.name_label")}
                 </label>
                 <Input
                   type="text"
                   name="name"
-                  placeholder="Nhập họ và tên"
+                  placeholder={t("contact.form.name_placeholder")}
                   required
                   className="w-full"
                 />
               </div>
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Số điện thoại *
+                  {t("contact.form.phone_label")}
                 </label>
                 <Input
                   type="tel"
                   name="phone"
-                  placeholder="Nhập số điện thoại"
+                  placeholder={t("contact.form.phone_placeholder")}
                   required
                   className="w-full"
                 />
@@ -91,12 +93,12 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
 
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">
-                Email *
+                {t("contact.form.email_label")}
               </label>
               <Input
                 type="email"
                 name="email"
-                placeholder="Nhập địa chỉ email"
+                placeholder={t("contact.form.email_placeholder")}
                 required
                 className="w-full"
               />
@@ -104,23 +106,23 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
 
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">
-                Tên công ty / Shop
+                {t("contact.form.company_label")}
               </label>
               <Input
                 type="text"
                 name="company"
-                placeholder="Nhập tên công ty hoặc shop"
+                placeholder={t("contact.form.company_placeholder")}
                 className="w-full"
               />
             </div>
 
             <div>
               <label className="block text-sm font-medium text-foreground mb-2">
-                Nội dung cần tư vấn
+                {t("contact.form.message_label")}
               </label>
               <Textarea
                 name="message"
-                placeholder="Mô tả nhu cầu của bạn..."
+                placeholder={t("contact.form.message_placeholder")}
                 rows={4}
                 className="w-full resize-none"
               />
@@ -132,11 +134,11 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
               disabled={isSubmitting}
             >
               {isSubmitting ? (
-                "Đang gửi..."
+                t("contact.form.submitting")
               ) : (
                 <>
                   <Send className="w-4 h-4" />
-                  Gửi yêu cầu tư vấn
+                  {t("contact.form.submit")}
                 </>
               )}
             </Button>
@@ -157,14 +159,13 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
             className="text-center mb-16"
           >
             <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-              Liên hệ với chúng tôi
+              {t("contact.badge")}
             </span>
             <h2 className="section-title mt-2">
-              Nhanh và dễ dàng
+              {t("contact.title")}
             </h2>
             <p className="section-subtitle">
-              MBA Fulfillment - Fulfill mọi đơn hàng của bạn.
-              Tiết kiệm thời gian, độ chính xác cao và minh bạch trong vận hành
+              {t("contact.subtitle")}
             </p>
           </motion.div>
         )}
@@ -187,8 +188,8 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
                     <User className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">Mr Dương - Sale Manager</h4>
-                    <p className="text-muted-foreground">Hỗ trợ tư vấn 24/7</p>
+                    <h4 className="font-semibold text-foreground">{t("contact.info.manager_name")}</h4>
+                    <p className="text-muted-foreground">{t("contact.info.support_247")}</p>
                   </div>
                 </div>
 
@@ -197,7 +198,7 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
                     <Phone className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">Điện thoại</h4>
+                    <h4 className="font-semibold text-foreground">{t("footer.contact_info.phone")}</h4>
                     <a href={`tel:${config.phone}`} className="text-primary hover:underline">{config.phoneFormatted}</a>
                   </div>
                 </div>
@@ -207,7 +208,7 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
                     <Mail className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">Email</h4>
+                    <h4 className="font-semibold text-foreground">{t("footer.contact_info.email")}</h4>
                     <a href={`mailto:${config.email}`} className="text-primary hover:underline">{config.email}</a>
                   </div>
                 </div>
@@ -217,8 +218,10 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">Địa chỉ</h4>
-                    <p className="text-muted-foreground">{config.address}</p>
+                    <h4 className="font-semibold text-foreground">{t("footer.contact_info.address")}</h4>
+                    <p className="text-muted-foreground">
+                      {config.domain === "dichvukho.vn" ? t("footer.contact_info.address_dichvukho") : t("footer.contact_info.address_main")}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -228,15 +231,15 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div>
                     <p className="text-2xl font-bold text-primary">↑</p>
-                    <p className="text-sm text-muted-foreground">Tăng doanh số bán hàng</p>
+                    <p className="text-sm text-muted-foreground">{t("contact.benefits.sales")}</p>
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-primary">⚡</p>
-                    <p className="text-sm text-muted-foreground">Tăng khả năng vận hành</p>
+                    <p className="text-sm text-muted-foreground">{t("contact.benefits.operation")}</p>
                   </div>
                   <div>
                     <p className="text-2xl font-bold text-primary">🎯</p>
-                    <p className="text-sm text-muted-foreground">Tập trung quản lý</p>
+                    <p className="text-sm text-muted-foreground">{t("contact.benefits.management")}</p>
                   </div>
                 </div>
               </div>
@@ -250,31 +253,31 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <form onSubmit={handleSubmit} className="bg-card rounded-2xl p-8 shadow-card">
-              <h3 className="text-2xl font-bold text-foreground mb-2">Liên hệ ngay</h3>
-              <p className="text-muted-foreground mb-6">Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất</p>
+              <h3 className="text-2xl font-bold text-foreground mb-2">{t("contact.form.title")}</h3>
+              <p className="text-muted-foreground mb-6">{t("contact.form.subtitle")}</p>
 
               <div className="space-y-4">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      Họ và tên *
+                      {t("contact.form.name_label")}
                     </label>
                     <Input
                       type="text"
                       name="name"
-                      placeholder="Nhập họ và tên"
+                      placeholder={t("contact.form.name_placeholder")}
                       required
                       className="w-full"
                     />
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-2">
-                      Số điện thoại *
+                      {t("contact.form.phone_label")}
                     </label>
                     <Input
                       type="tel"
                       name="phone"
-                      placeholder="Nhập số điện thoại"
+                      placeholder={t("contact.form.phone_placeholder")}
                       required
                       className="w-full"
                     />
@@ -283,12 +286,12 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Email *
+                    {t("contact.form.email_label")}
                   </label>
                   <Input
                     type="email"
                     name="email"
-                    placeholder="Nhập địa chỉ email"
+                    placeholder={t("contact.form.email_placeholder")}
                     required
                     className="w-full"
                   />
@@ -296,23 +299,23 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Tên công ty / Shop
+                    {t("contact.form.company_label")}
                   </label>
                   <Input
                     type="text"
                     name="company"
-                    placeholder="Nhập tên công ty hoặc shop"
+                    placeholder={t("contact.form.company_placeholder")}
                     className="w-full"
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-2">
-                    Nội dung cần tư vấn
+                    {t("contact.form.message_label")}
                   </label>
                   <Textarea
                     name="message"
-                    placeholder="Mô tả nhu cầu của bạn..."
+                    placeholder={t("contact.form.message_placeholder")}
                     rows={4}
                     className="w-full resize-none"
                   />
@@ -324,11 +327,11 @@ const ContactSection = ({ hideTitle = false, onlyForm = false }: ContactSectionP
                   disabled={isSubmitting}
                 >
                   {isSubmitting ? (
-                    "Đang gửi..."
+                    t("contact.form.submitting")
                   ) : (
                     <>
                       <Send className="w-4 h-4" />
-                      Gửi yêu cầu tư vấn
+                      {t("contact.form.submit")}
                     </>
                   )}
                 </Button>

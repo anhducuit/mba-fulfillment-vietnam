@@ -9,41 +9,44 @@ import {
   ClipboardCheck,
   Heart
 } from "lucide-react";
-
-const values = [
-  {
-    icon: MessageCircle,
-    title: "Tư vấn miễn phí 100%",
-    description: "Hỗ trợ tư vấn chuyên nghiệp hoàn toàn miễn phí",
-  },
-  {
-    icon: Layers,
-    title: "Tất cả trên một nền tảng",
-    description: "Quản lý tập trung mọi kênh bán hàng",
-  },
-  {
-    icon: Handshake,
-    title: "Đối tác tin cậy",
-    description: "Cam kết đồng hành lâu dài cùng khách hàng",
-  },
-  {
-    icon: Database,
-    title: "Quản lý chính xác dữ liệu kho",
-    description: "Theo dõi tồn kho real-time chính xác 100%",
-  },
-  {
-    icon: ClipboardCheck,
-    title: "Xử lý đơn hàng đúng cam kết",
-    description: "Đảm bảo SLA và thời gian giao hàng",
-  },
-  {
-    icon: Heart,
-    title: "Tận tâm, chuyên nghiệp",
-    description: "Đội ngũ chuyên gia giàu kinh nghiệm",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const ValuesSection = () => {
+  const { t } = useTranslation();
+
+  const values = [
+    {
+      icon: MessageCircle,
+      title: t("values.list.consulting.title"),
+      description: t("values.list.consulting.desc"),
+    },
+    {
+      icon: Layers,
+      title: t("values.list.platform.title"),
+      description: t("values.list.platform.desc"),
+    },
+    {
+      icon: Handshake,
+      title: t("values.list.partner.title"),
+      description: t("values.list.partner.desc"),
+    },
+    {
+      icon: Database,
+      title: t("values.list.wms.title"),
+      description: t("values.list.wms.desc"),
+    },
+    {
+      icon: ClipboardCheck,
+      title: t("values.list.fulfillment.title"),
+      description: t("values.list.fulfillment.desc"),
+    },
+    {
+      icon: Heart,
+      title: t("values.list.professional.title"),
+      description: t("values.list.professional.desc"),
+    },
+  ];
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -57,10 +60,10 @@ const ValuesSection = () => {
           className="text-center mb-16"
         >
           <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-            Tại sao chọn chúng tôi
+            {t("values.badge")}
           </span>
           <h2 className="section-title mt-2">
-            Giá Trị Chúng Tôi Mang Lại Cho Khách Hàng
+            {t("values.title")}
           </h2>
         </motion.div>
 
@@ -94,8 +97,8 @@ const ValuesSection = () => {
           <div className="inline-flex items-center gap-4 px-8 py-4 bg-primary/5 rounded-2xl border border-primary/20">
             <span className="text-primary font-bold text-4xl md:text-5xl">100+</span>
             <div className="text-left">
-              <p className="font-semibold text-foreground">Nhãn hàng</p>
-              <p className="text-sm text-muted-foreground">đã tin tưởng sử dụng dịch vụ</p>
+              <p className="font-semibold text-foreground">{t("values.trust.brands")}</p>
+              <p className="text-sm text-muted-foreground">{t("values.trust.subtitle")}</p>
             </div>
           </div>
         </motion.div>

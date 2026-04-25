@@ -6,34 +6,36 @@ import { Link } from "react-router-dom";
 import PriceCalculator from "@/components/PriceCalculator";
 import { CheckCircle2, ShoppingCart, BarChart3, ShieldCheck, Zap, Globe, PackageOpen, LayoutDashboard } from "lucide-react";
 import Logo from "@/components/Logo";
+import { useTranslation } from "react-i18next";
 
 const Solutions = () => {
+    const { t } = useTranslation();
     const jsonLd = {
         "@context": "https://schema.org",
         "@type": "Service",
-        "name": "Giải pháp Fulfillment TMĐT",
+        "name": t("solutions_page.meta.title"),
         "provider": {
             "@type": "Organization",
             "name": "MBA Fulfillment Việt Nam"
         },
-        "description": "Dịch vụ kho bãi, đóng gói và vận chuyển tự động hóa cho Shopee, Lazada, TikTok Shop.",
+        "description": t("solutions_page.meta.description"),
         "areaServed": "VN",
         "hasOfferCatalog": {
             "@type": "OfferCatalog",
-            "name": "Dịch vụ Fulfillment",
+            "name": t("services.badge"),
             "itemListElement": [
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Lưu kho thông minh"
+                        "name": t("services.items.storage.title")
                     }
                 },
                 {
                     "@type": "Offer",
                     "itemOffered": {
                         "@type": "Service",
-                        "name": "Đóng gói chuẩn hóa"
+                        "name": t("services.items.fulfillment.title")
                     }
                 }
             ]
@@ -42,39 +44,24 @@ const Solutions = () => {
 
     const categories = [
         {
-            title: "Fulfillment cho TMĐT",
+            title: t("solutions_page.categories.ecommerce.title"),
             icon: ShoppingCart,
-            description: "Giải pháp toàn diện giúp nhà bán hàng tối ưu quy trình từ khi khách chốt đơn đến khi nhận hàng.",
-            points: [
-                "Đồng bộ đơn hàng tự động từ Shopee, Lazada, TikTok Shop.",
-                "Quy trình Pick & Pack chuẩn hóa, hạn chế sai sót 99.9%.",
-                "Tự động cập nhật số lượng tồn kho lên tất cả các sàn.",
-                "Xử lý đơn hàng siêu tốc trong vòng 2-4 giờ kể từ khi phát sinh."
-            ],
+            description: t("solutions_page.categories.ecommerce.desc"),
+            points: t("solutions_page.categories.ecommerce.points", { returnObjects: true }) as string[],
             image: "/images/ecommerce_fulfillment.png"
         },
         {
-            title: "Giải pháp Logistics B2B",
+            title: t("solutions_page.categories.b2b.title"),
             icon: Truck,
-            description: "Hỗ trợ phân phối hàng hóa số lượng lớn cho các đại lý, hệ thống siêu thị và cửa hàng bán lẻ.",
-            points: [
-                "Quản lý lô hàng (Batch Management) và hạn sử dụng (FEFO/FIFO).",
-                "Vận chuyển cross-docking giúp tối ưu chi phí lưu kho.",
-                "Dịch vụ dán tem phụ, đóng gói kiện lớn chuyên nghiệp.",
-                "Báo cáo chi tiết luồng hàng đi và đến hàng ngày."
-            ],
+            description: t("solutions_page.categories.b2b.desc"),
+            points: t("solutions_page.categories.b2b.points", { returnObjects: true }) as string[],
             image: "/images/b2b_logistics.png"
         },
         {
-            title: "Công nghệ OMS & WMS",
+            title: t("solutions_page.categories.technology.title"),
             icon: LayoutDashboard,
-            description: "Nền tảng công nghệ mạnh mẽ giúp bạn quản lý kinh doanh mọi lúc mọi nơi.",
-            points: [
-                "Hệ thống OMS (Order Management System) tập trung mọi đơn hàng.",
-                "WMS (Warehouse Management System) quản lý vị trí kho chính xác.",
-                "Dashboard báo cáo thông minh, phân tích doanh thu và sản phẩm bán chạy.",
-                "Tích hợp API linh hoạt với các phần mềm kế toán và quản lý khác."
-            ],
+            description: t("solutions_page.categories.technology.desc"),
+            points: t("solutions_page.categories.technology.points", { returnObjects: true }) as string[],
             image: "/images/oms_wms_technology.png"
         }
     ];
@@ -82,8 +69,8 @@ const Solutions = () => {
     return (
         <div className="min-h-screen bg-background">
             <Helmet>
-                <title>Giải Pháp Vận Hành Thông Minh | MBA Fulfillment Việt Nam</title>
-                <meta name="description" content="Khám phá các giải pháp Fulfillment cho TMĐT, Logistics B2B và công nghệ quản lý kho WMS/OMS hiện đại nhất hiện nay." />
+                <title>{t("solutions_page.meta.title")}</title>
+                <meta name="description" content={t("solutions_page.meta.description")} />
                 <script type="application/ld+json">
                     {JSON.stringify(jsonLd)}
                 </script>
@@ -98,11 +85,10 @@ const Solutions = () => {
                         transition={{ duration: 0.6 }}
                     >
                         <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                            Giải Pháp <span className="text-primary">Vận Hành</span> Thông Minh
+                            {t("solutions_page.title_main")} <span className="text-primary">{t("solutions_page.title_highlight")}</span> {t("solutions_page.title_suffix")}
                         </h1>
                         <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                            Chúng tôi không chỉ là kho lưu giữ hàng hóa, chúng tôi là đối tác chiến lược
-                            giúp bạn mở rộng quy mô kinh doanh không giới hạn với công nghệ và quy trình chuyên nghiệp.
+                            {t("solutions_page.subtitle")}
                         </p>
                     </motion.div>
                 </section>
@@ -151,8 +137,8 @@ const Solutions = () => {
                 {/* Price Calculator Section */}
                 <section className="py-24 container-section">
                     <div className="text-center mb-16">
-                        <h2 className="text-4xl md:text-5xl font-black mb-4">Ước tính chi phí nhanh</h2>
-                        <p className="text-xl text-muted-foreground">Công cụ giúp bạn dự toán ngân sách lưu kho chỉ trong 30 giây.</p>
+                        <h2 className="text-4xl md:text-5xl font-black mb-4">{t("solutions_page.calculator.title")}</h2>
+                        <p className="text-xl text-muted-foreground">{t("solutions_page.calculator.subtitle")}</p>
                     </div>
                     <PriceCalculator />
                 </section>
@@ -160,12 +146,12 @@ const Solutions = () => {
                 {/* Value Propositions */}
                 <section className="bg-secondary/20 py-24 mt-24">
                     <div className="container-section">
-                        <h2 className="text-3xl font-bold text-center mb-16">Vì sao nên chọn MBA Fulfillment?</h2>
+                        <h2 className="text-3xl font-bold text-center mb-16">{t("solutions_page.why_us.title")}</h2>
                         <div className="grid md:grid-cols-3 gap-8">
                             {[
-                                { title: "Hệ thống bảo mật", desc: "Hàng hóa được giám sát camera 24/7 và hệ thống PCCC tiêu chuẩn.", icon: ShieldCheck },
-                                { title: "Tốc độ vượt trội", desc: "Đơn hàng chốt trước 14h sẽ được bàn giao cho đơn vị vận chuyển ngay trong ngày.", icon: Zap },
-                                { title: "Quy mô toàn quốc", desc: "Mạng lưới kho bãi tại các thành phố lớn giúp giảm phí ship và thời gian giao hàng.", icon: Globe },
+                                { title: t("solutions_page.why_us.security.title"), desc: t("solutions_page.why_us.security.desc"), icon: ShieldCheck },
+                                { title: t("solutions_page.why_us.speed.title"), desc: t("solutions_page.why_us.speed.desc"), icon: Zap },
+                                { title: t("solutions_page.why_us.scale.title"), desc: t("solutions_page.why_us.scale.desc"), icon: Globe },
                             ].map((item, i) => (
                                 <div key={i} className="bg-card p-8 rounded-2xl shadow-sm border border-border hover:shadow-md transition-shadow">
                                     <item.icon className="text-primary mb-6" size={32} />

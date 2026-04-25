@@ -1,4 +1,29 @@
 {
+  "homepage": {
+    "meta_title": "MBA Fulfillment Việt Nam | Giải pháp Fulfillment 4.0 hàng đầu",
+    "meta_description": "Nâng tầm vận hành doanh nghiệp với giải pháp Fulfillment 4.0. Lưu kho, đóng gói, vận chuyển tự động hóa đa sàn thương mại điện tử. SLA 99.9%."
+  },
+  "testimonials": {
+    "badge": "Khách hàng nói gì về chúng tôi",
+    "title": "Được tin tưởng bởi các đối tác",
+    "items": [
+      {
+        "name": "Nguyễn Văn Hùng",
+        "role": "Chủ shop Thời trang MenStyle",
+        "content": "Từ khi sử dụng MBA Fulfillment, tỷ lệ hoàn đơn của shop tôi giảm đáng kể nhờ quy trình đóng gói chắc chắn và giao hàng nhanh. Rất hài lòng với dịch vụ!"
+      },
+      {
+        "name": "Trần Thị Mai Phương",
+        "role": "Founder Mỹ phẩm Nature",
+        "content": "Hệ thống quản lý kho rất trực quan, tôi có thể kiểm soát tồn kho realtime ngay trên điện thoại. Đội ngũ support cũng rất nhiệt tình."
+      },
+      {
+        "name": "Lê Thanh Tùng",
+        "role": "CEO TechGadget VN",
+        "content": "Giải pháp tối ưu cho các doanh nghiệp TMĐT vừa và nhỏ. Chi phí hợp lý, minh bạch, không phát sinh thêm các khoản vô lý."
+      }
+    ]
+  },
   "nav": {
     "home": "Trang chủ",
     "services": "Dịch vụ",
@@ -24,19 +49,625 @@
     "cta_try": "Dùng thử ngay",
     "cta_services": "Khám phá dịch vụ"
   },
+  "services": {
+    "badge": "Our Expertise",
+    "title": "Giải Pháp Vận Hành Toàn Diện",
+    "subtitle": "Chúng tôi cung cấp các công cụ và dịch vụ hậu cần tốt nhất để giúp bạn mở rộng kinh doanh trên mọi nền tảng số.",
+    "list": {
+      "fulfillment": {
+        "title": "Giải pháp Fulfillment",
+        "desc": "Tối ưu toàn bộ quy trình từ lưu kho, đóng gói đến vận chuyển với chi phí tối thiểu."
+      },
+      "multichannel": {
+        "title": "Bán hàng Đa kênh B2B",
+        "desc": "Kết nối đa sàn TMĐT, quản lý tập trung đơn hàng trên một nền tảng duy nhất."
+      },
+      "wms": {
+        "title": "Hệ thống WMS",
+        "desc": "Quản lý kho thông minh, theo dõi tồn kho thời gian thực với độ chính xác tuyệt đối."
+      }
+    },
+    "learn_more": "Tìm hiểu thêm"
+  },
+  "stats": {
+    "badge": "Proven Excellence",
+    "title_part1": "Tối Ưu Vận Hành",
+    "title_accent": "Cam Kết Chất Lượng",
+    "subtitle": "Dù quy mô kinh doanh của bạn là gì, MBA Fulfillment mang đến sự an tâm tuyệt đối với các chỉ số vận hành chuẩn quốc tế, giúp bạn tập trung hoàn toàn vào tăng trưởng.",
+    "accuracy_inventory": "Độ chính xác tồn kho",
+    "shipped_today": "Đơn phát trong ngày",
+    "sla": "SLA đạt được với sàn TMĐT",
+    "shipping": "Vận chuyển trong 2 ngày",
+    "accuracy_label": "Độ chính xác",
+    "sellers": "Nhà bán hàng tin tưởng"
+  },
+  "process": {
+    "badge": "Our Flow",
+    "title": "Hành Trình Đơn Hàng Tối Ưu",
+    "subtitle": "Mọi khâu vận hành đều được tự động hóa bằng hệ thống WMS hiện đại, đảm bảo hàng hóa đến tay khách hàng nhanh nhất.",
+    "steps": {
+      "step1": "Kết nối & Đồng bộ",
+      "step2": "Nhập hàng & QC",
+      "step3": "Lưu kho Chuyên nghiệp",
+      "step4": "Xử lý Đơn hàng",
+      "step5": "Bàn giao Vận chuyển",
+      "step6": "Quản lý Đổi trả"
+    },
+    "view_details": "Chi tiết quy trình đạt chuẩn"
+  },
+  "values": {
+    "badge": "Tại sao chọn chúng tôi",
+    "title": "Giá Trị Chúng Tôi Mang Lại Cho Khách Hàng",
+    "list": {
+      "consulting": {
+        "title": "Tư vấn miễn phí 100%",
+        "desc": "Hỗ trợ tư vấn chuyên nghiệp hoàn toàn miễn phí"
+      },
+      "platform": {
+        "title": "Tất cả trên một nền tảng",
+        "desc": "Quản lý tập trung mọi kênh bán hàng"
+      },
+      "partner": {
+        "title": "Đối tác tin cậy",
+        "desc": "Cam kết đồng hành lâu dài cùng khách hàng"
+      },
+      "wms": {
+        "title": "Quản lý chính xác dữ liệu kho",
+        "desc": "Theo dõi tồn kho real-time chính xác 100%"
+      },
+      "fulfillment": {
+        "title": "Xử lý đơn hàng đúng cam kết",
+        "desc": "Đảm bảo SLA và thời gian giao hàng"
+      },
+      "professional": {
+        "title": "Tận tâm, chuyên nghiệp",
+        "desc": "Đội ngũ chuyên gia giàu kinh nghiệm"
+      }
+    },
+    "trust": {
+      "brands": "Nhãn hàng",
+      "subtitle": "đã tin tưởng sử dụng dịch vụ"
+    }
+  },
+  "footer": {
+    "sections": {
+      "services": "Dịch vụ",
+      "core_services": "Dịch vụ cốt lõi",
+      "links": "Liên kết nhanh",
+      "contact": "Liên hệ"
+    },
+    "service_list": {
+      "fulfillment": "Giải pháp Fulfillment",
+      "multichannel": "Bán hàng đa kênh B2B",
+      "custom_packaging": "Tùy chỉnh đóng gói",
+      "wms": "Quản lý kho hàng WMS",
+      "marketing": "Đối tác Marketing",
+      "warehousing": "Lưu kho hàng hóa",
+      "inventory": "Quản lý tồn kho",
+      "professional_packing": "Đóng gói chuyên nghiệp",
+      "end_to_end": "Xử lý đơn hàng trọn gói",
+      "operational_consulting": "Tư vấn vận hành"
+    },
+    "contact_info": {
+      "phone": "Điện thoại",
+      "email": "Email",
+      "address": "Địa chỉ",
+      "address_main": "40/8 Lê Thị Ánh, Phường Tân Thới Nhất, Quận 12, TPHCM",
+      "address_dichvukho": "Hệ thống kho bãi tại TPHCM & Hà Nội"
+    },
+    "rights": "All rights reserved."
+  },
+  "privacy": {
+    "title": "Chính sách bảo mật"
+  },
+  "multichannel": {
+    "badge": "Quản lý bán hàng đa kênh",
+    "title": "Dễ dàng kết nối đa kênh & Quản lý tất cả cửa hàng với OMS MBA Fulfillment",
+    "subtitle": "Kết nối và đồng bộ tất cả các sàn thương mại điện tử, quản lý đơn hàng tập trung trên một nền tảng duy nhất. Tiết kiệm thời gian, tăng hiệu quả vận hành.",
+    "stats": {
+      "exp_years": "Năm kinh nghiệm trong lĩnh vực Logistic và hậu cần",
+      "sync_time": "Để kết nối và đồng bộ cửa hàng của bạn",
+      "sync_label": "5 phút"
+    },
+    "platforms_label": "Các sàn TMĐT đã kết nối:",
+    "website_tmdt": "Website TMĐT",
+    "dashboard": {
+      "title": "MBA Fulfillment Dashboard",
+      "today": "Đơn hàng hôm today",
+      "processing": "Đang xử lý",
+      "shipped": "Đã giao",
+      "completed": "Hoàn thành"
+    }
+  },
+  "contact": {
+    "badge": "Liên hệ với chúng tôi",
+    "title": "Nhanh và dễ dàng",
+    "subtitle": "MBA Fulfillment - Fulfill mọi đơn hàng của bạn. Tiết kiệm thời gian, độ chính xác cao và minh bạch trong vận hành",
+    "form": {
+      "title": "Liên hệ ngay",
+      "subtitle": "Chúng tôi sẽ liên hệ lại trong thời gian sớm nhất",
+      "name_label": "Họ và tên *",
+      "name_placeholder": "Nhập họ và tên",
+      "phone_label": "Số điện thoại *",
+      "phone_placeholder": "Nhập số điện thoại",
+      "email_label": "Email *",
+      "email_placeholder": "Nhập địa chỉ email",
+      "company_label": "Tên công ty / Shop",
+      "company_placeholder": "Nhập tên công ty hoặc shop",
+      "message_label": "Nội dung cần tư vấn",
+      "message_placeholder": "Mô tả nhu cầu của bạn...",
+      "submit": "Gửi yêu cầu tư vấn",
+      "submitting": "Đang gửi...",
+      "success": "Cảm ơn bạn đã liên hệ! Chúng tôi sẽ phản hồi trong thời gian sớm nhất.",
+      "error": "Có lỗi xảy ra. Vui lòng thử lại sau."
+    },
+    "info": {
+      "manager_name": "Mr Dương - Sale Manager",
+      "support_247": "Hỗ trợ tư vấn 24/7"
+    },
+    "benefits": {
+      "sales": "Tăng doanh số bán hàng",
+      "operation": "Tăng khả năng vận hành",
+      "management": "Tập trung quản lý"
+    }
+  },
+  "chat": {
+    "title": "Trợ lý AI",
+    "welcome": "Xin chào! Tôi là trợ lý AI của MBA Fulfillment Việt Nam. Tôi có thể giúp gì cho bạn về dịch vụ fulfillment của chúng tôi?",
+    "placeholder": "Nhập câu hỏi của bạn...",
+    "error": "Xin lỗi, đã có lỗi xảy ra. Vui lòng thử lại sau hoặc liên hệ trực tiếp qua hotline: 0948 078 599",
+    "tips": "Nhấn Enter để gửi, Shift + Enter để xuống dòng"
+  },
+  "process_page": {
+    "badge": "Vận hành chuẩn hóa",
+    "title_main": "Quy Trình Vận Hành",
+    "title_highlight": "Đạt Chuẩn Quốc Tế",
+    "subtitle": "Chúng tôi kết hợp sức mạnh của công nghệ WMS hiện đại với quy trình vận hành đã được tối ưu hóa, giúp doanh nghiệp của bạn bứt phá doanh thu.",
+    "steps": {
+      "step1": {
+        "title": "1. Kết nối & Đồng bộ",
+        "desc": "Chúng tôi kết nối API trực tiếp với các gian hàng trên Shopee, Lazada, TikTok Shop hoặc Website cá nhân của bạn. Chỉ mất vài phút để hệ thống bắt đầu nhận dữ liệu sản phẩm và đơn hàng tự động."
+      },
+      "step2": {
+        "title": "2. Nhập hàng & Kiểm tra (QC)",
+        "desc": "Hàng hóa khi nhập kho được kiểm tra số lượng và chất lượng nghiêm ngặt bởi đội ngũ chuyên nghiệp. Chúng tôi thực hiện phân loại, dán mã SKU và lưu trữ tại các vị trí tối ưu để dễ dàng truy xuất."
+      },
+      "step3": {
+        "title": "3. Lưu kho Chuyên nghiệp",
+        "desc": "Hệ thống WMS hiện đại quản lý vị trí hàng hóa chính xác đến từng milimet. Kho bãi đạt chuẩn được trang bị hệ thống kệ chứa hàng thông minh và an ninh giám sát 24/7."
+      },
+      "step4": {
+        "title": "4. Xử lý Đơn hàng (Pick & Pack)",
+        "desc": "Quy trình Pick & Pack được tối ưu hóa bằng công nghệ, đảm bảo độ chính xác tuyệt đối. Hàng hóa được đóng gói kỹ lưỡng theo tiêu chuẩn của từng sàn TMĐT hoặc theo yêu cầu thương hiệu riêng."
+      },
+      "step5": {
+        "title": "5. Bàn giao & Vận chuyển",
+        "desc": "MBA Fulfillment liên kết với các đơn vị vận chuyển hàng đầu Việt Nam. Đơn hàng được bàn giao định kỳ nhiều lần trong ngày, giúp rút ngắn tối đa thời gian chờ đợi của khách hàng."
+      },
+      "step6": {
+        "title": "6. Quản lý Đổi trả",
+        "desc": "Chúng tôi thay bạn xử lý các đơn hàng hoàn/trả một cách minh bạch. Hàng hóa được kiểm tra kỹ lưỡng, cập nhật lại tồn kho và thông báo ngay lập tức cho nhà bán hàng qua hệ thống."
+      }
+    },
+    "features": {
+      "automation": "Tự động hóa hoàn toàn",
+      "accuracy": "Độ chính xác 99.9%"
+    },
+    "sla": {
+      "title": "Cam kết Chất lượng (SLA) Vượt Trội",
+      "subtitle": "Chúng tôi hiểu rằng đằng sau mỗi đơn hàng là uy tín của bạn. MBA Fulfillment cam kết duy trì những chỉ số vận hành khắt khe nhất.",
+      "accuracy_label": "Độ chính xác tồn kho",
+      "shipping_label": "Phát hàng trong ngày",
+      "dispute_label": "Xử lý khiếu nại",
+      "quote": "Mọi khâu vận hành tại MBA Fulfillment đều được thiết kế để trở thành hậu phương vững chắc nhất cho sự bùng nổ của nhà bán hàng.",
+      "cta": "Bắt đầu ngay"
+    }
+  },
+  "solutions_page": {
+    "title_main": "Giải Pháp",
+    "title_highlight": "Vận Hành",
+    "title_suffix": "Thông Minh",
+    "subtitle": "Chúng tôi không chỉ là kho lưu giữ hàng hóa, chúng tôi là đối tác chiến lược giúp bạn mở rộng quy mô kinh doanh không giới hạn với công nghệ và quy trình chuyên nghiệp.",
+    "meta": {
+      "title": "Giải Pháp Vận Hành Thông Minh | MBA Fulfillment Việt Nam",
+      "description": "Khám phá các giải pháp Fulfillment cho TMĐT, Logistics B2B và công nghệ quản lý kho WMS/OMS hiện đại nhất hiện nay."
+    },
+    "categories": {
+      "ecommerce": {
+        "title": "Fulfillment cho TMĐT",
+        "desc": "Giải pháp toàn diện giúp nhà bán hàng tối ưu quy trình từ khi khách chốt đơn đến khi nhận hàng.",
+        "points": [
+          "Đồng bộ đơn hàng tự động từ Shopee, Lazada, TikTok Shop.",
+          "Quy trình Pick & Pack chuẩn hóa, hạn chế sai sót 99.9%.",
+          "Tự động cập nhật số lượng tồn kho lên tất cả các sàn.",
+          "Xử lý đơn hàng siêu tốc trong vòng 2-4 giờ kể từ khi phát sinh."
+        ]
+      },
+      "b2b": {
+        "title": "Giải pháp Logistics B2B",
+        "desc": "Hỗ trợ phân phối hàng hóa số lượng lớn cho các đại lý, hệ thống siêu thị và cửa hàng bán lẻ.",
+        "points": [
+          "Quản lý lô hàng (Batch Management) và hạn sử dụng (FEFO/FIFO).",
+          "Vận chuyển cross-docking giúp tối ưu chi phí lưu kho.",
+          "Dịch vụ dán tem phụ, đóng gói kiện lớn chuyên nghiệp.",
+          "Báo cáo chi tiết luồng hàng đi và đến hàng ngày."
+        ]
+      },
+      "technology": {
+        "title": "Công nghệ OMS & WMS",
+        "desc": "Nền tảng công nghệ mạnh mẽ giúp bạn quản lý kinh doanh mọi lúc mọi nơi.",
+        "points": [
+          "Hệ thống OMS (Order Management System) tập trung mọi đơn hàng.",
+          "WMS (Warehouse Management System) quản lý vị trí kho chính xác.",
+          "Dashboard báo cáo thông minh, phân tích doanh thu và sản phẩm bán chạy.",
+          "Tích hợp API linh hoạt với các phần mềm kế toán và quản lý khác."
+        ]
+      }
+    },
+    "calculator": {
+      "title": "Ước tính chi phí nhanh",
+      "subtitle": "Công cụ giúp bạn dự toán ngân sách lưu kho chỉ trong 30 giây."
+    },
+    "why_us": {
+      "title": "Vì sao nên chọn MBA Fulfillment?",
+      "security": {
+        "title": "Hệ thống bảo mật",
+        "desc": "Hàng hóa được giám sát camera 24/7 và hệ thống PCCC tiêu chuẩn."
+      },
+      "speed": {
+        "title": "Tốc độ vượt trội",
+        "desc": "Đơn hàng chốt trước 14h sẽ được bàn giao cho đơn vị vận chuyển ngay trong ngày."
+      },
+      "scale": {
+        "title": "Quy mô toàn quốc",
+        "desc": "Mạng lưới kho bãi tại các thành phố lớn giúp giảm phí ship và thời gian giao hàng."
+      }
+    }
+  },
+  "services_page": {
+    "title_main": "Dịch Vụ",
+    "title_highlight": "Toàn Diện",
+    "subtitle": "Từ lưu kho đến giao hàng, chúng tôi cung cấp mọi giải pháp hậu cần cần thiết để bạn tập trung hoàn toàn vào việc phát triển thương hiệu.",
+    "meta": {
+      "title": "Dịch Vụ Fulfillment Chuyên Nghiệp | MBA Fulfillment",
+      "description": "Dịch vụ lưu kho, đóng gói và vận chuyển trọn gói. Cam kết xử lý đơn hàng nhanh chóng, chính xác với hệ thống kho bãi hiện đại."
+    },
+    "items": {
+      "fulfillment": {
+        "title": "Giải pháp Fulfillment",
+        "desc": "MBA Fulfillment sẽ giúp bạn tối ưu toàn bộ quy trình từ lưu kho, đóng gói, vận chuyển và sau giao hàng với chi phí và thời gian tối thiểu.",
+        "details": [
+          "Quản lý nhập kho và kiểm kê hàng hóa nghiêm ngặt.",
+          "Lưu kho theo tiêu chuẩn, đảm bảo an toàn tuyệt đối.",
+          "Quy trình Pick & Pack chuẩn hóa, chính xác 99.9%.",
+          "Kết nối với tất cả các đơn vị vận chuyển hàng đầu."
+        ]
+      },
+      "b2b": {
+        "title": "Bán hàng Đa kênh B2B",
+        "desc": "MBA Fulfillment giúp bạn kết nối với các Nhà bán lẻ nhằm phân phối hàng hóa chỉ trên một nền tảng duy nhất nhưng vẫn tối ưu chi phí.",
+        "details": [
+          "Đồng bộ tồn kho thời gian thực trên Shopee, Lazada, TikTok Shop.",
+          "Quản lý đơn hàng tập trung từ tất cả các kênh bán lẻ.",
+          "Xử lý đơn hàng sỉ (B2B) và lẻ (B2C) linh hoạt.",
+          "Hỗ trợ phân phối hàng vào hệ thống siêu thị, đại lý."
+        ]
+      },
+      "wms": {
+        "title": "Quản lý kho hàng WMS",
+        "desc": "Với hệ thống quản lý kho hàng (WMS) hiện đại, bạn có thể theo dõi tình trạng tồn kho theo thời gian thực và kiểm soát chặt chẽ hàng hóa.",
+        "details": [
+          "Theo dõi vị trí hàng hóa chính xác trong kho.",
+          "Báo cáo xuất-nhập-tồn chi tiết hàng ngày/tháng.",
+          "Cảnh báo khi số lượng tồn kho xuống mức thấp.",
+          "Tích hợp API dễ dàng với các sàn và phần mềm quản lý."
+        ]
+      },
+      "packaging": {
+        "title": "Tùy chỉnh đóng gói",
+        "desc": "Chúng tôi cung cấp các nhãn dán, ấn phẩm marketing, bao bì và hộp thương hiệu tùy chỉnh theo từng yêu cầu của nhà bán hàng.",
+        "details": [
+          "Đóng gói theo yêu cầu (Co-packing).",
+          "Dán tem phụ, nhãn mác sản phẩm.",
+          "Kèm thiệp cảm ơn, quà tặng trong đơn hàng.",
+          "Sử dụng bao bì thân thiện với môi trường."
+        ]
+      },
+      "growth": {
+        "title": "Giải pháp Tăng trưởng",
+        "desc": "Chúng tôi hỗ trợ các giải pháp marketing và chăm sóc khách hàng giúp tối ưu hiệu quả kinh doanh cho đối tác.",
+        "details": [
+          "Tư vấn tối ưu gian hàng trên sàn TMĐT.",
+          "Hỗ trợ xử lý khiếu nại và đổi trả hàng (Return Management).",
+          "Báo cáo phân tích hành vi khách hàng.",
+          "Hợp tác với các Agency marketing uy tín."
+        ]
+      }
+    },
+    "cta": {
+      "title": "Sẵn sàng tối ưu vận hành cho doanh nghiệp của bạn?",
+      "subtitle": "Liên hệ với đội ngũ chuyên gia của chúng tôi để được tư vấn giải pháp fulfillment phù hợp nhất và nhận báo giá ưu đãi.",
+      "button": "Yêu cầu báo giá chi tiết",
+      "consult": "Nhận tư vấn ngay"
+    }
+  },
+  "contact_page": {
+    "title_main": "Liên Hệ Với",
+    "title_highlight": "Chúng Tôi",
+    "subtitle": "Đội ngũ chuyên gia của chúng tôi luôn sẵn sàng tư vấn giải pháp fulfillment tối ưu nhất cho mô hình kinh doanh của bạn.",
+    "info": {
+      "phone": {
+        "title": "Điện thoại",
+        "subtitle": "Tư vấn 24/7"
+      },
+      "email": {
+        "title": "Email",
+        "subtitle": "Phản hồi trong 2h"
+      },
+      "hours": {
+        "title": "Giờ làm việc",
+        "days": "Thứ 2 - Thứ 7",
+        "time": "08:00 - 18:00"
+      }
+    },
+    "form_section": {
+      "title": "Gửi yêu cầu tư vấn",
+      "subtitle": "Vui lòng điền thông tin vào biểu mẫu, chúng tôi sẽ liên hệ lại ngay để khảo sát nhu cầu và báo giá chi tiết.",
+      "benefits": [
+        "Tư vấn giải pháp miễn phí",
+        "Demo hệ thống OMS/WMS",
+        "Tham quan kho thực tế"
+      ]
+    },
+    "hq": {
+      "badge": "Trụ sở chính",
+      "title": "MBA Fulfillment Việt Nam",
+      "maps_button": "Xem trên Google Maps"
+    }
+  },
+  "privacy_page": {
+    "title": "Chính sách bảo mật thông tin",
+    "intro": "MBA Fulfillment cam kết bảo mật những thông tin mang tính riêng tư của khách hàng. Quý khách vui lòng đọc bản “Chính sách bảo mật” dưới đây để hiểu hơn những cam kết mà chúng tôi thực hiện, nhằm tôn trọng và bảo vệ quyền lợi của người truy cập.",
+    "sections": {
+      "collection": {
+        "title": "1. Mục đích và phạm vi thu thập",
+        "p1": "Để truy cập và sử dụng một số dịch vụ tại MBA Fulfillment, quý khách có thể sẽ được yêu cầu đăng ký với chúng tôi thông tin cá nhân (Email, Họ tên, Số ĐT liên lạc…). Mọi thông tin khai báo phải đảm bảo tính chính xác và hợp pháp. MBA Fulfillment không chịu mọi trách nhiệm liên quan đến pháp luật của thông tin khai báo.",
+        "p2": "Chúng tôi cũng có thể thu thập thông tin về số lần viếng thăm, bao gồm số trang quý khách xem, số links (liên kết) bạn click và những thông tin khác liên quan đến việc kết nối đến site MBA Fulfillment. Chúng tôi cũng thu thập các thông tin mà trình duyệt Web (Browser) quý khách sử dụng mỗi khi truy cập vào hệ thống, bao gồm: địa chỉ IP, loại Browser, ngôn ngữ sử dụng, thời gian và những địa chỉ mà Browser truy xuất đến."
+      },
+      "usage": {
+        "title": "2. Phạm vi sử dụng thông tin",
+        "p1": "MBA Fulfillment thu thập và sử dụng thông tin cá nhân quý khách với mục đích phù hợp và hoàn toàn tuân thủ nội dung của “Chính sách bảo mật” này. Khi cần thiết, chúng tôi có thể sử dụng những thông tin này để liên hệ trực tiếp với bạn dưới các hình thức như: gởi thư ngỏ, đơn đặt hàng, thư cảm ơn, sms, thông tin về kỹ thuật và bảo mật…"
+      },
+      "storage": {
+        "title": "3. Thời gian lưu trữ thông tin",
+        "p1": "Dữ liệu cá nhân của Thành viên sẽ được lưu trữ cho đến khi có yêu cầu hủy bỏ hoặc tự thành viên đăng nhập và thực hiện hủy bỏ. Còn lại trong mọi trường hợp thông tin cá nhân thành viên sẽ được bảo mật trên máy chủ của MBA Fulfillment."
+      },
+      "commitment": {
+        "title": "4. Cam kết bảo mật thông tin cá nhân khách hàng",
+        "p1": "Thông tin cá nhân của thành viên trên MBA Fulfillment được cam kết bảo mật tuyệt đối theo chính sách bảo vệ thông tin cá nhân của MBA Fulfillment. Việc thu thập và sử dụng thông tin của mỗi thành viên chỉ được thực hiện khi có sự đồng ý của khách hàng đó trừ những trường hợp pháp luật có quy định khác.",
+        "p2": "Không sử dụng, không chuyển giao, cung cấp hay tiết lộ cho bên thứ 3 nào về thông tin cá nhân của thành viên khi không có sự cho phép đồng ý từ thành viên."
+      }
+    }
+  },
+  "dichvukho_page": {
+    "meta": {
+      "title": "Dịch Vụ Kho Hàng Chuyên Nghiệp | Hệ Thống Kho 3PL Toàn Quốc | dichvukho.vn",
+      "description": "Dịch vụ lưu kho hàng hóa, quản lý tồn kho và xử lý đơn hàng chuyên nghiệp tại TPHCM và Hà Nội. Giải pháp kho chung tối ưu chi phí cho doanh nghiệp TMĐT."
+    },
+    "hero": {
+      "badge": "Giải pháp Logistics 3PL tối ưu chi phí 40%",
+      "title_line_1": "Hệ Thống Kho Bãi",
+      "title_highlight": "Thông Minh",
+      "title_line_2": "& Chuyên Nghiệp",
+      "cta_consult": "Nhận tư vấn giải pháp",
+      "cta_wms": "Công nghệ WMS",
+      "image_alt": "Hệ thống kho hàng chuyên nghiệp"
+    },
+    "pain_points": {
+      "title_line_1": "Tại sao doanh nghiệp",
+      "title_line_2": "cần thuê kho chung?",
+      "image_alt": "Đội ngũ vận hành chuyên nghiệp",
+      "items": [
+        {
+          "title": "Áp lực chi phí cố định",
+          "desc": "Thuê kho riêng tốn kém tiền cọc, nhân sự, bảo vệ, điện nước dù hàng ít hay nhiều."
+        },
+        {
+          "title": "Khó khăn trong quản lý tồn kho",
+          "desc": "Không có phần mềm, hàng hóa thất thoát, không kiểm soát được date và số lượng thực tế."
+        },
+        {
+          "title": "Quá tải mùa cao điểm",
+          "desc": "Khi đơn hàng tăng đột biến, kho riêng không đủ chỗ và nhân sự không xử lý kịp hàng."
+        }
+      ]
+    },
+    "comparison": {
+      "title": "Kho Chung hay Kho Riêng?",
+      "subtitle": "Phân tích giúp bạn lựa chọn mô hình tối ưu nhất",
+      "header_feature": "Đặc điểm comparison",
+      "header_private": "Kho Độc Lập / Kho Riêng",
+      "header_shared": "Kho Chung {{name}}",
+      "rows": [
+        {
+          "label": "Diện tích / Không gian",
+          "private": "Cố định, khó thay đổi",
+          "shared": "Thay đổi linh hoạt theo mùa vụ, dùng bao nhiêu thuê bấy nhiêu"
+        },
+        {
+          "label": "Chi phí đầu tư hạ tầng",
+          "private": "Rất lớn (PCCC, kệ, WMS, CCTV...)",
+          "shared": "Chi phí đầu tư bằng 0, có sẵn hạ tầng hiện đại"
+        },
+        {
+          "label": "Nhân sự & Vận hành",
+          "private": "Tự quản lý, tốn chi phí lương & BH",
+          "shared": "Có sẵn đội ngũ chuyên môn xử lý trọn gói"
+        },
+        {
+          "label": "Công nghệ quản lý",
+          "private": "Thủ công hoặc tốn phí mua phần mềm",
+          "shared": "Hệ thống WMS thông minh, báo cáo Real-time"
+        },
+        {
+          "label": "Rủi ro thất thoát",
+          "private": "Doanh nghiệp tự chịu",
+          "shared": "Hệ thống cam kết bồi thường 100%"
+        },
+        {
+          "label": "Tính linh động địa điểm",
+          "private": "Khó thay đổi do hợp đồng dài hạn",
+          "shared": "Linh hoạt, có thể thuê nhiều kho cùng lúc"
+        }
+      ]
+    },
+    "calculator_intro": {
+      "title": "Công cụ tính phí",
+      "title_highlight": "tự động",
+      "subtitle": "Dễ dàng dự toán chi phí lưu kho 3PL dựa trên bảng giá mới nhất."
+    },
+    "services": {
+      "items": [
+        {
+          "title": "Hoàn tất đơn hàng TMĐT",
+          "desc": "Quản lý toàn trình từ nhận đơn, pick & pack cho đến giao hàng và thu hộ (COD). Tích hợp đa kênh TikTok, Shopee, Lazada."
+        },
+        {
+          "title": "Dịch vụ kho linh hoạt",
+          "desc": "Diện tích thuê linh hoạt từ 10m2. Hệ thống giá kệ selective, racking tiêu chuẩn quốc tế. Lưu trữ đa dạng mặt hàng."
+        },
+        {
+          "title": "Vận tải & Phân phối",
+          "desc": "Vận chuyển đa phương thức toàn quốc. Tỷ lệ giao hàng đúng hẹn đạt 98%. Theo dõi lộ trình Real-time."
+        },
+        {
+          "title": "Quản lý chuỗi cung ứng",
+          "desc": "Tối ưu hóa dòng chảy hàng hóa, giảm thiểu tồn kho ảo và rút ngắn thời gian quay vòng vốn cho doanh nghiệp."
+        },
+        {
+          "title": "Dịch vụ giá trị gia tăng",
+          "desc": "Dán nhãn, đóng gói quà tặng, kiểm tra chất lượng (QC), xử lý hàng trả về (Reverse Logistics) chuyên nghiệp."
+        },
+        {
+          "title": "Hệ thống WMS/TWMS",
+          "desc": "Phần mềm quản trị kho thông minh, giúp khách hàng kiểm soát tồn kho mọi lúc mọi nơi trên điện thoại."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Bắt đầu hành trình tối ưu Logistics cùng chúng tôi",
+      "subtitle": "Đăng ký ngay để nhận tư vấn giải pháp kho chung miễn phí và tham quan hệ thống kho bãi trực tiếp tại TPHCM & Hà Nội.",
+      "zalo_label": "Tư vấn qua Zalo",
+      "hotline_label": "Hotline 24/7",
+      "email_label": "Email liên hệ"
+    }
+  },
+  "calculator": {
+    "title": "Tính Phí Lưu Kho",
+    "subtitle": "Dự toán chi phí lưu kho dựa trên bảng giá niêm yết mới nhất của MBA Fulfillment.",
+    "method": {
+      "label": "Phương thức tính phí",
+      "placeholder": "Chọn phương thức",
+      "m3_day": "Thể tích (m³ / Ngày)",
+      "m2_month": "Diện tích (m² / Tháng)"
+    },
+    "volume_m3": "Tổng m³",
+    "volume_m2": "Tổng m²",
+    "duration_days": "Số ngày",
+    "duration_months": "Số tháng",
+    "storage_type": {
+      "label": "Loại hình lưu trữ",
+      "placeholder": "Chọn loại kho",
+      "regular": "Kho thông thường (Khô)",
+      "cool": "Kho mát (25°C)",
+      "note": "* Tính theo m³ hiện chỉ áp dụng cho kho thông thường."
+    },
+    "item_value": {
+      "label": "Giá trị hàng hóa định mức (VND)",
+      "placeholder": "Vd: 500000",
+      "note": "Phí bảo hiểm 0.3% cho hàng giá trị cao (≥ 500k)"
+    },
+    "button": "Xem ước tính ngay",
+    "result": {
+      "title": "Tổng chi phí ước tính",
+      "storage_fee": "Phí lưu kho",
+      "insurance_fee": "Phí bảo hiểm (0.3%)",
+      "note": "* Giá chưa bao gồm VAT 8% và các phí nghiệp vụ (In, Out, Pick & Pack).",
+      "cta": "Nhận báo giá chi tiết",
+      "placeholder": "Điền thông tin bên trái để nhận kết quả ước tính tức thì.",
+      "currency_short": "đ",
+      "currency_full": "VNĐ"
+    },
+    "footer": {
+      "accuracy": "Tỷ lệ chính xác",
+      "accuracy_val": "~98% Phí lưu",
+      "latest_price": "Bảng giá mới nhất",
+      "latest_price_val": "Tháng 3/2026"
+    }
+  },
   "blog": {
     "title": "Blog Kiến Thức <1>Logistics</1>",
     "subtitle": "Nâng tầm kiến thức vận hành, tối ưu chi phí và bứt phá doanh số cùng các chuyên gia từ {{name}}.",
     "loading": "Đang tải dữ liệu bài viết mới nhất...",
     "no_posts": "Chưa có bài viết nào ngôn ngữ này.",
+    "title_prefix": "Blog Kiến Thức",
     "read_more": "Đọc tiếp",
     "meta_title": "Blog Kiến Thức Logistics & Fulfillment",
-    "meta_description": "Chia sẻ kiến thức, kinh nghiệm và xu hướng mới nhất về kho bãi, fulfillment và giải pháp tăng trưởng thương mại điện tử."
+    "meta_description": "Chia sẻ kiến thức, kinh nghiệm và xu hướng mới nhất về kho bãi, fulfillment và giải pháp tăng trưởng thương mại điện tử.",
+    "loading_post": "Đang tải nội dung chuyên sâu...",
+    "back_to_blog": "Quay lại Blog",
+    "author_role": "Người viết bài"
   },
   "common": {
     "loading": "Đang tải...",
     "error": "Có lỗi xảy ra",
     "see_more": "Xem thêm",
-    "contact_us": "Liên hệ ngay"
+    "contact_us": "Liên hệ ngay",
+    "company_name": "MBA Fulfillment Việt Nam",
+    "description": "Giải pháp fulfillment hàng đầu Việt Nam, đồng hành cùng sự phát triển kinh doanh thương mại điện tử của bạn.",
+    "address": "40/8 Lê Thị Ánh, Phường Tân Thới Nhất, Quận 12, TPHCM",
+    "knowledge": "Kiến Thức"
+  },
+  "admin": {
+    "title": "Quản trị Nội dung",
+    "subtitle": "Nơi Sếp viết bài và quản lý Blog hệ thống",
+    "new_post": "Viết bài mới",
+    "password_label": "Mật khẩu quản trị",
+    "password_placeholder": "Nhập mật khẩu sếp ơi...",
+    "login_button": "Đăng nhập ngay",
+    "login_success": "Chào mừng Sếp quay trở lại!",
+    "login_error": "Mật khẩu không đúng",
+    "post_title": "Tiêu đề bài viết",
+    "category": "Danh mục",
+    "language": "Ngôn ngữ bài viết",
+    "excerpt": "Mô tả ngắn",
+    "content": "Nội dung bài viết",
+    "cancel": "Hủy bỏ",
+    "update_now": "Cập nhật ngay",
+    "publish_now": "Đăng bài ngay",
+    "confirm_delete": "Anh có chắc muốn xóa bài này không?",
+    "deleted_success": "Đã xóa bài viết",
+    "deleted_error": "Xóa thất bại",
+    "update_success": "Cập nhật thành công",
+    "update_error": "Cập nhật thất bại",
+    "publish_success": "Đăng bài thành công!",
+    "publish_error": "Đăng bài thất bại",
+    "fetch_error": "Không thể tải danh sách bài viết",
+    "system_desc": "Hệ thống quản trị nội dung MBA",
+    "edit_post": "Chỉnh sửa bài viết",
+    "create_seo_post": "Viết bài Blog chuẩn SEO",
+    "slug_label": "Đường dẫn bài viết (Slug)",
+    "slug_note": "* Để trống để tự động tạo từ tiêu đề",
+    "image_label": "Ảnh đại diện (Link URL)",
+    "tags_label": "Tags (Cách nhau bằng dấu phẩy)",
+    "content_note": "(Hỗ trợ mã HTML)",
+    "table": {
+      "title_date": "Tiêu đề - Ngày đăng",
+      "lang": "Ngôn ngữ",
+      "cat": "Danh mục",
+      "actions": "Thao tác",
+      "loading": "Đang tải dữ liệu...",
+      "no_posts": "Chưa có bài viết nào. Hãy tạo bài đầu tiên Sếp nhé!"
+    }
   }
 }

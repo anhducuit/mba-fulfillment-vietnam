@@ -9,6 +9,7 @@ import {
   BarChart3,
   Zap
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const platforms = [
   {
@@ -30,6 +31,7 @@ const platforms = [
 ];
 
 const MultichannelSection = () => {
+  const { t } = useTranslation();
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -47,14 +49,13 @@ const MultichannelSection = () => {
             transition={{ duration: 0.6 }}
           >
             <span className="inline-block px-4 py-2 bg-primary/10 text-primary rounded-full text-sm font-semibold mb-4">
-              Quản lý bán hàng đa kênh
+              {t("multichannel.badge")}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Dễ dàng kết nối đa kênh & Quản lý tất cả cửa hàng với OMS MBA Fulfillment
+              {t("multichannel.title")}
             </h2>
             <p className="text-muted-foreground text-lg mb-8">
-              Kết nối và đồng bộ tất cả các sàn thương mại điện tử, quản lý đơn hàng tập trung
-              trên một nền tảng duy nhất. Tiết kiệm thời gian, tăng hiệu quả vận hành.
+              {t("multichannel.subtitle")}
             </p>
 
             {/* Stats */}
@@ -65,23 +66,23 @@ const MultichannelSection = () => {
                   <span className="text-3xl font-bold text-primary">10+</span>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Năm kinh nghiệm trong lĩnh vực Logistic và hậu cần
+                  {t("multichannel.stats.exp_years")}
                 </p>
               </div>
               <div className="p-4 bg-secondary/50 rounded-xl">
                 <div className="flex items-center gap-3 mb-2">
                   <Zap className="w-6 h-6 text-primary" />
-                  <span className="text-3xl font-bold text-primary">5 phút</span>
+                  <span className="text-3xl font-bold text-primary">{t("multichannel.stats.sync_label")}</span>
                 </div>
                 <p className="text-sm text-muted-foreground">
-                  Để kết nối và đồng bộ cửa hàng của bạn
+                  {t("multichannel.stats.sync_time")}
                 </p>
               </div>
             </div>
 
             {/* Platform icons */}
             <div>
-              <p className="text-sm text-muted-foreground mb-4">Các sàn TMĐT đã kết nối:</p>
+              <p className="text-sm text-muted-foreground mb-4">{t("multichannel.platforms_label")}</p>
               <div className="flex flex-wrap gap-3">
                 {platforms.map((platform) => (
                   <div key={platform.name} className="flex items-center gap-2 px-4 py-3 bg-white border border-border rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
@@ -90,7 +91,7 @@ const MultichannelSection = () => {
                 ))}
                 <div className="flex items-center gap-2 px-4 py-3 bg-white border border-border rounded-lg shadow-sm hover:shadow-md transition-all duration-300">
                   <Globe className="w-5 h-5 text-primary" />
-                  <span className="text-sm font-bold text-gray-700">Website TMĐT</span>
+                  <span className="text-sm font-bold text-gray-700">{t("multichannel.website_tmdt")}</span>
                 </div>
               </div>
             </div>
@@ -111,7 +112,7 @@ const MultichannelSection = () => {
                   <div className="w-3 h-3 rounded-full bg-red-500" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500" />
                   <div className="w-3 h-3 rounded-full bg-green-500" />
-                  <span className="ml-4 text-primary-foreground/60 text-sm">MBA Fulfillment Dashboard</span>
+                  <span className="ml-4 text-primary-foreground/60 text-sm">{t("multichannel.dashboard.title")}</span>
                 </div>
 
                 {/* Content */}
@@ -119,9 +120,9 @@ const MultichannelSection = () => {
                   {/* Stats row */}
                   <div className="grid grid-cols-3 gap-4">
                     {[
-                      { label: "Đơn hàng hôm nay", value: "1,234" },
-                      { label: "Đang xử lý", value: "456" },
-                      { label: "Đã giao", value: "778" },
+                      { label: t("multichannel.dashboard.today"), value: "1,234" },
+                      { label: t("multichannel.dashboard.processing"), value: "456" },
+                      { label: t("multichannel.dashboard.shipped"), value: "778" },
                     ].map((stat) => (
                       <div key={stat.label} className="p-3 bg-secondary/50 rounded-lg text-center">
                         <p className="text-lg font-bold text-primary">{stat.value}</p>
@@ -155,7 +156,7 @@ const MultichannelSection = () => {
                           <div className="h-2 bg-muted/50 rounded w-1/2 mt-1" />
                         </div>
                         <div className="px-2 py-1 bg-green-500/20 text-green-600 text-xs rounded font-medium">
-                          Hoàn thành
+                          {t("multichannel.dashboard.completed")}
                         </div>
                       </div>
                     ))}

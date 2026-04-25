@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { BlogPost } from "../Blog/types";
+import { useTranslation } from "react-i18next";
 
 const slugify = (text: string) => {
   return text
@@ -24,6 +25,7 @@ const slugify = (text: string) => {
 };
 
 const AdminBlog = () => {
+  const { t } = useTranslation();
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [password, setPassword] = useState("");
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -48,7 +50,7 @@ const AdminBlog = () => {
       .order("date", { ascending: false });
 
     if (error) {
-      toast.error("Không thể tải danh sách bài viết");
+      toast.error(t("admin.fetch_error"));
     } else {
       setPosts(data || []);
     }
@@ -59,9 +61,9 @@ const AdminBlog = () => {
     e.preventDefault();
     if (password === ADMIN_PASSWORD) {
       setIsLoggedIn(true);
-      toast.success("Chào mừng Sếp quay trở lại!");
+      toast.success(t("admin.login_success"));
     } else {
-      toast.error("Mật khẩu không đúng");
+      toast.error(t("admin.login_error"));
     }
   };
 
@@ -84,9 +86,9 @@ const AdminBlog = () => {
         .update(postData)
         .eq("id", currentPost.id);
       
-      if (error) toast.error("Cập nhật thất bại");
+      if (error) toast.error(t("admin.update_error"));
       else {
-        toast.success("Cập nhật thành công");
+        toast.success(t("admin.update_success"));
         setIsEditing(false);
         fetchPosts();
       }
@@ -95,9 +97,9 @@ const AdminBlog = () => {
         .from("blog_posts")
         .insert([postData]);
 
-      if (error) toast.error("Đăng bài thất bại");
+      if (error) toast.error(t("admin.publish_error"));
       else {
-        toast.success("Đăng bài thành công!");
+        toast.success(t("admin.publish_success"));
         setIsEditing(false);
         fetchPosts();
       }
@@ -105,11 +107,11 @@ const AdminBlog = () => {
   };
 
   const handleDelete = async (id: string) => {
-    if (window.confirm("Anh có chắc muốn xóa bài này không?")) {
+    if (window.confirm(t("admin.confirm_delete"))) {
       const { error } = await supabase.from("blog_posts").delete().eq("id", id);
-      if (error) toast.error("Xóa thất bại");
+      if (error) toast.error(t("admin.deleted_error"));
       else {
-        toast.success("Đã xóa bài viết");
+        toast.success(t("admin.deleted_success"));
         fetchPosts();
       }
     }
@@ -128,21 +130,21 @@ const AdminBlog = () => {
               <Settings size={32} />
             </div>
             <h1 className="text-3xl font-black text-slate-900">Admin Login</h1>
-            <p className="text-slate-500 mt-2">Hệ thống quản trị nội dung MBA</p>
+            <p className="text-slate-500 mt-2">{t("admin.system_desc")}</p>
           </div>
           <form onSubmit={handleLogin} className="space-y-6">
             <div className="space-y-2">
-              <Label>Mật khẩu quản trị</Label>
+              <Label>{t("admin.password_label")}</Label>
               <Input 
                 type="password" 
                 value={password} 
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Nhập mật khẩu sếp ơi..."
+                placeholder={t("admin.password_placeholder")}
                 className="py-6 rounded-xl border-slate-200"
               />
             </div>
             <Button type="submit" className="w-full py-7 rounded-xl font-bold bg-slate-900 hover:bg-slate-800 text-lg shadow-xl shadow-slate-200">
-              Đăng nhập ngay
+              {t("admin.login_button")}
             </Button>
           </form>
         </motion.div>
@@ -159,16 +161,16 @@ const AdminBlog = () => {
           <div>
             <h1 className="text-4xl font-black text-slate-900 flex items-center gap-4">
               <LayoutDashboard className="text-primary" size={40} />
-              Quản trị Nội dung
+              {t("admin.title")}
             </h1>
-            <p className="text-slate-500 mt-2">Nơi Sếp viết bài và quản lý Blog hệ thống</p>
+            <p className="text-slate-500 mt-2">{t("admin.subtitle")}</p>
           </div>
           <div className="flex gap-4">
             <Button 
                 onClick={() => { setIsEditing(true); setCurrentPost({}); }}
                 className="bg-primary hover:bg-primary/90 py-6 px-8 rounded-xl font-bold shadow-lg shadow-primary/20"
             >
-              <Plus className="mr-2" size={20} /> Viết bài mới
+              <Plus className="mr-2" size={20} /> {t("admin.new_post")}
             </Button>
             <Button variant="outline" onClick={() => setIsLoggedIn(false)} className="py-6 px-6 rounded-xl border-slate-200">
               <LogOut size={20} />
@@ -184,7 +186,7 @@ const AdminBlog = () => {
           >
             <div className="flex items-center justify-between mb-8">
               <h2 className="text-2xl font-black text-slate-900">
-                {currentPost.id ? "Chỉnh sửa bài viết" : "Viết bài Blog chuẩn SEO"}
+                {currentPost.id ? t("admin.edit_post") : t("admin.create_seo_post")}
               </h2>
               <Button variant="ghost" onClick={() => setIsEditing(false)} className="text-slate-400">
                 <X size={24} />
@@ -194,35 +196,35 @@ const AdminBlog = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-4">
                   <div className="space-y-2">
-                    <Label className="font-bold">Tiêu đề bài viết</Label>
+                    <Label className="font-bold">{t("admin.post_title")}</Label>
                     <Input 
                       value={currentPost.title || ""} 
                       onChange={(e) => setCurrentPost({ ...currentPost, title: e.target.value })}
-                      placeholder="Vd: 5 Cách Tiết Kiệm Chi Phí Logistics"
+                      placeholder={t("admin.post_title_placeholder") || "Vd: 5 Cách Tiết Kiệm Chi Phí Logistics"}
                       className="py-6 rounded-xl border-slate-200"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label className="font-bold">Danh mục</Label>
+                    <Label className="font-bold">{t("admin.category")}</Label>
                     <Input 
                       value={currentPost.category || ""} 
                       onChange={(e) => setCurrentPost({ ...currentPost, category: e.target.value })}
-                      placeholder="Vd: Kiến thức Logistics"
+                      placeholder={t("admin.category_placeholder") || "Vd: Kiến thức Logistics"}
                       className="py-6 rounded-xl border-slate-200"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label className="font-bold">Đường dẫn bài viết (Slug)</Label>
+                    <Label className="font-bold">{t("admin.slug_label")}</Label>
                     <Input 
                       value={currentPost.slug || (currentPost.title ? slugify(currentPost.title) : "")} 
                       onChange={(e) => setCurrentPost({ ...currentPost, slug: e.target.value })}
                       placeholder="vd: gia-xang-dau-hom-nay"
                       className="py-6 rounded-xl border-slate-200 font-mono text-sm"
                     />
-                    <p className="text-[10px] text-slate-400 italic">* Để trống để tự động tạo từ tiêu đề</p>
+                    <p className="text-[10px] text-slate-400 italic">{t("admin.slug_note")}</p>
                   </div>
                   <div className="space-y-2">
-                    <Label className="font-bold">Ảnh đại diện (Link URL)</Label>
+                    <Label className="font-bold">{t("admin.image_label")}</Label>
                     <Input 
                       value={currentPost.image || ""} 
                       onChange={(e) => setCurrentPost({ ...currentPost, image: e.target.value })}
@@ -231,7 +233,7 @@ const AdminBlog = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label className="font-bold">Tags (Cách nhau bằng dấu phẩy)</Label>
+                    <Label className="font-bold">{t("admin.tags_label")}</Label>
                     <Input 
                       value={Array.isArray(currentPost.tags) ? currentPost.tags.join(', ') : currentPost.tags || ""} 
                       onChange={(e) => setCurrentPost({ ...currentPost, tags: e.target.value as any })}
@@ -240,7 +242,7 @@ const AdminBlog = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label className="font-bold">Ngôn ngữ bài viết</Label>
+                    <Label className="font-bold">{t("admin.language")}</Label>
                     <div className="flex gap-4">
                       <Button 
                         type="button"
@@ -263,18 +265,18 @@ const AdminBlog = () => {
                 </div>
                 <div className="space-y-4">
                   <div className="space-y-2 text-primary font-bold">
-                    <Label className="font-bold">Mô tả ngắn (Excerpt)</Label>
+                    <Label className="font-bold">{t("admin.excerpt")}</Label>
                     <Textarea 
                       value={currentPost.excerpt || ""} 
                       onChange={(e) => setCurrentPost({ ...currentPost, excerpt: e.target.value })}
                       className="min-h-[160px] rounded-xl border-slate-200"
-                      placeholder="Nội dung sẽ hiển thị ở trang danh sách..."
+                      placeholder={t("admin.excerpt_placeholder") || "Nội dung sẽ hiển thị ở trang danh sách..."}
                     />
                   </div>
                 </div>
               </div>
               <div className="space-y-2">
-                <Label className="font-bold">Nội dung bài viết (Hỗ trợ mã HTML)</Label>
+                <Label className="font-bold">{t("admin.content")} {t("admin.content_note")}</Label>
                 <Textarea 
                   value={currentPost.content || ""} 
                   onChange={(e) => setCurrentPost({ ...currentPost, content: e.target.value })}
@@ -284,10 +286,10 @@ const AdminBlog = () => {
               </div>
               <div className="flex justify-end gap-4 pt-8">
                 <Button variant="outline" type="button" onClick={() => setIsEditing(false)} className="py-7 px-10 rounded-xl">
-                  Hủy bỏ
+                  {t("admin.cancel")}
                 </Button>
                 <Button type="submit" className="bg-primary hover:bg-primary/90 py-7 px-12 rounded-xl font-bold shadow-xl shadow-primary/20">
-                  <Save className="mr-2" size={20} /> {currentPost.id ? "Cập nhật ngay" : "Đăng bài ngay"}
+                  <Save className="mr-2" size={20} /> {currentPost.id ? t("admin.update_now") : t("admin.publish_now")}
                 </Button>
               </div>
             </form>
@@ -298,17 +300,17 @@ const AdminBlog = () => {
               <table className="w-full text-left border-collapse">
                 <thead>
                   <tr className="bg-slate-50 border-b border-slate-100">
-                    <th className="p-6 font-bold text-slate-400 uppercase text-xs tracking-widest">Tiêu đề - Ngày đăng</th>
-                    <th className="p-6 font-bold text-slate-400 uppercase text-xs tracking-widest">Ngôn ngữ</th>
-                    <th className="p-6 font-bold text-slate-400 uppercase text-xs tracking-widest">Danh mục</th>
-                    <th className="p-6 font-bold text-slate-400 uppercase text-xs tracking-widest text-right">Thao tác</th>
+                    <th className="p-6 font-bold text-slate-400 uppercase text-xs tracking-widest">{t("admin.table.title_date")}</th>
+                    <th className="p-6 font-bold text-slate-400 uppercase text-xs tracking-widest">{t("admin.table.lang")}</th>
+                    <th className="p-6 font-bold text-slate-400 uppercase text-xs tracking-widest">{t("admin.table.cat")}</th>
+                    <th className="p-6 font-bold text-slate-400 uppercase text-xs tracking-widest text-right">{t("admin.table.actions")}</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-50">
                   {isLoading ? (
-                    <tr><td colSpan={3} className="p-12 text-center text-slate-400">Đang tải dữ liệu...</td></tr>
+                    <tr><td colSpan={3} className="p-12 text-center text-slate-400">{t("admin.table.loading")}</td></tr>
                   ) : posts.length === 0 ? (
-                    <tr><td colSpan={3} className="p-12 text-center text-slate-400">Chưa có bài viết nào. Hãy tạo bài đầu tiên Sếp nhé!</td></tr>
+                    <tr><td colSpan={3} className="p-12 text-center text-slate-400">{t("admin.table.no_posts")}</td></tr>
                   ) : posts.map((post) => (
                     <tr key={post.id} className="hover:bg-slate-50/50 transition-colors">
                       <td className="p-6">
@@ -318,7 +320,7 @@ const AdminBlog = () => {
                         <div className="text-sm text-slate-400 mt-1">{post.date}</div>
                       </td>
                       <td className="p-6">
-                        <span className="text-xl" title={post.language === 'zh' ? 'Tiếng Trung' : 'Tiếng Việt'}>
+                        <span className="text-xl" title={post.language === 'zh' ? 'Chinese' : 'Vietnamese'}>
                           {post.language === 'zh' ? '🇨🇳' : '🇻🇳'}
                         </span>
                       </td>

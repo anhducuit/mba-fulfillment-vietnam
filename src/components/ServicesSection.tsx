@@ -11,29 +11,32 @@ import {
   CheckCircle2
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const services = [
-  {
-    title: "Giải pháp Fulfillment",
-    description: "Tối ưu toàn bộ quy trình từ lưu kho, đóng gói đến vận chuyển với chi phí tối thiểu.",
-    image: "/images/services/fulfillment.png",
-    color: "from-teal-500/20 to-teal-600/20",
-  },
-  {
-    title: "Bán hàng Đa kênh B2B",
-    description: "Kết nối đa sàn TMĐT, quản lý tập trung đơn hàng trên một nền tảng duy nhất.",
-    image: "/images/services/b2b_logistics.png",
-    color: "from-blue-500/20 to-blue-600/20",
-  },
-  {
-    title: "Hệ thống WMS",
-    description: "Quản lý kho thông minh, theo dõi tồn kho thời gian thực với độ chính xác tuyệt đối.",
-    image: "/images/services/wms_tech.png",
-    color: "from-indigo-500/20 to-indigo-600/20",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const ServicesSection = () => {
+  const { t } = useTranslation();
+  
+  const services = [
+    {
+      title: t("services.list.fulfillment.title"),
+      description: t("services.list.fulfillment.desc"),
+      image: "/images/services/fulfillment.png",
+      color: "from-teal-500/20 to-teal-600/20",
+    },
+    {
+      title: t("services.list.multichannel.title"),
+      description: t("services.list.multichannel.desc"),
+      image: "/images/services/b2b_logistics.png",
+      color: "from-blue-500/20 to-blue-600/20",
+    },
+    {
+      title: t("services.list.wms.title"),
+      description: t("services.list.wms.desc"),
+      image: "/images/services/wms_tech.png",
+      color: "from-indigo-500/20 to-indigo-600/20",
+    },
+  ];
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -47,12 +50,11 @@ const ServicesSection = () => {
           className="text-center mb-20"
         >
           <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 inline-block">
-            Our Expertise
+            {t("services.badge")}
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-6">Giải Pháp Vận Hành Toàn Diện</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6">{t("services.title")}</h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Chúng tôi cung cấp các công cụ và dịch vụ hậu cần tốt nhất để giúp bạn
-            mở rộng kinh doanh trên mọi nền tảng số.
+            {t("services.subtitle")}
           </p>
         </motion.div>
 
@@ -85,7 +87,7 @@ const ServicesSection = () => {
                   className="p-0 text-primary font-bold hover:bg-transparent group/btn flex items-center gap-2"
                   onClick={() => window.location.href = "/services"}
                 >
-                  Tìm hiểu thêm
+                  {t("services.learn_more")}
                   <ArrowRight className="w-5 h-5 transition-transform group-hover/btn:translate-x-2" />
                 </Button>
               </div>

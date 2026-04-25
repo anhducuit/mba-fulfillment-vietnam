@@ -3,35 +3,38 @@ import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Link2, Warehouse, Truck, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const steps = [
-  {
-    title: "Kết nối & Đồng bộ",
-    image: "/images/process/step1.png",
-  },
-  {
-    title: "Nhập hàng & QC",
-    image: "/images/process/step2.png",
-  },
-  {
-    title: "Lưu kho Chuyên nghiệp",
-    image: "/images/process/step3.png",
-  },
-  {
-    title: "Xử lý Đơn hàng",
-    image: "/images/process/step4.png",
-  },
-  {
-    title: "Bàn giao Vận chuyển",
-    image: "/images/process/step5.png",
-  },
-  {
-    title: "Quản lý Đổi trả",
-    image: "/images/process/step6.png",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const ProcessSection = () => {
+  const { t } = useTranslation();
+
+  const steps = [
+    {
+      title: t("process.steps.step1"),
+      image: "/images/process/step1.png",
+    },
+    {
+      title: t("process.steps.step2"),
+      image: "/images/process/step2.png",
+    },
+    {
+      title: t("process.steps.step3"),
+      image: "/images/process/step3.png",
+    },
+    {
+      title: t("process.steps.step4"),
+      image: "/images/process/step4.png",
+    },
+    {
+      title: t("process.steps.step5"),
+      image: "/images/process/step5.png",
+    },
+    {
+      title: t("process.steps.step6"),
+      image: "/images/process/step6.png",
+    },
+  ];
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -48,12 +51,11 @@ const ProcessSection = () => {
           className="text-center mb-20"
         >
           <span className="text-primary font-bold uppercase tracking-widest text-xs mb-3 inline-block">
-            Our Flow
+            {t("process.badge")}
           </span>
-          <h2 className="text-4xl md:text-5xl font-extrabold mb-6">Hành Trình Đơn Hàng Tối Ưu</h2>
+          <h2 className="text-4xl md:text-5xl font-extrabold mb-6">{t("process.title")}</h2>
           <p className="text-xl text-primary-foreground/70 max-w-3xl mx-auto leading-relaxed">
-            Mọi khâu vận hành đều được tự động hóa bằng hệ thống WMS hiện đại,
-            đảm bảo hàng hóa đến tay khách hàng nhanh nhất.
+            {t("process.subtitle")}
           </p>
         </motion.div>
 
@@ -93,7 +95,7 @@ const ProcessSection = () => {
             className="rounded-full px-8 py-7 border-primary/30 text-primary hover:bg-primary/10 font-bold"
             onClick={() => window.location.href = "/process"}
           >
-            Chi tiết quy trình đạt chuẩn <ArrowRight className="ml-2 w-5 h-5" />
+            {t("process.view_details")} <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
         </div>
       </div>

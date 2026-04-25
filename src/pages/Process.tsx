@@ -12,59 +12,61 @@ import {
     RefreshCw
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const detailedSteps = [
-    {
-        title: "1. Kết nối & Đồng bộ",
-        desc: "Chúng tôi kết nối API trực tiếp với các gian hàng trên Shopee, Lazada, TikTok Shop hoặc Website cá nhân của bạn. Chỉ mất vài phút để hệ thống bắt đầu nhận dữ liệu sản phẩm và đơn hàng tự động.",
-        image: "/images/process/step1.png",
-        color: "bg-blue-500/10",
-        icon: Link2,
-        iconColor: "text-blue-500"
-    },
-    {
-        title: "2. Nhập hàng & Kiểm tra (QC)",
-        desc: "Hàng hóa khi nhập kho được kiểm tra số lượng và chất lượng nghiêm ngặt bởi đội ngũ chuyên nghiệp. Chúng tôi thực hiện phân loại, dán mã SKU và lưu trữ tại các vị trí tối ưu để dễ dàng truy xuất.",
-        image: "/images/process/step2.png",
-        color: "bg-indigo-500/10",
-        icon: SearchCheck,
-        iconColor: "text-indigo-500"
-    },
-    {
-        title: "3. Lưu kho Chuyên nghiệp",
-        desc: "Hệ thống WMS hiện đại quản lý vị trí hàng hóa chính xác đến từng milimet. Kho bãi đạt chuẩn được trang bị hệ thống kệ chứa hàng thông minh và an ninh giám sát 24/7.",
-        image: "/images/process/step3.png",
-        color: "bg-primary/10",
-        icon: Warehouse,
-        iconColor: "text-primary"
-    },
-    {
-        title: "4. Xử lý Đơn hàng (Pick & Pack)",
-        desc: "Quy trình Pick & Pack được tối ưu hóa bằng công nghệ, đảm bảo độ chính xác tuyệt đối. Hàng hóa được đóng gói kỹ lưỡng theo tiêu chuẩn của từng sàn TMĐT hoặc theo yêu cầu thương hiệu riêng.",
-        image: "/images/process/step4.png",
-        color: "bg-purple-500/10",
-        icon: PackageCheck,
-        iconColor: "text-purple-500"
-    },
-    {
-        title: "5. Bàn giao & Vận chuyển",
-        desc: "MBA Fulfillment liên kết với các đơn vị vận chuyển hàng đầu Việt Nam. Đơn hàng được bàn giao định kỳ nhiều lần trong ngày, giúp rút ngắn tối đa thời gian chờ đợi của khách hàng.",
-        image: "/images/process/step5.png",
-        color: "bg-green-500/10",
-        icon: Truck,
-        iconColor: "text-green-500"
-    },
-    {
-        title: "6. Quản lý Đổi trả",
-        desc: "Chúng tôi thay bạn xử lý các đơn hàng hoàn/trả một cách minh bạch. Hàng hóa được kiểm tra kỹ lưỡng, cập nhật lại tồn kho và thông báo ngay lập tức cho nhà bán hàng qua hệ thống.",
-        image: "/images/process/step6.png",
-        color: "bg-orange-500/10",
-        icon: RefreshCw,
-        iconColor: "text-orange-500"
-    }
-];
+import { useTranslation } from "react-i18next";
 
 const Process = () => {
+    const { t } = useTranslation();
+
+    const detailedSteps = [
+        {
+            title: t("process_page.steps.step1.title"),
+            desc: t("process_page.steps.step1.desc"),
+            image: "/images/process/step1.png",
+            color: "bg-blue-500/10",
+            icon: Link2,
+            iconColor: "text-blue-500"
+        },
+        {
+            title: t("process_page.steps.step2.title"),
+            desc: t("process_page.steps.step2.desc"),
+            image: "/images/process/step2.png",
+            color: "bg-indigo-500/10",
+            icon: SearchCheck,
+            iconColor: "text-indigo-500"
+        },
+        {
+            title: t("process_page.steps.step3.title"),
+            desc: t("process_page.steps.step3.desc"),
+            image: "/images/process/step3.png",
+            color: "bg-primary/10",
+            icon: Warehouse,
+            iconColor: "text-primary"
+        },
+        {
+            title: t("process_page.steps.step4.title"),
+            desc: t("process_page.steps.step4.desc"),
+            image: "/images/process/step4.png",
+            color: "bg-purple-500/10",
+            icon: PackageCheck,
+            iconColor: "text-purple-500"
+        },
+        {
+            title: t("process_page.steps.step5.title"),
+            desc: t("process_page.steps.step5.desc"),
+            image: "/images/process/step5.png",
+            color: "bg-green-500/10",
+            icon: Truck,
+            iconColor: "text-green-500"
+        },
+        {
+            title: t("process_page.steps.step6.title"),
+            desc: t("process_page.steps.step6.desc"),
+            image: "/images/process/step6.png",
+            color: "bg-orange-500/10",
+            icon: RefreshCw,
+            iconColor: "text-orange-500"
+        }
+    ];
     return (
         <div className="min-h-screen bg-background">
             <Header />
@@ -77,15 +79,14 @@ const Process = () => {
                         transition={{ duration: 0.6 }}
                     >
                         <span className="text-primary font-semibold uppercase tracking-wider text-sm mb-4 inline-block">
-                            Vận hành chuẩn hóa
+                            {t("process_page.badge")}
                         </span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-8 leading-tight">
-                            Quy Trình Vận Hành <br className="hidden md:block" />
-                            <span className="text-primary">Đạt Chuẩn Quốc Tế</span>
+                            {t("process_page.title_main")} <br className="hidden md:block" />
+                            <span className="text-primary">{t("process_page.title_highlight")}</span>
                         </h1>
                         <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                            Chúng tôi kết hợp sức mạnh của công nghệ WMS hiện đại với quy trình vận hành
-                            đã được tối ưu hóa, giúp doanh nghiệp của bạn bứt phá doanh thu.
+                            {t("process_page.subtitle")}
                         </p>
                     </motion.div>
                 </section>
@@ -114,11 +115,11 @@ const Process = () => {
                                 <ul className="space-y-3">
                                     <li className="flex items-center gap-3 text-foreground/80">
                                         <CheckCircle2 className="text-primary" size={20} />
-                                        <span>Tự động hóa hoàn toàn</span>
+                                        <span>{t("process_page.features.automation")}</span>
                                     </li>
                                     <li className="flex items-center gap-3 text-foreground/80">
                                         <CheckCircle2 className="text-primary" size={20} />
-                                        <span>Độ chính xác 99.9%</span>
+                                        <span>{t("process_page.features.accuracy")}</span>
                                     </li>
                                 </ul>
                             </div>
@@ -149,16 +150,18 @@ const Process = () => {
 
                             <div className="relative z-10 grid lg:grid-cols-2 gap-20 items-center">
                                 <div>
-                                    <h2 className="text-4xl font-bold mb-8">Cam kết Chất lượng <br /> <span className="text-primary">(SLA) Vượt Trội</span></h2>
+                                    <h2 className="text-4xl font-bold mb-8">
+                                        {t("process_page.sla.title").split("(SLA)")[0]} <br /> 
+                                        <span className="text-primary">(SLA) {t("process_page.sla.title").split("(SLA)")[1]}</span>
+                                    </h2>
                                     <p className="text-lg opacity-80 mb-10 leading-relaxed">
-                                        Chúng tôi hiểu rằng đằng sau mỗi đơn hàng là uy tín của bạn.
-                                        MBA Fulfillment cam kết duy trì những chỉ số vận hành khắt khe nhất.
+                                        {t("process_page.sla.subtitle")}
                                     </p>
                                     <div className="space-y-8">
                                         {[
-                                            { label: "Độ chính xác tồn kho", value: "99.9%" },
-                                            { label: "Phát hàng trong ngày", value: "> 98%" },
-                                            { label: "Xử lý khiếu nại", value: "< 24h" },
+                                            { label: t("process_page.sla.accuracy_label"), value: "99.9%" },
+                                            { label: t("process_page.sla.shipping_label"), value: "> 98%" },
+                                            { label: t("process_page.sla.dispute_label"), value: "< 24h" },
                                         ].map((sla, i) => (
                                             <div key={i} className="group flex justify-between items-center border-b border-primary-foreground/10 pb-4">
                                                 <span className="text-xl opacity-70 group-hover:opacity-100 transition-opacity">{sla.label}</span>
@@ -173,15 +176,14 @@ const Process = () => {
                                         <CheckCircle2 size={40} className="text-primary" />
                                     </div>
                                     <blockquote className="text-2xl font-light italic leading-relaxed opacity-95">
-                                        "Mọi khâu vận hành tại MBA Fulfillment đều được thiết kế để trở thành
-                                        hậu phương vững chắc nhất cho sự bùng nổ của nhà bán hàng."
+                                        "{t("process_page.sla.quote")}"
                                     </blockquote>
                                     <div className="pt-6">
                                         <Button
                                             className="btn-primary text-lg px-8 py-7"
                                             onClick={() => window.location.href = "/contact"}
                                         >
-                                            Bắt đầu ngay
+                                            {t("process_page.sla.cta")}
                                             <ArrowRight className="ml-2 w-5 h-5" />
                                         </Button>
                                     </div>

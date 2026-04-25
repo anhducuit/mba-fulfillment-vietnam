@@ -11,8 +11,10 @@ import { Button } from "@/components/ui/button";
 import { supabase } from "@/integrations/supabase/client";
 import { BlogPost as BlogPostType } from "./types";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const BlogPost = () => {
+  const { t } = useTranslation();
   const { slug } = useParams();
   const navigate = useNavigate();
   const [post, setPost] = useState<BlogPostType | null>(null);
@@ -44,7 +46,7 @@ const BlogPost = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center font-bold text-slate-400 italic animate-pulse">
-          Đang tải nội dung chuyên sâu...
+          {t("blog.loading_post")}
         </div>
       </div>
     );
@@ -84,7 +86,7 @@ const BlogPost = () => {
       <main className="pt-32 pb-24">
         <article className="container-section max-w-4xl">
           <Link to="/blog" className="inline-flex items-center gap-2 text-slate-500 hover:text-primary transition-colors mb-8 font-medium">
-            <ArrowLeft size={18} /> Quay lại Blog
+            <ArrowLeft size={18} /> {t("blog.back_to_blog")}
           </Link>
 
           <motion.div
@@ -109,7 +111,7 @@ const BlogPost = () => {
                 </div>
                 <div>
                   <div className="font-bold text-slate-900">{post.author}</div>
-                  <div className="text-sm text-slate-500">Người viết bài</div>
+                  <div className="text-sm text-slate-500">{t("blog.author_role")}</div>
                 </div>
               </div>
               <div className="flex gap-4">

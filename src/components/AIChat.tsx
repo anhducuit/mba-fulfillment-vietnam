@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Send, Bot, User, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -11,6 +12,8 @@ interface Message {
 }
 
 const AIChat = () => {
+    const { t, i18n } = useTranslation();
+
     // Load messages from localStorage or use default
     const loadMessages = (): Message[] => {
         try {
@@ -24,7 +27,7 @@ const AIChat = () => {
         // Default welcome message
         return [{
             role: 'assistant',
-            content: 'Xin chào! Tôi là trợ lý AI của MBA Fulfillment Việt Nam. Tôi có thể giúp gì cho bạn về dịch vụ fulfillment của chúng tôi?'
+            content: t("chat.welcome")
         }];
     };
 
@@ -74,7 +77,8 @@ const AIChat = () => {
                     messages: [...messages, userMessage].map(m => ({
                         role: m.role,
                         content: m.content
-                    }))
+                    })),
+                    language: i18n.language // Pass current language to AI
                 }),
             });
 
@@ -92,7 +96,7 @@ const AIChat = () => {
             console.error('Chat error:', error);
             setMessages(prev => [...prev, {
                 role: 'assistant',
-                content: 'Xin lỗi, đã có lỗi xảy ra. Vui lòng thử lại sau hoặc liên hệ trực tiếp qua hotline: 0948 078 599'
+                content: t("chat.error")
             }]);
         } finally {
             setIsLoading(false);
@@ -210,7 +214,7 @@ const AIChat = () => {
                             value={input}
                             onChange={(e) => setInput(e.target.value)}
                             onKeyPress={handleKeyPress}
-                            placeholder="Nhập câu hỏi của bạn..."
+                            placeholder={t("chat.placeholder")}
                             className="flex-1 resize-none rounded-xl border bg-background px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary min-h-[60px] max-h-[200px]"
                             rows={1}
                             disabled={isLoading}
@@ -228,7 +232,7 @@ const AIChat = () => {
                         </Button>
                     </div>
                     <p className="text-xs text-muted-foreground mt-2 text-center">
-                        Nhấn Enter để gửi, Shift + Enter để xuống dòng
+                        {t("chat.tips")}
                     </p>
                 </div>
             </div>

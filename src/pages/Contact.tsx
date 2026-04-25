@@ -4,9 +4,11 @@ import ContactSection from "@/components/ContactSection";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Clock, MessageSquare, HeadphonesIcon } from "lucide-react";
 import { getSiteConfig } from "@/config/siteConfig";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
     const config = getSiteConfig();
+    const { t } = useTranslation();
     return (
         <div className="min-h-screen bg-background">
             <Header />
@@ -18,10 +20,11 @@ const Contact = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                     >
-                        <h1 className="text-4xl md:text-5xl font-bold mb-6">Liên Hệ Với <span className="text-primary">Chúng Tôi</span></h1>
+                        <h1 className="text-4xl md:text-5xl font-bold mb-6">
+                            {t("contact_page.title_main")} <span className="text-primary">{t("contact_page.title_highlight")}</span>
+                        </h1>
                         <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                            Đội ngũ chuyên gia của chúng tôi luôn sẵn sàng tư vấn giải pháp fulfillment
-                            tối ưu nhất cho mô hình kinh doanh của bạn.
+                            {t("contact_page.subtitle")}
                         </p>
                     </motion.div>
                 </section>
@@ -33,8 +36,8 @@ const Contact = () => {
                             <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mx-auto mb-6">
                                 <Phone size={28} />
                             </div>
-                            <h3 className="text-xl font-bold mb-2">Điện thoại</h3>
-                            <p className="text-muted-foreground mb-4">Tư vấn 24/7</p>
+                            <h3 className="text-xl font-bold mb-2">{t("contact_page.info.phone.title")}</h3>
+                            <p className="text-muted-foreground mb-4">{t("contact_page.info.phone.subtitle")}</p>
                             <a href={`tel:${config.phone}`} className="text-2xl font-bold text-primary hover:underline">{config.phoneFormatted}</a>
                         </div>
 
@@ -42,8 +45,8 @@ const Contact = () => {
                             <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mx-auto mb-6">
                                 <Mail size={28} />
                             </div>
-                            <h3 className="text-xl font-bold mb-2">Email</h3>
-                            <p className="text-muted-foreground mb-4">Phản hồi trong 2h</p>
+                            <h3 className="text-xl font-bold mb-2">{t("contact_page.info.email.title")}</h3>
+                            <p className="text-muted-foreground mb-4">{t("contact_page.info.email.subtitle")}</p>
                             <a href={`mailto:${config.email}`} className="text-lg font-bold text-primary hover:underline break-words">{config.email}</a>
                         </div>
 
@@ -51,9 +54,9 @@ const Contact = () => {
                             <div className="w-14 h-14 bg-primary/10 rounded-2xl flex items-center justify-center text-primary mx-auto mb-6">
                                 <Clock size={28} />
                             </div>
-                            <h3 className="text-xl font-bold mb-2">Giờ làm việc</h3>
-                            <p className="text-muted-foreground mb-2">Thứ 2 - Thứ 7</p>
-                            <p className="font-bold text-foreground">08:00 - 18:00</p>
+                            <h3 className="text-xl font-bold mb-2">{t("contact_page.info.hours.title")}</h3>
+                            <p className="text-muted-foreground mb-2">{t("contact_page.info.hours.days")}</p>
+                            <p className="font-bold text-foreground">{t("contact_page.info.hours.time")}</p>
                         </div>
                     </div>
                 </section>
@@ -63,23 +66,17 @@ const Contact = () => {
                     <div className="bg-secondary/20 p-8 md:p-12 rounded-[40px] border border-border">
                         <div className="grid lg:grid-cols-2 gap-12">
                             <div>
-                                <h2 className="text-3xl font-bold mb-6">Gửi yêu cầu tư vấn</h2>
+                                <h2 className="text-3xl font-bold mb-6">{t("contact_page.form_section.title")}</h2>
                                 <p className="text-muted-foreground mb-8">
-                                    Vui lòng điền thông tin vào biểu mẫu, chúng tôi sẽ liên hệ lại ngay để khảo sát nhu cầu và báo giá chi tiết.
+                                    {t("contact_page.form_section.subtitle")}
                                 </p>
                                 <div className="space-y-6">
-                                    <div className="flex items-center gap-4 text-foreground/80">
-                                        <CheckCircle2 size={24} className="text-primary" />
-                                        <span>Tư vấn giải pháp miễn phí</span>
-                                    </div>
-                                    <div className="flex items-center gap-4 text-foreground/80">
-                                        <CheckCircle2 size={24} className="text-primary" />
-                                        <span>Demo hệ thống OMS/WMS</span>
-                                    </div>
-                                    <div className="flex items-center gap-4 text-foreground/80">
-                                        <CheckCircle2 size={24} className="text-primary" />
-                                        <span>Tham quan kho thực tế</span>
-                                    </div>
+                                    {(t("contact_page.form_section.benefits", { returnObjects: true }) as string[]).map((benefit, i) => (
+                                        <div key={i} className="flex items-center gap-4 text-foreground/80">
+                                            <CheckCircle2 size={24} className="text-primary" />
+                                            <span>{benefit}</span>
+                                        </div>
+                                    ))}
                                 </div>
                             </div>
                             <div className="bg-card rounded-3xl p-8 border border-border shadow-sm h-full">
@@ -95,9 +92,9 @@ const Contact = () => {
                         <div className="flex-1 space-y-6">
                             <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 text-primary rounded-full font-semibold">
                                 <MapPin size={18} />
-                                <span>Trụ sở chính</span>
+                                <span>{t("contact_page.hq.badge")}</span>
                             </div>
-                            <h2 className="text-3xl font-bold">MBA Fulfillment Việt Nam</h2>
+                            <h2 className="text-3xl font-bold">{t("contact_page.hq.title")}</h2>
                             <p className="text-xl text-muted-foreground leading-relaxed">
                                 {config.address}
                             </p>
@@ -108,7 +105,7 @@ const Contact = () => {
                                     rel="noopener noreferrer"
                                     className="btn-primary inline-flex items-center gap-2 px-8 py-4 rounded-full"
                                 >
-                                    Xem trên Google Maps
+                                    {t("contact_page.hq.maps_button")}
                                 </a>
                             </div>
                         </div>

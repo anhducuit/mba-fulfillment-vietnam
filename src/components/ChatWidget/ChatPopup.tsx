@@ -1,6 +1,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import AIChat from '../AIChat';
+import { useTranslation } from 'react-i18next';
 
 interface ChatPopupProps {
     isOpen: boolean;
@@ -8,6 +9,7 @@ interface ChatPopupProps {
 }
 
 const ChatPopup = ({ isOpen, onClose }: ChatPopupProps) => {
+    const { t } = useTranslation();
     return (
         <AnimatePresence>
             {isOpen && (
@@ -54,7 +56,7 @@ const ChatPopup = ({ isOpen, onClose }: ChatPopupProps) => {
                                     <span className="text-lg font-bold">AI</span>
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold">Trợ lý AI</h3>
+                                    <h3 className="font-semibold">{t("chat.title")}</h3>
                                     <p className="text-xs opacity-90">MBA Fulfillment Vietnam</p>
                                 </div>
                             </div>

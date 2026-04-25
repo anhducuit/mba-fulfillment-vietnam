@@ -8,10 +8,12 @@ import {
   ArrowUp
 } from "lucide-react";
 import Logo from "./Logo";
+import { useTranslation } from "react-i18next";
 
 import { getSiteConfig } from "@/config/siteConfig";
 
 const Footer = () => {
+  const { t } = useTranslation();
   const config = getSiteConfig();
   const isDichVuKho = config.domain === "dichvukho.vn";
 
@@ -29,7 +31,7 @@ const Footer = () => {
               <Logo />
             </div>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
-              {config.description}
+              {isDichVuKho ? t("topbar.dichvukho") : t("topbar.main")}
             </p>
             {!isDichVuKho && (
               <div className="flex gap-4">
@@ -54,23 +56,23 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-bold text-lg mb-4">{isDichVuKho ? "Dịch vụ cốt lõi" : "Dịch vụ"}</h4>
+            <h4 className="font-bold text-lg mb-4">{isDichVuKho ? t("footer.sections.core_services") : t("footer.sections.services")}</h4>
             <ul className="space-y-3">
               {isDichVuKho ? (
                 <>
-                  <li className="text-primary-foreground/70 text-sm">Lưu kho hàng hóa</li>
-                  <li className="text-primary-foreground/70 text-sm">Quản lý tồn kho</li>
-                  <li className="text-primary-foreground/70 text-sm">Đóng gói chuyên nghiệp</li>
-                  <li className="text-primary-foreground/70 text-sm">Xử lý đơn hàng trọn gói</li>
-                  <li className="text-primary-foreground/70 text-sm">Tư vấn vận hành</li>
+                  <li className="text-primary-foreground/70 text-sm">{t("footer.service_list.warehousing")}</li>
+                  <li className="text-primary-foreground/70 text-sm">{t("footer.service_list.inventory")}</li>
+                  <li className="text-primary-foreground/70 text-sm">{t("footer.service_list.professional_packing")}</li>
+                  <li className="text-primary-foreground/70 text-sm">{t("footer.service_list.end_to_end")}</li>
+                  <li className="text-primary-foreground/70 text-sm">{t("footer.service_list.operational_consulting")}</li>
                 </>
               ) : (
                 <>
-                  <li><a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Giải pháp Fulfillment</a></li>
-                  <li><a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Bán hàng đa kênh B2B</a></li>
-                  <li><a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Tùy chỉnh đóng gói</a></li>
-                  <li><a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Quản lý kho hàng WMS</a></li>
-                  <li><a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Đối tác Marketing</a></li>
+                  <li><a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">{t("footer.service_list.fulfillment")}</a></li>
+                  <li><a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">{t("footer.service_list.multichannel")}</a></li>
+                  <li><a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">{t("footer.service_list.custom_packaging")}</a></li>
+                  <li><a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">{t("footer.service_list.wms")}</a></li>
+                  <li><a href="/services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">{t("footer.service_list.marketing")}</a></li>
                 </>
               )}
             </ul>
@@ -78,24 +80,24 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Liên kết nhanh</h4>
+            <h4 className="font-bold text-lg mb-4">{t("footer.sections.links")}</h4>
             <ul className="space-y-3">
               {isDichVuKho ? (
                 <>
-                  <li><a href="/dichvukho#" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Trang chủ</a></li>
-                  <li><a href="/dichvukho#services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Dịch vụ</a></li>
-                  <li><a href="/dichvukho#process" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Quy trình</a></li>
-                  <li><a href="/dichvukho#contact" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Liên hệ</a></li>
+                  <li><a href="/dichvukho#" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">{t("nav.home")}</a></li>
+                  <li><a href="/dichvukho#services" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">{t("nav.services")}</a></li>
+                  <li><a href="/dichvukho#process" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">{t("nav.process")}</a></li>
+                  <li><a href="/dichvukho#contact" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">{t("nav.contact")}</a></li>
                 </>
               ) : (
                 <>
-                  <li><a href="/" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Trang chủ</a></li>
-                  <li><a href="/solutions" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Giải pháp</a></li>
-                  <li><a href="/process" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Quy trình</a></li>
-                  <li><a href="/blog" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Blog kiến thức</a></li>
-                  <li><a href="/admin-blog" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Quản trị Blog</a></li>
-                  <li><a href="/contact" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Liên hệ</a></li>
-                  <li><a href="/privacy-policy" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">Chính sách bảo mật</a></li>
+                  <li><a href="/" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">{t("nav.home")}</a></li>
+                  <li><a href="/solutions" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">{t("nav.solutions")}</a></li>
+                  <li><a href="/process" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">{t("nav.process")}</a></li>
+                  <li><a href="/blog" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">{t("nav.blog")}</a></li>
+                  <li><a href="/admin-blog" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">{t("nav.admin")}</a></li>
+                  <li><a href="/contact" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">{t("nav.contact")}</a></li>
+                  <li><a href="/privacy-policy" className="text-primary-foreground/70 hover:text-primary transition-colors text-sm">{t("privacy.title")}</a></li>
                 </>
               )}
             </ul>
@@ -103,12 +105,12 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="font-bold text-lg mb-4">Liên hệ</h4>
+            <h4 className="font-bold text-lg mb-4">{t("footer.sections.contact")}</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-sm text-primary-foreground/70">Điện thoại</p>
+                  <p className="text-sm text-primary-foreground/70">{t("footer.contact_info.phone")}</p>
                   <a href={`tel:${config.phone}`} className="text-primary-foreground hover:text-primary transition-colors">
                     {config.phoneFormatted}
                   </a>
@@ -117,7 +119,7 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-sm text-primary-foreground/70">Email</p>
+                  <p className="text-sm text-primary-foreground/70">{t("footer.contact_info.email")}</p>
                   <a href={`mailto:${config.email}`} className="text-primary-foreground hover:text-primary transition-colors text-sm">
                     {config.email}
                   </a>
@@ -126,9 +128,9 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                 <div>
-                  <p className="text-sm text-primary-foreground/70">Địa chỉ</p>
+                  <p className="text-sm text-primary-foreground/70">{t("footer.contact_info.address")}</p>
                   <p className="text-primary-foreground text-sm">
-                    {config.address}
+                    {isDichVuKho ? t("footer.contact_info.address_dichvukho") : t("footer.contact_info.address_main")}
                   </p>
                 </div>
               </li>
@@ -141,7 +143,7 @@ const Footer = () => {
       <div className="border-t border-primary-foreground/10">
         <div className="container-section py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-primary-foreground/60 text-center md:text-left">
-            © {new Date().getFullYear()} {config.name}. All rights reserved.
+            © {new Date().getFullYear()} {config.name}. {t("footer.rights")}
           </p>
           <button
             onClick={scrollToTop}

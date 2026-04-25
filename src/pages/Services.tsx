@@ -12,81 +12,58 @@ import {
     ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const services = [
-    {
-        icon: Package,
-        title: "Giải pháp Fulfillment",
-        description: "MBA Fulfillment sẽ giúp bạn tối ưu toàn bộ quy trình từ lưu kho, đóng gói, vận chuyển và sau giao hàng với chi phí và thời gian tối thiểu.",
-        details: [
-            "Quản lý nhập kho và kiểm kê hàng hóa nghiêm ngặt.",
-            "Lưu kho theo tiêu chuẩn, đảm bảo an toàn tuyệt đối.",
-            "Quy trình Pick & Pack chuẩn hóa, chính xác 99.9%.",
-            "Kết nối với tất cả các đơn vị vận chuyển hàng đầu."
-        ],
-        color: "from-orange-500 to-amber-500",
-        image: "/images/services/fulfillment.png"
-    },
-    {
-        icon: Store,
-        title: "Bán hàng Đa kênh B2B",
-        description: "MBA Fulfillment giúp bạn kết nối với các Nhà bán lẻ nhằm phân phối hàng hóa chỉ trên một nền tảng duy nhất nhưng vẫn tối ưu chi phí.",
-        details: [
-            "Đồng bộ tồn kho thời gian thực trên Shopee, Lazada, TikTok Shop.",
-            "Quản lý đơn hàng tập trung từ tất cả các kênh bán lẻ.",
-            "Xử lý đơn hàng sỉ (B2B) và lẻ (B2C) linh hoạt.",
-            "Hỗ trợ phân phối hàng vào hệ thống siêu thị, đại lý."
-        ],
-        color: "from-blue-500 to-cyan-500",
-        image: "/images/services/b2b_logistics.png"
-    },
-    {
-        icon: Warehouse,
-        title: "Quản lý kho hàng WMS",
-        description: "Với hệ thống quản lý kho hàng (WMS) hiện đại, bạn có thể theo dõi tình trạng tồn kho theo thời gian thực và kiểm soát chặt chẽ hàng hóa.",
-        details: [
-            "Theo dõi vị trí hàng hóa chính xác trong kho.",
-            "Báo cáo xuất-nhập-tồn chi tiết hàng ngày/tháng.",
-            "Cảnh báo khi số lượng tồn kho xuống mức thấp.",
-            "Tích hợp API dễ dàng với các sàn và phần mềm quản lý."
-        ],
-        color: "from-indigo-500 to-violet-500",
-        image: "/images/services/wms_tech.png"
-    },
-    {
-        icon: Gift,
-        title: "Tùy chỉnh đóng gói",
-        description: "Chúng tôi cung cấp các nhãn dán, ấn phẩm marketing, bao bì và hộp thương hiệu tùy chỉnh theo từng yêu cầu của nhà bán hàng.",
-        details: [
-            "Đóng gói theo yêu cầu (Co-packing).",
-            "Dán tem phụ, nhãn mác sản phẩm.",
-            "Kèm thiệp cảm ơn, quà tặng trong đơn hàng.",
-            "Sử dụng bao bì thân thiện với môi trường."
-        ],
-        color: "from-purple-500 to-pink-500",
-        image: "/images/services/packaging.png"
-    },
-    {
-        icon: Megaphone,
-        title: "Giải pháp Tăng trưởng",
-        description: "Chúng tôi hỗ trợ các giải pháp marketing và chăm sóc khách hàng giúp tối ưu hiệu quả kinh doanh cho đối tác.",
-        details: [
-            "Tư vấn tối ưu gian hàng trên sàn TMĐT.",
-            "Hỗ trợ xử lý khiếu nại và đổi trả hàng (Return Management).",
-            "Báo cáo phân tích hành vi khách hàng.",
-            "Hợp tác với các Agency marketing uy tín."
-        ],
-        color: "from-green-500 to-emerald-500",
-        image: "/images/services/growth_marketing.png"
-    },
-];
+import { useTranslation } from "react-i18next";
 
 const Services = () => {
+    const { t } = useTranslation();
+
+    const services = [
+        {
+            icon: Package,
+            title: t("services_page.items.fulfillment.title"),
+            description: t("services_page.items.fulfillment.desc"),
+            details: t("services_page.items.fulfillment.details", { returnObjects: true }) as string[],
+            color: "from-orange-500 to-amber-500",
+            image: "/images/services/fulfillment.png"
+        },
+        {
+            icon: Store,
+            title: t("services_page.items.b2b.title"),
+            description: t("services_page.items.b2b.desc"),
+            details: t("services_page.items.b2b.details", { returnObjects: true }) as string[],
+            color: "from-blue-500 to-cyan-500",
+            image: "/images/services/b2b_logistics.png"
+        },
+        {
+            icon: Warehouse,
+            title: t("services_page.items.wms.title"),
+            description: t("services_page.items.wms.desc"),
+            details: t("services_page.items.wms.details", { returnObjects: true }) as string[],
+            color: "from-indigo-500 to-violet-500",
+            image: "/images/services/wms_tech.png"
+        },
+        {
+            icon: Gift,
+            title: t("services_page.items.packaging.title"),
+            description: t("services_page.items.packaging.desc"),
+            details: t("services_page.items.packaging.details", { returnObjects: true }) as string[],
+            color: "from-purple-500 to-pink-500",
+            image: "/images/services/packaging.png"
+        },
+        {
+            icon: Megaphone,
+            title: t("services_page.items.growth.title"),
+            description: t("services_page.items.growth.desc"),
+            details: t("services_page.items.growth.details", { returnObjects: true }) as string[],
+            color: "from-green-500 to-emerald-500",
+            image: "/images/services/growth_marketing.png"
+        },
+    ];
     return (
         <div className="min-h-screen bg-background">
             <Helmet>
-                <title>Dịch Vụ Fulfillment Chuyên Nghiệp | MBA Fulfillment</title>
-                <meta name="description" content="Dịch vụ lưu kho, đóng gói và vận chuyển trọn gói. Cam kết xử lý đơn hàng nhanh chóng, chính xác với hệ thống kho bãi hiện đại." />
+                <title>{t("services_page.meta.title")}</title>
+                <meta name="description" content={t("services_page.meta.description")} />
             </Helmet>
             <Header />
             <main className="pt-32 pb-20">
@@ -98,11 +75,10 @@ const Services = () => {
                         transition={{ duration: 0.6 }}
                     >
                         <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
-                            Dịch Vụ <span className="text-primary">Toàn Diện</span>
+                            {t("services_page.title_main")} <span className="text-primary">{t("services_page.title_highlight")}</span>
                         </h1>
                         <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                            Từ lưu kho đến giao hàng, chúng tôi cung cấp mọi giải pháp hậu cần
-                            cần thiết để bạn tập trung hoàn toàn vào việc phát triển thương hiệu.
+                            {t("services_page.subtitle")}
                         </p>
                     </motion.div>
                 </section>
@@ -139,7 +115,7 @@ const Services = () => {
                                         className="btn-primary"
                                         onClick={() => window.location.href = "/contact"}
                                     >
-                                        Nhận tư vấn ngay
+                                        {t("services_page.cta.consult")}
                                         <ArrowRight className="ml-2 w-4 h-4" />
                                     </Button>
                                 </div>
@@ -167,11 +143,10 @@ const Services = () => {
                         <div className="absolute bottom-0 left-0 w-64 h-64 bg-black/5 rounded-full -ml-32 -mb-32" />
 
                         <h2 className="text-3xl md:text-4xl font-bold mb-6 relative z-10">
-                            Sẵn sàng tối ưu vận hành cho doanh nghiệp của bạn?
+                            {t("services_page.cta.title")}
                         </h2>
                         <p className="text-primary-foreground/90 text-lg mb-10 max-w-2xl mx-auto relative z-10">
-                            Liên hệ với đội ngũ chuyên gia của chúng tôi để được tư vấn giải pháp fulfillment
-                            phù hợp nhất và nhận báo giá ưu đãi.
+                            {t("services_page.cta.subtitle")}
                         </p>
                         <div className="relative z-10">
                             <Button
@@ -180,7 +155,7 @@ const Services = () => {
                                 className="text-lg px-8 py-6 group"
                                 onClick={() => window.location.href = "/contact"}
                             >
-                                Yêu cầu báo giá chi tiết
+                                {t("services_page.cta.button")}
                                 <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
                             </Button>
                         </div>

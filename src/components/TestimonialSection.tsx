@@ -2,40 +2,30 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef } from "react";
 import { Quote, Star } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
-const testimonials = [
-    {
-        name: "Nguyễn Văn Hùng",
-        role: "Chủ shop Thời trang MenStyle",
-        content: "Từ khi sử dụng MBA Fulfillment, tỷ lệ hoàn đơn của shop tôi giảm đáng kể nhờ quy trình đóng gói chắc chắn và giao hàng nhanh. Rất hài lòng với dịch vụ!",
-        rating: 5,
-    },
-    {
-        name: "Trần Thị Mai Phương",
-        role: "Founder Mỹ phẩm Nature",
-        content: "Hệ thống quản lý kho rất trực quan, tôi có thể kiểm soát tồn kho realtime ngay trên điện thoại. Đội ngũ support cũng rất nhiệt tình.",
-        rating: 5,
-    },
-    {
-        name: "Lê Thanh Tùng",
-        role: "CEO TechGadget VN",
-        content: "Giải pháp tối ưu cho các doanh nghiệp TMĐT vừa và nhỏ. Chi phí hợp lý, minh bạch, không phát sinh thêm các khoản vô lý.",
-        rating: 4,
-    },
-];
+interface Testimonial {
+    name: string;
+    role: string;
+    content: string;
+}
+
+// Testimonials are now managed in locale files
 
 const TestimonialSection = () => {
+    const { t } = useTranslation();
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, margin: "-100px" });
+    const testimonials = t("testimonials.items", { returnObjects: true }) as Testimonial[];
 
     return (
         <section className="py-20 bg-background" ref={ref}>
             <div className="container-section">
                 <div className="text-center mb-16">
                     <span className="text-primary font-semibold uppercase tracking-wider text-sm">
-                        Khách hàng nói gì về chúng tôi
+                        {t("testimonials.badge")}
                     </span>
-                    <h2 className="section-title mt-2">Được tin tưởng bởi các đối tác</h2>
+                    <h2 className="section-title mt-2">{t("testimonials.title")}</h2>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8">
@@ -53,7 +43,7 @@ const TestimonialSection = () => {
                                 {[...Array(5)].map((_, i) => (
                                     <Star
                                         key={i}
-                                        className={`w-4 h-4 ${i < testimonial.rating ? "text-yellow-500 fill-yellow-500" : "text-gray-300"
+                                        className={`w-4 h-4 ${i < (index === 2 ? 4 : 5) ? "text-yellow-500 fill-yellow-500" : "text-gray-300"
                                             }`}
                                     />
                                 ))}

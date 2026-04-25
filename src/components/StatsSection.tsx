@@ -2,37 +2,7 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Shield, Truck, Target, Users } from "lucide-react";
-
-const stats = [
-  {
-    icon: Shield,
-    value: 99,
-    suffix: "%",
-    label: "SLA đạt được với sàn TMĐT",
-    description: "Cam kết chất lượng dịch vụ cao nhất",
-  },
-  {
-    icon: Truck,
-    value: 95,
-    suffix: "%",
-    label: "Vận chuyển trong 2 ngày",
-    description: "Giao hàng nhanh chóng toàn quốc",
-  },
-  {
-    icon: Target,
-    value: 99,
-    suffix: "%",
-    label: "Độ chính xác",
-    description: "Xử lý đơn hàng chính xác tuyệt đối",
-  },
-  {
-    icon: Users,
-    value: 100,
-    suffix: "+",
-    label: "Nhà bán hàng tin tưởng",
-    description: "Đối tác đồng hành cùng chúng tôi",
-  },
-];
+import { useTranslation } from "react-i18next";
 
 const CountUp = ({ end, suffix, inView }: { end: number; suffix: string; inView: boolean }) => {
   const [count, setCount] = useState(0);
@@ -66,6 +36,35 @@ const CountUp = ({ end, suffix, inView }: { end: number; suffix: string; inView:
 };
 
 const StatsSection = () => {
+  const { t } = useTranslation();
+
+  const stats = [
+    {
+      icon: Shield,
+      value: 99,
+      suffix: "%",
+      label: t("stats.sla"),
+    },
+    {
+      icon: Truck,
+      value: 95,
+      suffix: "%",
+      label: t("stats.shipping"),
+    },
+    {
+      icon: Target,
+      value: 99,
+      suffix: "%",
+      label: t("stats.accuracy_label"),
+    },
+    {
+      icon: Users,
+      value: 100,
+      suffix: "+",
+      label: t("stats.sellers"),
+    },
+  ];
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -83,25 +82,24 @@ const StatsSection = () => {
             transition={{ duration: 0.8 }}
           >
             <span className="text-primary font-bold uppercase tracking-widest text-xs mb-4 inline-block">
-              Proven Excellence
+              {t("stats.badge")}
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold mb-8 leading-tight">
-              Tối Ưu Vận Hành <br />
-              <span className="text-primary">Cam Kết Chất Lượng</span>
+              {t("stats.title_part1")} <br />
+              <span className="text-primary">{t("stats.title_accent")}</span>
             </h2>
             <p className="text-xl text-primary-foreground/70 mb-12 leading-relaxed">
-              Dù quy mô kinh doanh của bạn là gì, MBA Fulfillment mang đến sự an tâm tuyệt đối
-              với các chỉ số vận hành chuẩn quốc tế, giúp bạn tập trung hoàn toàn vào tăng trưởng.
+              {t("stats.subtitle")}
             </p>
             <div className="flex gap-6">
               <div className="flex flex-col">
                 <span className="text-5xl font-extrabold text-primary mb-2">99.9%</span>
-                <span className="text-sm opacity-60">Độ chính xác tồn kho</span>
+                <span className="text-sm opacity-60">{t("stats.accuracy_inventory")}</span>
               </div>
               <div className="w-px h-16 bg-primary/20 self-center" />
               <div className="flex flex-col">
                 <span className="text-5xl font-extrabold text-primary mb-2">98%+</span>
-                <span className="text-sm opacity-60">Đơn phát trong ngày</span>
+                <span className="text-sm opacity-60">{t("stats.shipped_today")}</span>
               </div>
             </div>
           </motion.div>

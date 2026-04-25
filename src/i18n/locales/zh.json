@@ -1,4 +1,29 @@
 {
+  "homepage": {
+    "meta_title": "MBA Fulfillment 越南 | 领先的 4.0 订单履约解决方案",
+    "meta_description": "利用 4.0 订单履约解决方案提升业务运营。跨多个电子商务平台的自动化存储、包装和运输。SLA 99.9%。"
+  },
+  "testimonials": {
+    "badge": "客户对我们的评价",
+    "title": "深受合作伙伴信赖",
+    "items": [
+      {
+        "name": "阮文雄",
+        "role": "MenStyle 时尚店主",
+        "content": "在使用 MBA Fulfillment 之后，由于坚固的包装和快速的交货，我店铺的退单率显著下降。对服务非常满意！"
+      },
+      {
+        "name": "陈氏梅芳",
+        "role": "Nature 化妆品创始人",
+        "content": "仓库管理系统非常直观，我可以直接在手机上实时监控库存。支持团队也非常热情。"
+      },
+      {
+        "name": "黎青松",
+        "role": "TechGadget VN 首席执行官",
+        "content": "中小型电商企业的最佳解决方案。费用合理、透明，没有产生任何不合理的额外费用。"
+      }
+    ]
+  },
   "nav": {
     "home": "首页",
     "services": "服务",
@@ -24,19 +49,625 @@
     "cta_try": "立即试用",
     "cta_services": "探索服务"
   },
+  "services": {
+    "badge": "我们的专业知识",
+    "title": "全方位运营解决方案",
+    "subtitle": "我们提供最优质的物流工具和服务，帮助您在所有数字平台上扩展业务。",
+    "list": {
+      "fulfillment": {
+        "title": "履行解决方案",
+        "desc": "优化从入库、打包到运输的整个流程，以最低的成本实现最高效率。"
+      },
+      "multichannel": {
+        "title": "B2B 多渠道销售",
+        "desc": "连接多个电商平台，在一个平台上集中管理所有订单。"
+      },
+      "wms": {
+        "title": "WMS 系统",
+        "desc": "智能化仓库管理，以绝对的准确性实时跟踪库存。"
+      }
+    },
+    "learn_more": "了解更多"
+  },
+  "stats": {
+    "badge": "卓越验证",
+    "title_part1": "优化运营",
+    "title_accent": "品质承诺",
+    "subtitle": "无论您的业务规模如何，MBA Fulfillment 都能通过国际标准运营指标为您带来绝对的安心，助您专注于增长。",
+    "accuracy_inventory": "库存准确率",
+    "shipped_today": "当天发货单",
+    "sla": "电商平台达成 SLA",
+    "shipping": "2天内发货",
+    "accuracy_label": "准确性",
+    "sellers": "值得信赖的商家"
+  },
+  "process": {
+    "badge": "我们的流程",
+    "title": "优化的订单旅程",
+    "subtitle": "所有运营环节均通过现代 WMS 系统实现自动化，确保货物以最快速度送达客户手中。",
+    "steps": {
+      "step1": "连接与同步",
+      "step2": "收货与品控",
+      "step3": "专业仓储",
+      "step4": "订单处理",
+      "step5": "移交运输",
+      "step6": "退货管理"
+    },
+    "view_details": "标准流程详情"
+  },
+  "values": {
+    "badge": "为什么选择我们",
+    "title": "我们为客户带来的价值",
+    "list": {
+      "consulting": {
+        "title": "100% 免费咨询",
+        "desc": "提供完全免费的专业咨询支持"
+      },
+      "platform": {
+        "title": "全平台集成",
+        "desc": "在一个平台上集中管理所有销售渠道"
+      },
+      "partner": {
+        "title": "值得信赖的合作伙伴",
+        "desc": "承诺与客户建立长期合作关系"
+      },
+      "wms": {
+        "title": "精确的库存数据管理",
+        "desc": "100% 准确的实时库存跟踪"
+      },
+      "fulfillment": {
+        "title": "按承诺处理订单",
+        "desc": "确保 SLA 和交付时间"
+      },
+      "professional": {
+        "title": "专心与专业",
+        "desc": "经验丰富的专家团队"
+      }
+    },
+    "trust": {
+      "brands": "个品牌",
+      "subtitle": "已信任并使用我们的服务"
+    }
+  },
+  "footer": {
+    "sections": {
+      "services": "服务",
+      "core_services": "核心服务",
+      "links": "快速链接",
+      "contact": "联系我们"
+    },
+    "service_list": {
+      "fulfillment": "履行解决方案",
+      "multichannel": "B2B 多渠道销售",
+      "custom_packaging": "定制包装",
+      "wms": "WMS 库存管理",
+      "marketing": "营销合作伙伴",
+      "warehousing": "货物入库",
+      "inventory": "库存管理",
+      "professional_packing": "专业包装",
+      "end_to_end": "全流程订单处理",
+      "operational_consulting": "运营咨询"
+    },
+    "contact_info": {
+      "phone": "电话",
+      "email": "邮箱",
+      "address": "地址",
+      "address_main": "胡志明市，12区，新泰一坊，Lê Thị Ánh 40/8",
+      "address_dichvukho": "胡志明市和河内仓库系统"
+    },
+    "rights": "保留所有权利。"
+  },
+  "privacy": {
+    "title": "隐私政策"
+  },
+  "multichannel": {
+    "badge": "多渠道销售管理",
+    "title": "轻松连接多渠道，通过 OMS MBA Fulfillment 管理所有门店",
+    "subtitle": "连接并同步所有电子商务平台，在单一平台上集中管理订单。节省时间，提高运营效率。",
+    "stats": {
+      "exp_years": "物流与后勤领域经验",
+      "sync_time": "连接并同步您的店铺",
+      "sync_label": "5 分钟"
+    },
+    "platforms_label": "已连接的电商平台：",
+    "website_tmdt": "电商网站",
+    "dashboard": {
+      "title": "MBA Fulfillment 控制面板",
+      "today": "今日订单",
+      "processing": "处理中",
+      "shipped": "已发货",
+      "completed": "已完成"
+    }
+  },
+  "contact": {
+    "badge": "联系我们",
+    "title": "快速便捷",
+    "subtitle": "MBA Fulfillment - 履行您的所有订单。节省时间、高精度且运营透明",
+    "form": {
+      "title": "立即联系",
+      "subtitle": "我们将尽快给您回复",
+      "name_label": "姓名 *",
+      "name_placeholder": "请输入姓名",
+      "phone_label": "电话 *",
+      "phone_placeholder": "请输入电话号码",
+      "email_label": "邮箱 *",
+      "email_placeholder": "请输入有效邮箱",
+      "company_label": "公司/店铺名称",
+      "company_placeholder": "请输入公司或店铺名称",
+      "message_label": "咨询内容",
+      "message_placeholder": "描述您的需求...",
+      "submit": "提交咨询请求",
+      "submitting": "提交中...",
+      "success": "感谢您的联系！我们将尽快予以答复。",
+      "error": "发生错误。请稍后再试。"
+    },
+    "info": {
+      "manager_name": "Mr 阳 - 销售经理",
+      "support_247": "24/7 咨询支持"
+    },
+    "benefits": {
+      "sales": "提高销售额",
+      "operation": "提高运营能力",
+      "management": "集中管理"
+    }
+  },
+  "chat": {
+    "title": "AI 助手",
+    "welcome": "您好！我是 MBA Fulfillment Vietnam 的 AI 助手。有什么关于我们履行服务的问题我可以帮您吗？",
+    "placeholder": "请输入您的问题...",
+    "error": "抱歉，发生了错误。请稍后再试或通过热线联系我们：0948 078 599",
+    "tips": "按 Enter 发送，Shift + Enter 换行"
+  },
+  "process_page": {
+    "badge": "标准化运营",
+    "title_main": "运营流程",
+    "title_highlight": "国际标准",
+    "subtitle": "我们将先进的 WMS 技术力量与优化的运营流程相结合，助您的业务实现收入突破。",
+    "steps": {
+      "step1": {
+        "title": "1. 连接与同步",
+        "desc": "我们直接通过 API 连接到您在 Shopee、Lazada、TikTok Shop 或个人网站上的店铺。系统只需几分钟即可开始自动接收产品和订单数据。"
+      },
+      "step2": {
+        "title": "2. 入库与质检 (QC)",
+        "desc": "入库货物由专业团队进行严格的数量和质量检查。我们进行分类、贴 SKU 标签并存储在优化位置，以便于检索。"
+      },
+      "step3": {
+        "title": "3. 专业仓储",
+        "desc": "现代 WMS 系统可精确管理每毫米的货物位置。标准化仓库配备智能货架系统和 24/7 安保监控。"
+      },
+      "step4": {
+        "title": "4. 订单处理 (拣选与包装)",
+        "desc": "拣选与包装流程通过技术实现优化，确保绝对准确。货物根据各电商平台的标准或品牌特定要求进行精心包装。"
+      },
+      "step5": {
+        "title": "5. 移交与运输",
+        "desc": "MBA Fulfillment 与越南领先的运输单位合作。订单全天多次定期移交，最大限度地缩短客户的等待时间。"
+      },
+      "step6": {
+        "title": "6. 退换货管理",
+        "desc": "我们透明地为您处理退换货订单。货物经过仔细检查，更新库存，并通过系统立即通知卖家。"
+      }
+    },
+    "features": {
+      "automation": "全自动化",
+      "accuracy": "99.9% 准确率"
+    },
+    "sla": {
+      "title": "卓越服务等级协议 (SLA) 承诺",
+      "subtitle": "我们深知每份订单背后都是您的声誉。MBA Fulfillment 致力于保持最严格的运营指标。",
+      "accuracy_label": "库存准确率",
+      "shipping_label": "当日发货率",
+      "dispute_label": "投诉处理时间",
+      "quote": "MBA Fulfillment 的每个运营阶段都旨在成为卖家业务爆发的最坚实后盾。",
+      "cta": "立即开始"
+    }
+  },
+  "solutions_page": {
+    "title_main": "解决方案",
+    "title_highlight": "运营",
+    "title_suffix": "智能",
+    "subtitle": "我们不仅是货仓，我们还是您的战略伙伴，通过专业技术和流程助您无限扩大业务规模。",
+    "meta": {
+      "title": "智能运营解决方案 | MBA Fulfillment Vietnam",
+      "description": "探索最现代的电子商务履行、B2B 物流以及 WMS/OMS 仓库管理技术解决方案。"
+    },
+    "categories": {
+      "ecommerce": {
+        "title": "电商履行",
+        "desc": "为卖家提供全方位解决方案，从客户下单到收到货物的全流程优化。",
+        "points": [
+          "自动同步 Shopee、Lazada、TikTok Shop 的订单。",
+          "标准化的拣选与包装流程，误差率低于 0.1%。",
+          "各平台库存数量自动同步更新。",
+          "订单生成后 2-4 小时内超快速处理。"
+        ]
+      },
+      "b2b": {
+        "title": "B2B 物流解决方案",
+        "desc": "为代理商、连锁超市和零售店提供大批量货物配送支持。",
+        "points": [
+          "批次管理 (Batch Management) 及保质期管理 (FEFO/FIFO)。",
+          "越库配送服务，优化仓储成本。",
+          "提供贴标、大件专业包装服务。",
+          "详尽的每日货物进出报表。"
+        ]
+      },
+      "technology": {
+        "title": "OMS & WMS 技术",
+        "desc": "强大的技术平台，助您随时随地管理业务。",
+        "points": [
+          "OMS (订单管理系统) 集中管理所有订单。",
+          "WMS (仓库管理系统) 精确管理仓库库位。",
+          "智能报表看板，分析收入及热销产品。",
+          "与会计和其他管理软件实现灵活 API 集成。"
+        ]
+      }
+    },
+    "calculator": {
+      "title": "快速成本估算",
+      "subtitle": "只需 30 秒，助您预测仓储预算的工具。"
+    },
+    "why_us": {
+      "title": "为什么选择 MBA Fulfillment?",
+      "security": {
+        "title": "安全系统",
+        "desc": "24/7 监控摄像头以及标准化消防系统保障货物安全。"
+      },
+      "speed": {
+        "title": "卓越速度",
+        "desc": "14:00 前确认的订单将在当天移交给运输单位。"
+      },
+      "scale": {
+        "title": "全国规模",
+        "desc": "各大中心城市的仓储网络助您降低运费并缩短配送时间。"
+      }
+    }
+  },
+  "services_page": {
+    "title_main": "服务",
+    "title_highlight": "全方位",
+    "subtitle": "从入库到交付，我们提供所有必要的后勤解决方案，助您全神贯注于品牌发展。",
+    "meta": {
+      "title": "专业履行服务 | MBA Fulfillment",
+      "description": "全方位的仓储、包装和运输服务。致力于通过现代仓库系统实现快速、准确的订单处理。"
+    },
+    "items": {
+      "fulfillment": {
+        "title": "履行解决方案",
+        "desc": "MBA Fulfillment 将以最低的成本和时间助您优化从仓储、包装、运输到售后交付的整个流程。",
+        "details": [
+          "严格的入库管理和货物核查。",
+          "标准化仓储，确保绝对安全。",
+          "标准化的拣选与包装流程，精度达 99.9%。",
+          "连接所有领先的运输单位。"
+        ]
+      },
+      "b2b": {
+        "title": "B2B 多渠道销售",
+        "desc": "MBA Fulfillment 助您连接零售商，在单一平台上分销货物，同时优化成本。",
+        "details": [
+          "Shopee、Lazada、TikTok Shop 的实时库存同步。",
+          "集中管理所有零售渠道的订单。",
+          "灵活处理批发 (B2B) 和零售 (B2C) 订单。",
+          "支持货物分销至超市系统和代理商。"
+        ]
+      },
+      "wms": {
+        "title": "WMS 仓库管理",
+        "desc": "借助现代仓库管理系统 (WMS)，您可以实时跟踪库存状态并严密控制货物。",
+        "details": [
+          "精确跟踪仓库内的货物库位。",
+          "每日/每月详细的进出存报表。",
+          "库存降至低位时发出警告。",
+          "与平台和管理软件轻松进行 API 集成。"
+        ]
+      },
+      "packaging": {
+        "title": "定制包装",
+        "desc": "我们根据卖家的各项要求提供定制标签、营销印刷品、包装和品牌包装盒。",
+        "details": [
+          "按需包装 (Co-packing)。",
+          "张贴次要标签、产品标签。",
+          "附带感谢卡和订单礼品。",
+          "使用环保包装材料。"
+        ]
+      },
+      "growth": {
+        "title": "增长解决方案",
+        "desc": "我们提供营销和客户护理解决方案，助合作伙伴优化业务效率。",
+        "details": [
+          "电商平台店铺优化咨询。",
+          "支持投诉处理和退货管理 (Return Management)。",
+          "客户行为分析报表。",
+          "与知名营销机构合作。"
+        ]
+      }
+    },
+    "cta": {
+      "title": "准备好为您的企业优化运营了吗？",
+      "subtitle": "联系我们的专家团队，咨询最适合您的履行解决方案并获取优惠报价。",
+      "button": "索取详细报价",
+      "consult": "立即咨询"
+    }
+  },
+  "contact_page": {
+    "title_main": "联系",
+    "title_highlight": "我们",
+    "subtitle": "我们的专家团队随时准备为您的业务模式咨询最佳的履行解决方案。",
+    "info": {
+      "phone": {
+        "title": "电话",
+        "subtitle": "24/7 咨询"
+      },
+      "email": {
+        "title": "电子邮件",
+        "subtitle": "2小时内反馈"
+      },
+      "hours": {
+        "title": "工作时间",
+        "days": "周一至周六",
+        "time": "08:00 - 18:00"
+      }
+    },
+    "form_section": {
+      "title": "发送咨询请求",
+      "subtitle": "请填写表格信息，我们将立即与您联系以评估您的需求并提供详细报价。",
+      "benefits": [
+        "免费方案咨询",
+        "OMS/WMS 系统演示",
+        "实地仓库参观"
+      ]
+    },
+    "hq": {
+      "badge": "总部",
+      "title": "MBA Fulfillment Vietnam",
+      "maps_button": "在 Google 地图上查看"
+    }
+  },
+  "privacy_page": {
+    "title": "隐私政策",
+    "intro": "MBA Fulfillment 致力于保护客户的私人信息。请阅读下方的“隐私政策”，以更好地了解我们为尊重和保护访问者权利所做的承诺。",
+    "sections": {
+      "collection": {
+        "title": "1. 收集目的及范围",
+        "p1": "为了访问和使用 MBA Fulfillment 的某些服务，您可能会被要求向我们注册个人信息（电子邮件、姓名、联系电话等）。所有申报的信息必须确保准确合法。MBA Fulfillment 对所申报信息的任何法律责任不承担任何责任。",
+        "p2": "我们也可能收集有关访问次数的信息，包括您查看的页面数量、您点击的链接以及与连接到 MBA Fulfillment 站点相关的其他信息。我们还收集您每次访问系统时所使用的 Web 浏览器（Browser）提供的信息，包括：IP 地址、浏览器类型、使用语言、访问时间以及浏览器访问的地址。"
+      },
+      "usage": {
+        "title": "2. 信息使用范围",
+        "p1": "MBA Fulfillment 为适当目的收集并使用由于您的个人信息，且完全遵守本“隐私政策”的内容。必要时，我们可能会通过以下形式使用这些信息直接与您联系：发送公开信、订单、感谢信、短信、技术和安全信息等。"
+      },
+      "storage": {
+        "title": "3. 信息存储时间",
+        "p1": "会员的个人数据将一直存储，直到收到注销要求或由会员自行登录并执行注销。在其他所有情况下，会员个人信息将安全地存储在 MBA Fulfillment 的服务器上。"
+      },
+      "commitment": {
+        "title": "4. 客户个人信息保护承诺",
+        "p1": "MBA Fulfillment 上的会员个人信息根据 MBA Fulfillment 的个人信息保护政策承诺绝对保密。除非法律另有规定，否则每个会员的信息收集和使用仅在征得该客户同意的情况下进行。",
+        "p2": "未经会员允许和同意，不得将会员个人信息使用、转让、提供或披露给任何第三方。"
+      }
+    }
+  },
+  "dichvukho_page": {
+    "meta": {
+      "title": "专业仓储服务 | 全国 3PL 仓储系统 | dichvukho.vn",
+      "description": "在胡志明市和河内提供货物储存、库存管理和专业订单处理服务。为电子商务企业提供成本优化的共享仓储解决方案。"
+    },
+    "hero": {
+      "badge": "3PL 物流解决方案优化成本 40%",
+      "title_line_1": "仓储系统",
+      "title_highlight": "智能化",
+      "title_line_2": "& 专业化",
+      "cta_consult": "获取方案咨询",
+      "cta_wms": "WMS 技术",
+      "image_alt": "专业仓储系统"
+    },
+    "pain_points": {
+      "title_line_1": "为什么企业",
+      "title_line_2": "需要租赁共享仓库？",
+      "image_alt": "专业运营团队",
+      "items": [
+        {
+          "title": "固定成本压力",
+          "desc": "租赁独立仓库需要承担高昂的押金、人员、安保、水电等费用，无论货物多少。"
+        },
+        {
+          "title": "库存管理困难",
+          "desc": "缺乏软件支持，导致货物丢失、无法控制保质期和实际数量。"
+        },
+        {
+          "title": "旺季超负荷",
+          "desc": "当订单量剧增时，独立仓库空间不足，人员无法及时处理货物。"
+        }
+      ]
+    },
+    "comparison": {
+      "title": "共享仓库还是独立仓库？",
+      "subtitle": "分析协助您选择最理想的模型",
+      "header_feature": "比较特征",
+      "header_private": "独立仓库 / 私人仓库",
+      "header_shared": "{{name}} 共享仓库",
+      "rows": [
+        {
+          "label": "面积 / 空间",
+          "private": "固定，难以更改",
+          "shared": "根据季节灵活调整，按需租用"
+        },
+        {
+          "label": "基础设施投资成本",
+          "private": "巨大（消防、货架、WMS、监控等）",
+          "shared": "零投资成本，已有现代化基础设施"
+        },
+        {
+          "label": "人员与运营",
+          "private": "自行管理，产生工资及保险成本",
+          "shared": "已有专业团队提供全套处理服务"
+        },
+        {
+          "label": "管理技术",
+          "private": "手动操作或承担昂贵的软件费用",
+          "shared": "智能 WMS 系统，实时报告"
+        },
+        {
+          "label": "丢失风险",
+          "private": "企业自行承担",
+          "shared": "系统承诺 100% 赔偿"
+        },
+        {
+          "label": "地点灵活性",
+          "private": "受长期合同限制，难以更改",
+          "shared": "灵活，可同时租用多个仓库"
+        }
+      ]
+    },
+    "calculator_intro": {
+      "title": "费用计算工具",
+      "title_highlight": "自动",
+      "subtitle": "根据最新价格表轻松估算 3PL 仓储费用。"
+    },
+    "services": {
+      "items": [
+        {
+          "title": "电商订单履行",
+          "desc": "管理从接单、拣货、包装到发货、代收货款 (COD) 的全过程。集成 TikTok, Shopee, Lazada 等多平台。"
+        },
+        {
+          "title": "灵活仓储服务",
+          "desc": "租赁面积 10m2 起，灵活调整。国际标准的货架系统。支持多种货物存储。"
+        },
+        {
+          "title": "运输与配送",
+          "desc": "全国多式联运。准时送达率达 98%。实时追踪路径。"
+        },
+        {
+          "title": "供应链管理",
+          "desc": "优化货物流动，减少虚假库存，缩短企业资金周转时间。"
+        },
+        {
+          "title": "增值服务",
+          "desc": "贴标、礼品包装、质量检测 (QC)、专业退货处理 (Reverse Logistics)。"
+        },
+        {
+          "title": "WMS/TWMS 系统",
+          "desc": "智能仓储管理软件，帮助客户随时随地通过电话控制库存。"
+        }
+      ]
+    },
+    "cta": {
+      "title": "与我们一起开启物流优化之旅",
+      "subtitle": "立即注册以获取免费共享仓库方案咨询，并实地参观胡志明市和河内的仓储系统。",
+      "zalo_label": "通过 Zalo 咨询",
+      "hotline_label": "24/7 热线",
+      "email_label": "联系电子邮件"
+    }
+  },
+  "calculator": {
+    "title": "估算仓储费",
+    "subtitle": "根据 MBA Fulfillment 的最新公开价格表估算仓储成本。",
+    "method": {
+      "label": "计费方式",
+      "placeholder": "选择方式",
+      "m3_day": "体积（m³ / 天）",
+      "m2_month": "面积（m² / 月）"
+    },
+    "volume_m3": "总体积 m³",
+    "volume_m2": "总面积 m²",
+    "duration_days": "天数",
+    "duration_months": "月数",
+    "storage_type": {
+      "label": "储存类型",
+      "placeholder": "选择仓库类型",
+      "regular": "普通仓库（干仓）",
+      "cool": "冷气仓（25°C）",
+      "note": "* 按 m³ 计算目前仅适用于普通仓库。"
+    },
+    "item_value": {
+      "label": "预估货物价值 (VND)",
+      "placeholder": "例如: 500000",
+      "note": "高价值货物 (≥ 50万) 的保险费为 0.3%"
+    },
+    "button": "立即查看估算",
+    "result": {
+      "title": "总预估成本",
+      "storage_fee": "仓储费",
+      "insurance_fee": "保险费 (0.3%)",
+      "note": "* 价格不含 8% 增值税及操作费（入库、出库、拣选与包装）。",
+      "cta": "获取详细报价",
+      "placeholder": "填写左侧信息以立即获取估算结果。",
+      "currency_short": "VND",
+      "currency_full": "VND"
+    },
+    "footer": {
+      "accuracy": "准确率",
+      "accuracy_val": "~98% 仓储费",
+      "latest_price": "最新价格表",
+      "latest_price_val": "2026年3月"
+    }
+  },
   "blog": {
     "title": "<1>物流</1> 知识博客",
     "subtitle": "与来自 {{name}} 的专家一起提升运营知识、优化成本并突破销售额。",
     "loading": "正在加载最新文章...",
     "no_posts": "该语言暂无文章。",
+    "title_prefix": "知识博客",
     "read_more": "阅读更多",
     "meta_title": "物流与履行知识博客",
-    "meta_description": "分享关于仓储、履行和电子商务增长解决方案的最新知识、经验和趋势。"
+    "meta_description": "分享关于仓储、履行和电子商务增长解决方案的最新知识、经验和趋势。",
+    "loading_post": "正在加载深度内容...",
+    "back_to_blog": "返回博客",
+    "author_role": "作者"
   },
   "common": {
     "loading": "正在加载...",
     "error": "发生错误",
     "see_more": "查看更多",
-    "contact_us": "立即联系"
+    "contact_us": "立即联系",
+    "company_name": "MBA Fulfillment 越南",
+    "description": "越南领先的订单履约解决方案，伴随您的电子商务业务发展。",
+    "address": "胡志明市，第12区，新泰一坊，Lê Thị Ánh 40/8",
+    "knowledge": "知识"
+  },
+  "admin": {
+    "title": "内容管理",
+    "subtitle": "老板撰写文章和管理系统博客的地方",
+    "new_post": "撰写新文章",
+    "password_label": "管理密码",
+    "password_placeholder": "老板请登录...",
+    "login_button": "立即登录",
+    "login_success": "欢迎老板回来！",
+    "login_error": "密码错误",
+    "post_title": "文章标题",
+    "category": "类别",
+    "language": "文章语言",
+    "excerpt": "简述",
+    "content": "文章内容",
+    "cancel": "取消",
+    "update_now": "立即更新",
+    "publish_now": "立即发布",
+    "confirm_delete": "您确定要删除这篇文章吗？",
+    "deleted_success": "文章已删除",
+    "deleted_error": "删除失败",
+    "update_success": "更新成功",
+    "update_error": "更新失败",
+    "publish_success": "发布成功！",
+    "publish_error": "发布失败",
+    "fetch_error": "无法加载文章列表",
+    "system_desc": "MBA 内容管理系统",
+    "edit_post": "编辑文章",
+    "create_seo_post": "撰写 SEO 标准博客",
+    "slug_label": "文章固定链接 (Slug)",
+    "slug_note": "* 留空将根据标题自动生成",
+    "image_label": "封面图片 (链接 URL)",
+    "tags_label": "标签 (用逗号分隔)",
+    "content_note": "(支持 HTML 代码)",
+    "table": {
+      "title_date": "标题 - 发布日期",
+      "lang": "语言",
+      "cat": "类别",
+      "actions": "操作",
+      "loading": "正在加载数据...",
+      "no_posts": "暂无文章。请创建第一篇文章，老板！"
+    }
   }
 }

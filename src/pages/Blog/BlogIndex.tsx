@@ -62,7 +62,7 @@ const BlogIndex = () => {
           >
             <h1 className="text-4xl md:text-6xl font-black mb-6 text-slate-900">
               <Trans i18nKey="blog.title">
-                Blog Kiến Thức <span className="text-primary italic">Logistics</span>
+                {t("blog.title_prefix")} <span className="text-primary italic">Logistics</span>
               </Trans>
             </h1>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
